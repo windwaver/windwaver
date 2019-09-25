@@ -73,7 +73,7 @@ Méthode
 
       git commit -m 'premier changement'
 	 
-   où premier changement est le commentaire de la modification
+   où ``premier changement`` est le commentaire de la modification 
 #. sur https://github.com créer un nouveau répertoire et nommer le
    ``windwaver`` 
 #. copier et coller la commande (dans le**MINGW64**):
