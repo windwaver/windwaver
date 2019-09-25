@@ -76,7 +76,7 @@ Méthode
    où ``premier changement`` est le commentaire de la modification 
 #. sur https://github.com créer un nouveau répertoire et nommer le
    ``windwaver`` 
-#. copier et coller la commande (dans le**MINGW64**):
+#. copier et coller la commande (dans le **MINGW64**):
 
    ::
 
