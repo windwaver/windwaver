@@ -82,11 +82,11 @@ Méthode
 
       git remote add origin https://github.com/windwaver/windwaver.gitgit
 
-#. copier et coller la commande (dans le**MINGW64**):
+#. copier et coller la commande:
 
    ::
 
-      -u origin master
+      git push -u origin master
       
 #. créer le fichier ``README``
 
