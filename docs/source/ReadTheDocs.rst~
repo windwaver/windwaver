@@ -1,0 +1,47 @@
+=========
+Prérequis
+=========
+
+* Anaconda
+* un éditeur de texte (emacs)
+* un compte chez Github et l'installation sur PC (droits admin requis)
+* un compte chez Read The Docs (RTD)
+
+
+1. créer un répertoire avec comme nom le nom du projet dans cet
+   exemple c'est windwaver
+2. dans ce répertoire créer un répertoire nommé docs
+
+
+
+#. ouvrir Anaconda Prompt (pas le powershell)
+#. se déplacer dans le répertoire windwaver/docs
+#. tapez:
+   ::
+      sphinx-quickstart
+#. répondre à la question "Seperate source ..." ``y``
+   Comme ça les fichiers make.bat et Makefile seront seront séparés du
+   répertoire source dans lequel seront nos fichiers (.rst et le
+   fichier config.py) ``master_doc = 'index'``
+#. cliquer-droite sur le répertoire windwaver et choisir Git Basch Here
+#. lancer la commande git init
+#. lancer la commande git config --global user.name 'Wind Waver'
+#. lancer la commande git config --global user.email 'waverwind@gmail.com
+#. lancer la commande git add .
+#. lancer la commande git status
+#. lancer la commande git commit -m 'premier changement' premier changement
+   est le commantaire à insérer
+#. sur github.com créer un nouveau répertoire et nommer le windwaver
+#. copier git remote add origin
+   https://github.com/windwaver/windwaver.gitgit et le coller dans le
+   git bash
+#. copier git push -u origin master dans le git bash
+#. touch README.md
+#. décrire dans ce fichier le projet (dans emacs)
+#. git add .
+#. git commit -m 'rajout de readme'
+#. git push
+#. sur readthedocs.org cliquer sur importer et faire un refresh
+#. choisir le dossier windwaver
+   
+#. éditer les différents fichiers
