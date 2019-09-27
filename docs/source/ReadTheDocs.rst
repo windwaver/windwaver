@@ -130,4 +130,31 @@ Méthode
       git push
 
 #. attendre quelques seconde et rafraichir le site avec ``F5``
+
+Permission denied
+^^^^^^^^^^^^^^^^^
+
+Il arrive parfois après la commande ``push -u...`` que le message
+suivant s'affiche:
+
+.. image:: /figures/Permissions-Denied.PNG
+    :scale: 100 %
+    :align: center
+
+Méthode pour réparer
+''''''''''''''''''''
+
+1. **touche windows** tapez *credential manager*
+   
+   .. image:: /figures/Credential-Manager.PNG
+       :scale: 80 %
+       :align: center
+
+2. repérer  **GitHub** et cliquer sur ``remove``
+
+   .. image:: /figures/Credential-Manager-1.PNG
+       :scale: 100 %
+       :align: center
+
+
    
