@@ -34,8 +34,11 @@ Méthode
    Comme ça les fichiers ``make.bat`` et ``Makefile`` seront seront séparés du
    répertoire ``_sources`` dans lequel seront nos fichiers (``.rst`` et le
    fichier ``config.py``)
-#. ouvrir le fichier ``_sources/conf.py`` et ajouter la ligne
-   suivante:``master_doc = 'index'`` sinon ça bug avec **Read The Docs**
+#. ouvrir le fichier ``_sources/conf.py``
+#. modifier la ligne ``html_theme = 'alabaster'`` par
+   ``html_theme = 'sphinx_rtd_theme'`` 
+#. ajouter la ligne suivante:``master_doc = 'index'`` sinon ça bug
+   avec **Read The Docs** 
 #. cliquer-droite sur le répertoire ``windwaver`` et choisir **Git Basch Here**
 #. lancer la commande:
 
@@ -53,7 +56,7 @@ Méthode
 
    ::
 
-      git config --global user.email 'waverwind@gmail.com
+      git config --global user.email 'waverwind@gmail.com'
       
 #. lancer la commande:
 
