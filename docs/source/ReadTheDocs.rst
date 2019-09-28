@@ -89,7 +89,15 @@ Méthode
 
    ::
 
-      git push -u origin master
+      git push -u origin master::
+
+      git remote add origin https://github.com/windwaver/windwaver.git
+
+#. copier et coller la commande:
+
+   ::
+
+      git push -u origin mastero
       
 #. créer le fichier ``README``
 
