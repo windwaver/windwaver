@@ -29,6 +29,7 @@ Pour modifier un projet
 
 1. créer un repertoire
 2. clique-droite sur le répertoire et choisir ``git bash``
+
 #.
 
    ::
