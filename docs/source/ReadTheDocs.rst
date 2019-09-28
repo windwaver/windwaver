@@ -144,7 +144,8 @@ suivant s'affiche:
 Méthode pour réparer
 ''''''''''''''''''''
 
-1. **touche windows** tapez *credential manager*
+1. **touche windows** tapez *credential manager* (pour l'anglais) ou
+   *gestionnaire d'identification*
    
    .. image:: /figures/Credential-Manager.PNG
        :scale: 80 %
