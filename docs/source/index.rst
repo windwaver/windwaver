@@ -11,7 +11,7 @@ Welcome to windwaver's documentation!
    :caption: Contents:
 	     
    ReadTheDocs
-
+   GitHub
 
 Indices and tables
 ==================
