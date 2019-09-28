@@ -4,10 +4,10 @@ GitHub
 Une bonne vidéo pour apprendre
 ------------------------------
 
-Cliquer |lien|
+Cliquer |lien1|
 
 
-.. |lien| raw:: html
+.. |lien1| raw:: html
 
   <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc&t=1751s"
   target="_blank">ici</a>
