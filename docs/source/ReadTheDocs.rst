@@ -145,7 +145,7 @@ Méthode pour réparer
 ''''''''''''''''''''
 
 1. **touche windows** tapez *credential manager* (pour l'anglais) ou
-   *gestionnaire d'identification*
+   *gestionnaire d'identification* (pour le français)
    
    .. image:: /figures/Credential-Manager.PNG
        :scale: 80 %
