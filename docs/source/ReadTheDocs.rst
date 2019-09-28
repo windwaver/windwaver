@@ -21,7 +21,6 @@ Méthode
 2. dans ce répertoire créer un répertoire nommé ``docs``
 
 
-
 #. ouvrir **Anaconda Prompt** (pas le powershell)
 #. se déplacer dans le répertoire ``windwaver/docs``
 #. tapez:
@@ -83,7 +82,7 @@ Méthode
 
    ::
 
-      git remote add origin https://github.com/windwaver/windwaver.gitgit
+      git remote add origin https://github.com/windwaver/windwaver.git
 
 #. copier et coller la commande:
 
