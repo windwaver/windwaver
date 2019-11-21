@@ -149,6 +149,9 @@ ou
 Mise en forme
 -------------
 
+Numérotation chapitre, section, etc...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 * ``#`` pour les parties
 * ``*`` pour les chapitres
 * ``=``, pour les sections
@@ -167,7 +170,24 @@ Listes et sous-listes
        + à nouveau une sous-liste avec "+"
      - une autre option
        
+Liste d'items numérotée automatiquement
+"""""""""""""""""""""""""""""""""""""""
 
+::
+
+   1. Liste numérotée "à  la main".
+   2. Deuxième item.
+
+   #. Liste numérotée automatiquement.
+   #. Deuxième item.
+
+1. Liste numérotée "à  la main".
+2. Deuxième item.
+
+#. Liste numérotée automatiquement.
+#. Deuxième item.
+
+   
 Les tableaux
 ^^^^^^^^^^^^
 
