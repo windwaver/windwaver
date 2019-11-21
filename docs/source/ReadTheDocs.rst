@@ -1,3 +1,4 @@
+
 =============
 Read The Docs
 =============
@@ -89,7 +90,7 @@ Méthode
 
    ::
 
-      git push -u origin mastero
+      git push -u origin master
       
 #. créer le fichier ``README``
 
@@ -131,6 +132,7 @@ Méthode
 
 #. attendre quelques seconde et rafraichir le site avec ``F5``
 
+   
 Permission denied
 ^^^^^^^^^^^^^^^^^
 
