@@ -6,6 +6,7 @@ Installation
 1) installer Anaconda
 2) installer VS code
 
+   
 Création d'un nouveau document
 ------------------------------
 1) ouvrir Anaconda Prompt
@@ -17,7 +18,7 @@ Création d'un nouveau document
 
 4) aux différentes questions répondre comme ci-dessous :
    
-   ``> Separate source and build directories (y/n) [n]:``
+   ``> Separate source and build directories (y/n) [n]: y``
    
    ``> Name prefix for templates and static dir [_]:``
    
@@ -85,16 +86,46 @@ Création d'un nouveau document
    :alt: cette image montre où l'on doit cliquer pour ouvrir la
 	 fenêtre de prévisualisation
 	 
-10) pour l'édition, j'utilise emacs, ouvrir le fichier index.rst
+10) pour l'édition, j'utilise emacs, ouvrir le fichier ``index.rst``
 
+    
+Changement de Thèmes
+--------------------
+
+1) choisir son thème |theme|. Pour cet exemple, j'ai choisi
+   ``sphinx_rtd_theme`` car il est "*mobile friendly*"
+
+ .. |theme| raw:: html
+
+   <a href="http:sphinx-themes.org"
+   target="_blank">ici</a>
+
+2) se connecter à internet (swisscom) et tapez dans une console :
+
+   ::
+
+      pip install sphinx_rtd_theme
+
+      
+3) ouvrir le ``conf.py`` et mettre ``html_theme = 'sphinx_rtd_theme'``
+
+   
 Compilation
 -----------
 
-Dans un prompt tapez :
+Dans un **Anaconda prompt** tapez : 
 
 ::
 
    make html
+
+Pour voir la doc dans un navigateur internet. Ceci créera un répertoire
+``build`` et y placera deux autres répertoires : ``html`` et
+``doctrees`` Dans le répertoire ``html`` on trouvera le fichier
+``index.html``. En  cliquant sur ce dernier cela va ouvrir la doc dans
+un navigateur internet.  
+Le répertoire ``doctrees`` sert pour la table des matières.
+
 
 ou
 
@@ -107,19 +138,86 @@ ou
 ::
    
    make latexpdf
-    
-Exemples
---------
 
+.. note::
+   Après la compilation, il se peut que la table des matières ne soit
+   pas dans l'ordre ou que toutes les sections suivantes ne soient
+   affichées. Dans ce cas, il faut supprimer le répertoire `build` et 
+   refaire une compilation.
+   
+   
+Mise en forme
+-------------
+
+* ``#`` pour les parties
+* ``*`` pour les chapitres
+* ``=``, pour les sections
+* ``-``, pour les sous-sections
+* ``^``, pour les sous-sous-sections
+* ``"``, pour les paragraphes
+  
+
+Listes et sous-listes
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+   
+   * une puce "*"
+     - une sous-liste avec "-"
+       + à nouveau une sous-liste avec "+"
+     - une autre option
+       
+
+Les tableaux
+^^^^^^^^^^^^
+
+::
+
+   +------------------------+------------+----------+
+   | Header row, column 1   | Header 2   | Header 3 |
+   +========================+============+==========+
+   | body row 1, column 1   | column 2   | column 3 |
+   +------------------------+------------+----------+
+   | body row 2             | Cells may span        |
+   +------------------------+-----------------------+
+
+
+   ====================  ==========  ==========
+   Header row, column 1  Header 2    Header 3
+   ====================  ==========  ==========
+   body row 1, column 1  column 2    column 3
+   body row 2            Cells may span columns
+   ====================  ======================
+
+donnera :
+
+   +------------------------+------------+----------+
+   | Header row, column 1   | Header 2   | Header 3 |
+   +========================+============+==========+
+   | body row 1, column 1   | column 2   | column 3 |
+   +------------------------+------------+----------+
+   | body row 2             | Cells may span        |
+   +------------------------+-----------------------+
+
+
+   ====================  ==========  ==========
+   Header row, column 1  Header 2    Header 3
+   ====================  ==========  ==========
+   body row 1, column 1  column 2    column 3
+   body row 2            Cells may span columns
+   ====================  ======================
+
+   
 Insertion d'une figure
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Créer un répertoire au même endroit où il y a le fichier ``index.rst``
+Créer un répertoire nommé ``figures`` au même endroit où il y a le
+fichier ``index.rst`` 
 
 ::
 
    .. image:: /figures/IconePrevisualisation_cropped.png
-       :scale: 50 %
+       :scale: 80 %
        :align: center
       
 
@@ -132,19 +230,22 @@ Tapez : ::
 
 ``Surbrillance d'un texte``
 
+
 Pour afficher un bloc avec du code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
 ::
    
  POUR AFFICHER CECI (un bloc avec du code)
 
- Tapez : 
-  
- ::
+Tapez : 
 
+::
+   
  ::
 
   POUR AFFICHER CECI (un bloc avec du code)
+  
 
 Pour créer un lien à l'intérieur d'un document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -189,7 +290,7 @@ navigateur.
 
  .. |lien| raw:: html
 
-   <a href="http://home.citycable.ch/windwaver/MesSources/"
+   <a href="http://python.physique.free.fr/aide/_sources/Partie1.txt"
    target="_blank">ici</a>
 
 .. warning::
@@ -205,11 +306,54 @@ mais cela ne va pas ouvrir une nouvelle fenêtre dans le navigateur.
    
 Commentaires
 ^^^^^^^^^^^^
-Pour commenter une ligne, mettre deux points et un espace.
 
-Pour commenter un bloc, mettre deux points et indenter le bloc en
-dessous.
+- Pour commenter une ligne, mettre deux points et un espace.
 
+- Pour commenter un bloc, mettre deux points et indenter le bloc en
+  dessous.
+  
+
+Mettre en évidence une chose importante
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   .. warning::
+      Mettre ici une chose importante
+      
+ce qui donne :
+
+.. warning::
+   Mettre ici une chose importante
+
+::
+
+   .. hint::
+      Une chose moins importante
+
+ce qui donne :      
+      
+.. hint::
+   Une chose moins importante
+
+   
++---------------+----------------+----------+
+|Commande       |*Qui donne*     |*Couleur* |
++===============+================+==========+
+|`.. warning::` |`'i' int32`     | Rouge    |
++---------------+----------------+----------+
+|`.. note::`    |`note`          | Grise    |
++---------------+----------------+----------+
+|`.. tip::`     |`Astuce`        | Grise    |
++---------------+----------------+----------+
+|`.. caution::` |`Prudence`      | Grise    |
++---------------+----------------+----------+
+|`.. error::`   |`Erreur`        | Grise    |
++---------------+----------------+----------+
+|`.. hint::`    |`Indice`        | Grise    |
++---------------+----------------+----------+
+
+  
 Pour insérer du code à partir d'un fichier
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -221,26 +365,7 @@ Ce qui donnera :
 
 .. literalinclude:: /sources/exemple_graphique01.py
 		    
-
-Changement de Thèmes
---------------------
-
-1) choisir son thème |theme| pour cet exemple j'ai choisi ``sphinx_rtd_theme``
-
- .. |theme| raw:: html
-
-   <a href="http:sphinx-themes.org"
-   target="_blank">ici</a>
-
-2) se connecter à internet (swisscom) et tapez dans une console :
-
-   ::
-
-      pip install sphinx_rtd_theme
-
-      
-2) ouvrir le ``conf.py`` et mettre ``html_theme = 'sphinx_rtd_theme'``
-
+		    
 Création du document pdf
 ------------------------
 
@@ -259,33 +384,40 @@ Divers liens utiles
 
 .. |lien1| raw:: html
 
-   <a href="https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html"
-   target="_blank">thomas-cokelaer</a>
+   <a href="http://python.physique.free.fr/aide/Partie1.html"
+   target="_blank">python.physique</a>
 
-   2) |lien2|
+2) |lien2|
 
 .. |lien2| raw:: html
 
-   <a href="http://www.sphinx-doc.org/en/master/usage/quickstart.htmll"
-   target="_blank">sphinx-doc</a>
+   <a href="https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html"
+   target="_blank">thomas-cokelaer</a>
 
-   3) |lien3|
+3) |lien3|
 
 .. |lien3| raw:: html
+
+   <a href="http://www.sphinx-doc.org/en/master/usage/quickstart.html"
+   target="_blank">sphinx-doc</a>
+
+4) |lien4|
+
+.. |lien4| raw:: html
 
    <a href="https://draft-edx-style-guide.readthedocs.io/en/latest/ExampleRSTFile.html#id15"
    target="_blank">draft-edx-guide</a>
 
-   4) |lien4|
+5) |lien5|
 
-.. |lien4| raw:: html
+.. |lien5| raw:: html
 
    <a href="https://www.complang.tuwien.ac.at/doc/python3-docutils/docs/ref/rst/restructuredtext.html"
    target="_blank">complang</a>
 
-   5) |lien5|
+6) |lien6|
 
-.. |lien5| raw:: html
+.. |lien6| raw:: html
 
    <a href="http://docutils.sourceforge.net/rst.html"
    target="_blank">docutils.sourceforge</a> 
