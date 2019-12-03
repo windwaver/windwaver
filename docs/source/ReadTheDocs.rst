@@ -1,4 +1,3 @@
-
 =============
 Read The Docs
 =============
@@ -159,5 +158,14 @@ Méthode pour réparer
        :scale: 100 %
        :align: center
 
+	       
+Divers liens
+------------
 
+|lien1|
+
+.. |lien1| raw:: html
+
+   <a href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/" 
+   target="_blank">ericholscher</a>   
    

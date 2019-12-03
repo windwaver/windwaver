@@ -384,7 +384,27 @@ Tapez le code suivant : ::
 Ce qui donnera :
 
 .. literalinclude:: /sources/exemple_graphique01.py
+
 		    
+Pour insérer une vidéo
+^^^^^^^^^^^^^^^^^^^^^^
+
+Tapez le code suivant : ::
+  
+  .. raw:: html
+
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/UaIvrDWrIWM" frameborder="0"
+      allowfullscreen></iframe>
+
+Ce qui donnera :
+
+.. raw:: html
+
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/UaIvrDWrIWM" frameborder="0"
+      allowfullscreen></iframe>
+    
 		    
 Création du document pdf
 ------------------------
