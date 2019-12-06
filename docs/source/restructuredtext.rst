@@ -144,7 +144,79 @@ ou
    pas dans l'ordre ou que toutes les sections suivantes ne soient
    affichées. Dans ce cas, il faut supprimer le répertoire `build` et 
    refaire une compilation.
+
+
+Traduction
+----------
+
+1. installer `sphinx-intl`
+
+  ::
+
+   $ pip install sphinx-intl
+
+2. rajouter ces lignes dans le `conf.py`
+
+  ::
+
+   locale_dirs = ['locale/']   # path is example but recommended.
+   gettext_compact = False     # optional.
+
+3.
+
+  ::
+
+   make gettext
+
+4. génération des fichiers `po` (dans le cas suivant pour le japonais) 
+
+  ::
+
+   sphinx-intl update -p _build/gettext -l de -l ja
+
+ sitôt fait, le fichier `po` se trouve dans le répertoire
+ ./locale/ja/LC_MESSAGE`  
+
+5. traduire le fichier `po`
    
+   exemple :
+
+  ::
+
+   msgid "Available builders"
+   msgstr "<FILL HERE BY TARGET LANGUAGE>"
+
+  Dans le cas où il y a plusieurs lignes :
+
+  ::
+
+   msgid ""
+   "These are the built-in Sphinx builders. More builders can be added by "
+
+   msgstr ""
+   "FILL HERE BY TARGET LANGUAGE FILL HERE BY TARGET LANGUAGE FILL
+   HERE " 
+   "BY TARGET LANGUAGE :ref:`EXTENSIONS <extensions>` FILL HERE."
+
+6. génération du document traduit, saisir dans le `Anaconda Powershell
+   Prompt`
+
+  ::
+
+   > Set-Item env:SPHINXOPTS "-D language=ja"
+   > .\make.bat html
+   
+
+Pour plus d'information
+^^^^^^^^^^^^^^^^^^^^^^^
+
+|lien0|
+
+.. |lien0| raw:: html
+
+   <a href="http://www.sphinx-doc.org/en/master/usage/advanced/intl.html"
+   target="_blank">sphinx-doc</a>
+
    
 Mise en forme
 -------------

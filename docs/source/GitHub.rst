@@ -4,15 +4,15 @@ GitHub
 Une bonne vidéo pour apprendre
 ------------------------------
 
-Cliquer |lien1|
+Cliquer |lien0|
 
 
-.. |lien1| raw:: html
+.. |lien0| raw:: html
 
   <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc&t=1751s"
   target="_blank">ici</a>
 
-
+  
 Installation
 ------------
 
