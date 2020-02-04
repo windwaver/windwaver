@@ -5,7 +5,11 @@ Installation
 ------------
 1) installer Anaconda
 2) installer VS code
-
+3) modifier le path windows pointer les répertoires suivants :
+   
+   a) anaconda3/Scripts
+   b) anaconda3 (c'est possible qu'il n'est pas nécessaire de pointer
+      sur celui-ci)
    
 Création d'un nouveau document
 ------------------------------
@@ -109,7 +113,12 @@ Changement de Thèmes
       
 3) ouvrir le ``conf.py`` et mettre ``html_theme = 'sphinx_rtd_theme'``
 
-   
+4) ajouter la ligne suivante: ``master_doc = 'index'`` sinon ça bug
+   avec **Read The Docs** aussi ça plante lorsqu'on compile dans un
+   terminal windows (cmd) ça affiche qu'un fichier dénommé
+   ``contents`` est introuvable. 
+
+
 Compilation
 -----------
 
