@@ -74,23 +74,29 @@ Création d'un nouveau document
    
    ``> Create Windows command file? (y/n) [y]:``
 
-5) tapez dans le terminal : ::
+5) ajouter la ligne suivante: ``master_doc = 'index'`` sinon ça bug
+   avec **Read The Docs** aussi ça plante lorsqu'on compile dans un
+   terminal windows (cmd) ça affiche qu'un fichier dénommé
+   ``contents`` est introuvable. 
+
+6) tapez dans le terminal : ::
 
      D:\tmp\sphinxTxt>make html
 
-6) ouvrir Visual Studio Code
-7) ouvrir le répertoire du projet et non le fichier .rst (File -> Open Folder)
-8) il se peut que l'on soit demandé à selectionner le ``conf.py``,
-   selectionnez celui qui se trouve dans le répertoire du projet
-9) pour ouvrir la prévisualisation cliquer sur le symbole afficher sur
-   la figure ci-dessous. Sinon ouvrir le html dans un explorateur qui
-   se trouve dans le répertoire _build -> html
+7) ouvrir Visual Studio Code
+8) ouvrir le répertoire du projet et non le fichier .rst (File -> Open
+   Folder) 
+9) il se peut que l'on soit demandé à selectionner le ``conf.py``,
+   selectionnez celui qui se trouve dans le répertoire du projet 
+10) pour ouvrir la prévisualisation cliquer sur le symbole afficher
+    sur la figure ci-dessous. Sinon ouvrir le html dans un explorateur
+    qui se trouve dans le répertoire _build -> html 
    
 .. image:: /figures/IconePrevisualisation.png
    :alt: cette image montre où l'on doit cliquer pour ouvrir la
 	 fenêtre de prévisualisation
 	 
-10) pour l'édition, j'utilise emacs, ouvrir le fichier ``index.rst``
+11) pour l'édition, j'utilise emacs, ouvrir le fichier ``index.rst``
 
     
 Changement de Thèmes
@@ -112,11 +118,6 @@ Changement de Thèmes
 
       
 3) ouvrir le ``conf.py`` et mettre ``html_theme = 'sphinx_rtd_theme'``
-
-4) ajouter la ligne suivante: ``master_doc = 'index'`` sinon ça bug
-   avec **Read The Docs** aussi ça plante lorsqu'on compile dans un
-   terminal windows (cmd) ça affiche qu'un fichier dénommé
-   ``contents`` est introuvable. 
 
 
 Compilation
