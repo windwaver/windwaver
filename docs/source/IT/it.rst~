@@ -1,0 +1,1204 @@
+Windows
+=======
+
+Pour changer le PATH dans windows sans droit administrateur
+-----------------------------------------------------------
+1) Start Menu -> Panneau de configuration -> Comptes utilisateur
+2) Modifier vos variables d'environment
+3) Path et rajouter le chemin en séprant avec un point virgule (si
+   déjà des paths présents)
+4) fermer la session et la ré-ouvrir 
+ 
+.. _print-screen:
+
+Faire un print-screen
+---------------------
+Pour faire un PrintScreen uniquement sur un écran, placer le curseur
+sur le bon écran et faire :
+::
+   
+  M-PrintScreen
+
+Si un seul écran, alors pas besoin de presser la touche Alt.
+
+MINGW32
+=======
+Pour envoyer un message avec Outlook
+
+::
+
+  start Outlook //c ipm.note //m "mailto:johndoe@domain.com^&subject=Hello" 
+
+
+::
+
+  start Outlook //c ipm.note //m
+  "mailto:johndoe@domain.com;paul.traveri@gmail.com^&cc=are@gmail.com^&subject=Hello^&body=aslfdsff%0A%0Ajsdfjklé%0Aasdfjé"
+
+Le %0A est pour insérer un retour à la ligne
+
+emacs
+=====
+
+.emacs
+------
+
+Pour éditer le .emacs ou le créer au bon emplacement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+   
+  C-f ~/.emacs
+  
+Pour ne pas être embêté par l'affichage des accents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Je préfère encoder en ``UTF-8``. Pour cela j'insère ce bloc de code
+dans le .emacs.
+
+::
+
+  (set-language-environment 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-language-environment 'utf-8)
+  (prefer-coding-system 'utf-8)
+
+Changer le theme (couleur de fond,...) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+J'utilise le thème misterioso (il en existe bien sûr d'autres)
+
+::
+
+   (load-theme 'misterioso)
+
+à placer dans le .emacs
+
+Compilation
+-----------
+.. _Compilation avec XeLaTeX depuis emacs:
+
+Compilation avec XeLaTeX depuis emacs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+J'utilise souvent cette méthode pour compiler une figure dessinée par
+psTricks qui produit directement un pdf.
+
+1) afficher le menu : ::
+     
+        M-x menu bar-mode
+    
+2) Command -> TeXing Options -> Use XeTeX engine
+   
+
+Problème d'affichage des accents
+--------------------------------
+Méthode 1
+^^^^^^^^^
+1) ::
+
+    M-x revert-buffer-with-coding-system
+    
+2) choisir utf-8 ou latin-1
+   
+Méthode 2
+^^^^^^^^^
+Si des accents s'affichent dans TeXworks malgré tous les packages et
+l'encodage UTF-8 réglés correctement (cela m'ai arrivé lors d'un
+copier-coller du contenu de Outlook dans emacs.)
+
+1) copier le contenu du fichier.tex dans un bloc note
+2) enregistrer sous encodage UTF-8
+
+Cela devrait fonctionner.
+
+Méthode 3
+^^^^^^^^^
+You can also mark the entire file with C-x h and then try M-x
+recode-region. It will ask you for Text was really in and But was
+interpreted as. For the first file in your question, it looks like it
+should be latin-1 and utf-8, and for the second example it should
+probably be the other way around, utf-8 and latin-1. 
+
+After you got it right, you can choose which coding system to save the
+file with using M-x set-buffer-file-coding-system (or C-x C-m f for
+short).
+
+LaTeX
+=====
+
+Redessiner sur une image / figure avec psTricks
+-----------------------------------------------
+
+Sur un pdf :
+^^^^^^^^^^^^
+
+1) convertir le pdf en .eps dans une console Unix en tapant :
+   ::
+      
+    pdftops -eps fichierpdf.pdf
+    
+   **remarque** cette commande marche uniquement sur un pdf d'une page
+   seulement, si le pdf contient plusieurs pages, il faudra au
+   préalable extraire la page qui nous intéresse. 
+   Pour ce faire, voir :ref:`extraire une page d'un document pdf` 
+2) utiliser le fichier FicViePSTriBox.tex téléchargeable depuis |lien|
+3) pour créer le pdf directement utiliser XeLaTeX (voir :ref:`Compilation
+   avec XeLaTeX depuis emacs`)
+4) pour visualiser le résultat après un C-c C-c, ouvrir le .tex avec
+   TeXworks et choisir XeLaTeX cela va ouvrir une fenêtre pour voir le
+   pdf créer
+5) rogner le pdf avec Briss (voir :ref:`briss`) 
+
+   .. |lien| raw:: html
+
+     <a href="https://drive.google.com/open?id=1F_Ey-1fIYD9GFvTb9yd7bh3Y8u85pQoo"
+     target="_blank">ici</a>   
+
+   
+Sur un print-screen avec psTricks :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1) faire un print-screen (voir :ref:`print-screen`)
+2) ouvrir GIMP
+3) enregistrer sous .eps
+4) utiliser le fichier FicViePSTriBox.tex situé |lien|
+5) pour créer le pdf directement utiliser XeLaTeX (voir :ref:`Compilation
+   avec XeLaTeX depuis emacs`)
+6) pour visualiser le résultat après un C-c C-c, ouvrir le .tex avec
+   TeXworks et choisir XeLaTeX cela va ouvrir une fenêtre pour voir le
+   pdf créer
+7) rogner le pdf avec Briss (voir :ref:`briss`)
+
+bash
+====
+Echo
+----
+Afficher des variable système
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+    
+  echo PATH
+
+::
+   
+ echo HOME
+
+pour remplir un fichier
+
+::
+
+ echo -e "Qte\tPrix\tTotal\n\n3\t5\t15frs" > fichier
+
+.. note::
+   On peut afficher le contenu d'un fichier avec la commande ``cat
+   nom_de_fichier``. Si l'on veut rajouter des lignes au fichiers on
+   peut utiliser ``>>`` Mais dangereux car on a vite fait d'oublier de
+   mettre le deuxième ``>``.
+
+Sed and Awk
+===========
+Les différents moyens d'entrer du code
+--------------------------------------
+
+::
+
+   awk -f nom_du_script fichier_d_entree
+
+En tapant tout le code dans un terminal :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   awk '
+   BEGIN{
+   print "Hello
+   World"}
+   '
+   
+.. warning::
+   Ne pas oublier l'espace entre ``awk`` et ``'``
+
+En tapant le code dans un fichier avec la commande ``awk`` insérée dans le fichier :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   
+Si le code contient ``BEGIN`` et une expression régulière alors on
+entrera : 
+
+::
+
+ awk 'BEGIN { print "debut"}
+ $0 ~ /Drive/ {print "sdfsd"}' nom_du_fichier_d_entree
+
+Si le code contient pas d'expression régulière mais un ``BEGIN``, on
+entrera : 
+
+::
+
+ awk 'BEGIN { print "debut"}
+ {print "sdfsd"}' nom_du_fichier_d_entree   
+   
+Si le code ne contient pas de ``BEGIN`` alors on entrera :
+
+::
+
+   awk '{
+   print "Hello World"
+   }
+   ' nom_du_fichier_d_entree
+
+Passage des variables
+---------------------
+
+Voici un exemple pour le passage des variables d'entrée d'un programme 
+awk entrer dans un fichier qui s'appelle glitch.
+
+::
+
+  awk 'BEGIN { FS = "\n"; RS = ""; ORS = "\n\n"}
+  $0 ~ search {print $0}' search=$1 $2
+
+   
+Ici on a mis le séparateur de champ ``FS`` à un retour de ligne et le
+séparateur d'enregistrement ``RS`` à une ligne vide, ceci afin de
+pouvoir prendre en compte un fichier à données en bloc appelé
+``glitch.data`` dont voici un extrait :
+
+::
+   
+  machine	Sun 3/75
+                8 meg memory
+		Prone to memory glitches
+		more info
+		more info
+
+  sadlefsdaf	siwefo
+		asdlfa
+		vmasefsdae
+		glitche wefsd
+		sdafsdf
+  ziweower	wwerwe 3234
+		sdfljkljké
+		asdfvm78
+		weojwd
+		omcvljdoji
+
+En tapant la commande :
+
+::
+
+ glitch glitc glitch.data
+
+cela va donner :
+
+::
+
+  machine	Sun 3/75
+		8 meg memory
+		Prone to memory glitches
+		more info
+		more info
+
+  sadlefsdaf	siwefo
+		asdlfa
+		vmasefsdae
+		glitche wefsd
+		sdafsdf
+   
+
+.. _Nom du lien:
+
+Les fonctions
+-------------
+
+Emplacement pour déclaration des fonctions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+   
+   awk '
+    function insert (STRING, POS, INS) {
+    before = substr("Hello",1,POS)
+    after = substr("Hello",POS+1)
+    return before INS after
+    }
+   BEGIN{
+      print insert($1, 4, "XX")
+   }'
+
+Divers exemples
+---------------
+
+Pour inverser les colonnes et les lignes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+::
+
+   awk  '
+   BEGIN{FS=";"}
+   {
+    for ( i = 1; i <= NF; ++i ){
+	matrice[NR,i] = $i
+	gsub(/\r/,"") #\r est le retour de ligne \n ne fonctione pas
+    }
+    }
+
+    END {
+	for ( j = 1; j <= NF; ++j ){
+	    for ( i = 1; i <= NR; ++i ){
+		printf ("%s;",matrice[i,j]) #point virgule aux séparateurs de champs à la sortie
+	    }
+	    if ( j < NF ) 
+	    print("\r")
+	}
+
+    }' sp.txt > Result
+
+reStructuredText
+================
+
+Installation
+------------
+1) installer Anaconda
+2) installer VS code
+3) modifier le path windows pointer les répertoires suivants :
+   
+   a) anaconda3/Scripts
+   b) anaconda3 (c'est possible qu'il n'est pas nécessaire de pointer
+      sur celui-ci)
+   
+Création d'un nouveau document
+------------------------------
+1) ouvrir Anaconda Prompt
+2) aller dans le bon répertoire (tapez ``d:`` pour changer de partition)
+3) une fois dans le répertoire où l'on veut mettre notre document,
+   tapez : ::
+
+     sphinx-quickstart
+
+4) aux différentes questions répondre comme ci-dessous :
+   
+   ``> Separate source and build directories (y/n) [n]: y``
+   
+   ``> Name prefix for templates and static dir [_]:``
+   
+   ``> Project name: Mon nom de projet``
+   
+   ``> Author name(s): Alpiq AG``
+   
+   ``> Project release []: 1``
+   
+   ``> Project language [en]: fr``
+   
+   ``> Source file suffix [.rst]:``
+   
+   ``> Name of your master document (without suffix) [index]:``
+   
+   ``Sphinx can also add configuration for epub output:
+   > Do you want to use the epub builder (y/n) [n]:``
+
+   ``Indicate which of the following Sphinx extensions should be
+   enabled:``
+   ``> autodoc: automatically insert docstrings from modules (y/n) [n]:``
+   
+   ``> doctest: automatically test code snippets in doctest blocks
+   (y/n) [n]:``
+
+   ``> intersphinx: link between Sphinx documentation of different projects
+   (y/n) [n]:`` 
+
+   ``> todo: write "todo" entries that can be shown or hidden on build
+   (y/n) [n]: y`` 
+
+   ``> coverage: checks for documentation coverage (y/n) [n]:``
+
+   ``> imgmath: include math, rendered as PNG or SVG images (y/n) [n]: y``
+   
+   ``> mathjax: include math, rendered in the browser by MathJax (y/n)
+   [n]: y``
+
+   ``> ifconfig: conditional inclusion of content based on config values
+   (y/n) [n]: y`` 
+
+   ``> viewcode: include links to the source code of documented Python
+   objects (y/n)[n]:`` 
+
+   ``> githubpages: create .nojekyll file to publish the document on GitHub
+   pages (y/n) [n]:`` 
+
+   ``> Create Makefile? (y/n) [y]:``
+   
+   ``> Create Windows command file? (y/n) [y]:``
+
+5) ajouter la ligne suivante: ``master_doc = 'index'`` sinon ça bug
+   avec **Read The Docs** aussi ça plante lorsqu'on compile dans un
+   terminal windows (cmd) ça affiche qu'un fichier dénommé
+   ``contents`` est introuvable. 
+
+6) tapez dans le terminal : ::
+
+     D:\tmp\sphinxTxt>make html
+
+7) ouvrir Visual Studio Code
+8) ouvrir le répertoire du projet et non le fichier .rst (File -> Open
+   Folder) 
+9) il se peut que l'on soit demandé à selectionner le ``conf.py``,
+   selectionnez celui qui se trouve dans le répertoire du projet 
+10) pour ouvrir la prévisualisation cliquer sur le symbole afficher
+    sur la figure ci-dessous. Sinon ouvrir le html dans un explorateur
+    qui se trouve dans le répertoire _build -> html 
+   
+.. image:: /figures/IconePrevisualisation.png
+   :alt: cette image montre où l'on doit cliquer pour ouvrir la
+	 fenêtre de prévisualisation
+	 
+11) pour l'édition, j'utilise emacs, ouvrir le fichier ``index.rst``
+
+    
+Changement de Thèmes
+--------------------
+
+1) choisir son thème |theme|. Pour cet exemple, j'ai choisi
+   ``sphinx_rtd_theme`` car il est "*mobile friendly*"
+
+ .. |theme| raw:: html
+
+   <a href="http:sphinx-themes.org"
+   target="_blank">ici</a>
+
+2) se connecter à internet (swisscom) et tapez dans une console :
+
+   ::
+
+      pip install sphinx_rtd_theme
+
+      
+3) ouvrir le ``conf.py`` et mettre ``html_theme = 'sphinx_rtd_theme'``
+
+
+Compilation
+-----------
+
+Dans un **Anaconda prompt** tapez : 
+
+::
+
+   make html
+
+Pour voir la doc dans un navigateur internet. Ceci créera un répertoire
+``build`` et y placera deux autres répertoires : ``html`` et
+``doctrees`` Dans le répertoire ``html`` on trouvera le fichier
+``index.html``. En  cliquant sur ce dernier cela va ouvrir la doc dans
+un navigateur internet.  
+Le répertoire ``doctrees`` sert pour la table des matières.
+
+
+ou
+
+::
+   
+   make latex
+
+ou
+
+::
+   
+   make latexpdf
+
+.. note::
+   Après la compilation, il se peut que la table des matières ne soit
+   pas dans l'ordre ou que toutes les sections suivantes ne soient
+   affichées. Dans ce cas, il faut supprimer le répertoire `build` et 
+   refaire une compilation.
+
+
+Traduction
+----------
+
+1. installer `sphinx-intl`
+
+  ::
+
+   $ pip install sphinx-intl
+
+2. rajouter ces lignes dans le `conf.py`
+
+  ::
+
+   locale_dirs = ['locale/']   # path is example but recommended.
+   gettext_compact = False     # optional.
+
+3.
+
+  ::
+
+   make gettext
+
+4. génération des fichiers `po` (dans le cas suivant pour le japonais) 
+
+  ::
+
+   sphinx-intl update -p _build/gettext -l de -l ja
+
+ sitôt fait, le fichier `po` se trouve dans le répertoire
+ ./locale/ja/LC_MESSAGE`  
+
+5. traduire le fichier `po`
+   
+   exemple :
+
+  ::
+
+   msgid "Available builders"
+   msgstr "<FILL HERE BY TARGET LANGUAGE>"
+
+  Dans le cas où il y a plusieurs lignes :
+
+  ::
+
+   msgid ""
+   "These are the built-in Sphinx builders. More builders can be added by "
+
+   msgstr ""
+   "FILL HERE BY TARGET LANGUAGE FILL HERE BY TARGET LANGUAGE FILL
+   HERE " 
+   "BY TARGET LANGUAGE :ref:`EXTENSIONS <extensions>` FILL HERE."
+
+6. génération du document traduit, saisir dans le `Anaconda Powershell
+   Prompt`
+
+  ::
+
+   > Set-Item env:SPHINXOPTS "-D language=ja"
+   > .\make.bat html
+   
+
+Pour plus d'information
+^^^^^^^^^^^^^^^^^^^^^^^
+
+|lien0|
+
+.. |lien0| raw:: html
+
+   <a href="http://www.sphinx-doc.org/en/master/usage/advanced/intl.html"
+   target="_blank">sphinx-doc</a>
+
+   
+Mise en forme
+-------------
+
+Numérotation chapitre, section, etc...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* ``#`` pour les parties
+* ``*`` pour les chapitres
+* ``=``, pour les sections
+* ``-``, pour les sous-sections
+* ``^``, pour les sous-sous-sections
+* ``"``, pour les paragraphes
+  
+
+Listes et sous-listes
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+   
+   * une puce "*"
+     - une sous-liste avec "-"
+       + à nouveau une sous-liste avec "+"
+     - une autre option
+       
+Liste d'items numérotée automatiquement
+"""""""""""""""""""""""""""""""""""""""
+
+::
+
+   1. Liste numérotée "à  la main".
+   2. Deuxième item.
+
+   #. Liste numérotée automatiquement.
+   #. Deuxième item.
+
+1. Liste numérotée "à  la main".
+2. Deuxième item.
+
+#. Liste numérotée automatiquement.
+#. Deuxième item.
+
+   
+Les tableaux
+^^^^^^^^^^^^
+
+::
+
+   +------------------------+------------+----------+
+   | Header row, column 1   | Header 2   | Header 3 |
+   +========================+============+==========+
+   | body row 1, column 1   | column 2   | column 3 |
+   +------------------------+------------+----------+
+   | body row 2             | Cells may span        |
+   +------------------------+-----------------------+
+
+
+   ====================  ==========  ==========
+   Header row, column 1  Header 2    Header 3
+   ====================  ==========  ==========
+   body row 1, column 1  column 2    column 3
+   body row 2            Cells may span columns
+   ====================  ======================
+
+donnera :
+
+   +------------------------+------------+----------+
+   | Header row, column 1   | Header 2   | Header 3 |
+   +========================+============+==========+
+   | body row 1, column 1   | column 2   | column 3 |
+   +------------------------+------------+----------+
+   | body row 2             | Cells may span        |
+   +------------------------+-----------------------+
+
+
+   ====================  ==========  ==========
+   Header row, column 1  Header 2    Header 3
+   ====================  ==========  ==========
+   body row 1, column 1  column 2    column 3
+   body row 2            Cells may span columns
+   ====================  ======================
+
+   
+Insertion d'une figure
+^^^^^^^^^^^^^^^^^^^^^^
+
+Créer un répertoire nommé ``figures`` au même endroit où il y a le
+fichier ``index.rst`` 
+
+::
+
+   .. image:: /figures/IconePrevisualisation_cropped.png
+       :scale: 80 %
+       :align: center
+      
+
+Surbrillance d'un texte
+^^^^^^^^^^^^^^^^^^^^^^^
+
+``Surbrillance d'un texte``
+
+Tapez : ::
+
+``Surbrillance d'un texte``
+
+
+Pour afficher un bloc avec du code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+::
+   
+ POUR AFFICHER CECI (un bloc avec du code)
+
+Tapez : 
+
+::
+   
+ ::
+
+  POUR AFFICHER CECI (un bloc avec du code)
+  
+
+Pour créer un lien à l'intérieur d'un document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+label (à mettre où l'on veut tomber) :
+
+::
+   
+ .. _Nom du lien:
+
+Par exemple si on veut que ça tombe vers une section, on le placera
+une ligne avant la section.
+
+::
+   
+ .. _Nom du lien:
+
+ reStructuredText
+ ================
+
+ref (à écrire où on veut mettre le lien)
+
+::
+
+ Pour plus d'information veuillez vous référer à :ref:`Nom du lien`.
+
+Ceci donnera :
+
+Pour plus d'information veuillez vous référer à :ref:`Nom du lien`.
+
+
+Pour créer un lien à une page internet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+En cliquant sur le lien, cela va ouvrir une nouvelle fenêtre dans le
+navigateur. 
+
+::
+
+ En cliquant |lien|
+
+::
+
+ .. |lien| raw:: html
+
+   <a href="http://python.physique.free.fr/aide/_sources/Partie1.txt"
+   target="_blank">ici</a>
+
+.. warning::
+   Ne pas oublier d'indenter <a href...
+
+On peut très bien écrire directement :
+::
+   
+ http://home.citycable.ch/windwaver/MesSources/
+
+mais cela ne va pas ouvrir une nouvelle fenêtre dans le navigateur.
+
+   
+Commentaires
+^^^^^^^^^^^^
+
+- Pour commenter une ligne, mettre deux points et un espace.
+
+- Pour commenter un bloc, mettre deux points et indenter le bloc en
+  dessous.
+  
+
+Mettre en évidence une chose importante
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   .. warning::
+      Mettre ici une chose importante
+      
+ce qui donne :
+
+.. warning::
+   Mettre ici une chose importante
+
+::
+
+   .. hint::
+      Une chose moins importante
+
+ce qui donne :      
+      
+.. hint::
+   Une chose moins importante
+
+   
++---------------+----------------+----------+
+|Commande       |*Qui donne*     |*Couleur* |
++===============+================+==========+
+|`.. warning::` |`'i' int32`     | Rouge    |
++---------------+----------------+----------+
+|`.. note::`    |`note`          | Grise    |
++---------------+----------------+----------+
+|`.. tip::`     |`Astuce`        | Grise    |
++---------------+----------------+----------+
+|`.. caution::` |`Prudence`      | Grise    |
++---------------+----------------+----------+
+|`.. error::`   |`Erreur`        | Grise    |
++---------------+----------------+----------+
+|`.. hint::`    |`Indice`        | Grise    |
++---------------+----------------+----------+
+
+  
+Pour insérer du code à partir d'un fichier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tapez le code suivant : ::
+
+  .. literalinclude:: /sources/exemple_graphique01.py
+
+Ce qui donnera :
+
+.. literalinclude:: /sources/exemple_graphique01.py
+
+		    
+Pour insérer une vidéo
+^^^^^^^^^^^^^^^^^^^^^^
+
+Tapez le code suivant : ::
+  
+  .. raw:: html
+
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/UaIvrDWrIWM" frameborder="0"
+      allowfullscreen></iframe>
+
+Ce qui donnera :
+
+.. raw:: html
+
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/UaIvrDWrIWM" frameborder="0"
+      allowfullscreen></iframe>
+    
+		    
+Création du document pdf
+------------------------
+
+1) à l'aide du prompt Anaconda se déplacer dans le répertoire du
+   projet (où il y a le .rst) 
+2) tapez ``make latexpdf`` cela va créer un répertoire latex dans le
+   répertoire _build
+3) ouvrir le fichier .tex dans le répertoire latex avec emacs
+4) compiler
+   
+
+Divers liens utiles
+-------------------
+
+1) |lien1|
+
+.. |lien1| raw:: html
+
+   <a href="http://python.physique.free.fr/aide/Partie1.html"
+   target="_blank">python.physique</a>
+
+2) |lien2|
+
+.. |lien2| raw:: html
+
+   <a href="https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html"
+   target="_blank">thomas-cokelaer</a>
+
+3) |lien3|
+
+.. |lien3| raw:: html
+
+   <a href="http://www.sphinx-doc.org/en/master/usage/quickstart.html"
+   target="_blank">sphinx-doc</a>
+
+4) |lien4|
+
+.. |lien4| raw:: html
+
+   <a href="https://draft-edx-style-guide.readthedocs.io/en/latest/ExampleRSTFile.html#id15"
+   target="_blank">draft-edx-guide</a>
+
+5) |lien5|
+
+.. |lien5| raw:: html
+
+   <a href="https://www.complang.tuwien.ac.at/doc/python3-docutils/docs/ref/rst/restructuredtext.html"
+   target="_blank">complang</a>
+
+6) |lien6|
+
+.. |lien6| raw:: html
+
+   <a href="http://docutils.sourceforge.net/rst.html"
+   target="_blank">docutils.sourceforge</a>
+
+Read The Docs
+=============
+
+Ce tutoriel montre comment mettre en ligne un document fait avec
+**ReStructureText** en utilisant **Read The Docs** via **Github**.
+
+Prérequis
+---------
+
+* **Anaconda**
+* un éditeur de texte (**emacs**)
+* un compte chez **Github** et l'installation sur PC (droits admin requis)
+* un compte chez **Read The Docs** (RTD)
+
+Méthode
+-------
+
+1. créer un répertoire avec comme nom le nom du projet dans cet
+   exemple c'est ``windwaver``
+2. dans ce répertoire créer un répertoire nommé ``docs``
+
+
+#. ouvrir **Anaconda Prompt** (pas le powershell)
+#. se déplacer dans le répertoire ``windwaver/docs``
+#. tapez:
+   
+   ::
+      
+      sphinx-quickstart
+      
+#. répondre à la question **Seperate source ...** ``y``
+   Comme ça les fichiers ``make.bat`` et ``Makefile`` seront seront séparés du
+   répertoire ``_sources`` dans lequel seront nos fichiers (``.rst`` et le
+   fichier ``config.py``)
+#. ouvrir le fichier ``_sources/conf.py``
+#. modifier la ligne ``html_theme = 'alabaster'`` par
+   ``html_theme = 'sphinx_rtd_theme'`` 
+#. ajouter la ligne suivante:``master_doc = 'index'`` sinon ça bug
+   avec **Read The Docs** 
+#. cliquer-droite sur le répertoire ``windwaver`` et choisir **Git Basch Here**
+#. lancer la commande:
+
+   ::
+
+      git init
+      
+#. lancer la commande:
+
+   ::
+
+      git config --global user.name 'Wind Waver'
+      
+#. lancer la commande:
+
+   ::
+
+      git config --global user.email 'waverwind@gmail.com'
+      
+#. lancer la commande:
+
+   ::
+
+      git add .
+      
+#. lancer la commande:
+
+   ::
+
+      git status
+      
+#. lancer la commande:
+
+   ::
+
+      git commit -m 'premier changement'
+	 
+   où ``premier changement`` est le commentaire de la modification 
+#. sur https://github.com créer un nouveau répertoire et nommer le
+   ``windwaver`` 
+#. copier et coller la commande (dans le **MINGW64**):
+
+   ::
+
+      git remote add origin https://github.com/windwaver/windwaver.git
+
+
+#. copier et coller la commande:
+
+   ::
+
+      git push -u origin master
+      
+#. créer le fichier ``README``
+
+   ::
+
+      touch README.md
+      
+#. décrire dans ce fichier le projet (à éditer dans **emacs**). Pour
+   la mise en page c'est du **Mark Down**
+#. lancer la commande suivante:
+
+   ::
+
+      git add .
+      
+#. lancer:
+
+   ::
+
+      git commit -m 'rajout de readme'
+      
+#. ensuite:
+
+   ::
+
+      git push
+      
+#. sur https://readthedocs.org cliquer sur importer et faire un refresh
+#. choisir le dossier ``windwaver``
+#. cliquer sur build, cela va créer le site
+#. éditer les différents fichiers
+#. à chaque modification lancer les commandes suivante:
+
+   ::
+
+      git add .
+      git commit -m 'commentaire de la modification'
+      git push
+
+#. attendre quelques seconde et rafraichir le site avec ``F5``
+
+   
+Permission denied
+^^^^^^^^^^^^^^^^^
+
+Il arrive parfois après la commande ``push -u...`` que le message
+suivant s'affiche:
+
+.. image:: /figures/Permissions-Denied.PNG
+    :scale: 100 %
+    :align: center
+
+Méthode pour réparer
+''''''''''''''''''''
+
+1. **touche windows** tapez *credential manager* (pour l'anglais) ou
+   *gestionnaire d'identification* (pour le français)
+   
+   .. image:: /figures/Credential-Manager.PNG
+       :scale: 80 %
+       :align: center
+
+2. repérer  **GitHub** et cliquer sur ``remove``
+
+   .. image:: /figures/Credential-Manager-1.PNG
+       :scale: 100 %
+       :align: center
+
+	       
+Divers liens
+------------
+
+|lien1|
+
+.. |lien1| raw:: html
+
+   <a href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/" 
+   target="_blank">ericholscher</a>
+
+GitHub
+======
+
+Une bonne vidéo pour apprendre
+------------------------------
+
+Cliquer |lien0|
+
+
+.. |lien0| raw:: html
+
+  <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc&t=1751s"
+  target="_blank">ici</a>
+
+  
+Installation
+------------
+
+Cliquer |lien|
+
+
+.. |lien| raw:: html
+
+  <a href="https://git-scm.com/download/win/"
+  target="_blank">ici</a>
+
+Pour modifier un projet
+-----------------------
+
+1. créer un repertoire
+2. clique-droite sur le répertoire et choisir ``git bash``
+
+#.
+
+   ::
+
+     git init
+
+#. 
+
+   ::
+
+      git config --global user.name 'Wind Waver'
+      
+#. 
+
+   ::
+
+      git config --global user.email 'waverwind@gmail.com'
+      
+#.
+
+   ::
+
+      git clone https://github.com/windwaver/windwaver.git
+
+#.
+
+   ::
+
+      git pull
+
+#.
+
+   ::
+
+      git remote add origin https://github.com/windwaver/windwaver.git
+
+#.
+
+   ::
+
+      git push -u origin master
+
+ Petites applications
+====================
+Cette section présente des petites applications ou outils permettant
+de faire des petites choses utiles.
+
+GSview
+------
+.. _extraire une page d'un document pdf:
+
+Extraction d'une page d'un document pdf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1) ouvrir avec GSview
+2) Fichier -> Convert
+3) choisir la bonne page et mettre Type à pdfwrite.
+
+.. _briss:
+   
+BRISS
+-----
+Cette application permet de rogner une figure pdf.
+
+Touches racourcis :
+^^^^^^^^^^^^^^^^^^^
++-+----------------------+
+|l|pour loader un fichier|
++-+----------------------+
+|c|pour rogner (crop)    |
++-+----------------------+
+
+GIMP
+----
+
+Convertir une image en .eps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1) Fichier -> enregistrer sous
+2) entrer le nom_fichier.eps
+
+
+Convertir divers formats
+------------------------
+
+Convertir pdf en png
+^^^^^^^^^^^^^^^^^^^^
+Essayer PDF to PNG |pdftopng|
+
+ .. |pdftopng| raw:: html
+
+   <a href="https://pdf2png.com/"
+   target="_blank">ici</a>
+   
+
+Convertir .rst en .tex
+^^^^^^^^^^^^^^^^^^^^^^
+Essayer pandoc |pendoc|
+
+ .. |pendoc| raw:: html
+
+   <a href="http://pandoc.org/try/?text=&from=rst&to=rst"
+   target="_blank">ici</a>
