@@ -27,21 +27,17 @@ Si un seul écran, alors pas besoin de presser la touche Alt.
 Impression à l'échelle d'un pdf
 -------------------------------
 
-::
+.. image:: /IT/figures/ImpressionAlEchelle1.PNG
+    :scale: 80 %
+    :align: center
 
-   .. image:: /figures/ImpressionAlEchelle.png
-       :scale: 80 %
-       :align: center
-	       ::
+.. image:: /IT/figures/ImpressionAlEchelle2.PNG
+    :scale: 80 %
+    :align: center
 
-   .. image:: /figures/ImpressionAlEchelle2.png
-       :scale: 80 %
-       :align: center
-	       ::
-
-   .. image:: /figures/ImpressionAlEchelle3.png
-       :scale: 80 %
-       :align: center
+.. image:: /IT/figures/ImpressionAlEchelle3.PNG
+    :scale: 80 %
+    :align: center
 	       
 
 MINGW32
@@ -496,7 +492,7 @@ Création d'un nouveau document
     sur la figure ci-dessous. Sinon ouvrir le html dans un explorateur
     qui se trouve dans le répertoire _build -> html 
    
-.. image:: /figures/IconePrevisualisation.png
+.. image:: /IT/figures/IconePrevisualisation.png
    :alt: cette image montre où l'on doit cliquer pour ouvrir la
 	 fenêtre de prévisualisation
 	 
@@ -717,7 +713,7 @@ donnera :
 Insertion d'une figure
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Créer un répertoire nommé ``figures`` au même endroit où il y a le
+Si le répertoire nommé ``figures`` est au même endroit où il y a le
 fichier ``index.rst`` 
 
 ::
@@ -865,11 +861,11 @@ Pour insérer du code à partir d'un fichier
 
 Tapez le code suivant : ::
 
-  .. literalinclude:: /sources/exemple_graphique01.py
+  .. literalinclude:: /IT/sources/exemple_graphique01.py
 
 Ce qui donnera :
 
-.. literalinclude:: /sources/exemple_graphique01.py
+.. literalinclude:: /IT/sources/exemple_graphique01.py
 
 		    
 Pour insérer une vidéo
@@ -1087,7 +1083,7 @@ Permission denied
 Il arrive parfois après la commande ``push -u...`` que le message
 suivant s'affiche:
 
-.. image:: /figures/Permissions-Denied.PNG
+.. image:: /IT/figures/Permissions-Denied.PNG
     :scale: 100 %
     :align: center
 
@@ -1097,13 +1093,13 @@ Méthode pour réparer
 1. **touche windows** tapez *credential manager* (pour l'anglais) ou
    *gestionnaire d'identification* (pour le français)
    
-   .. image:: /figures/Credential-Manager.PNG
+   .. image:: /IT/figures/Credential-Manager.PNG
        :scale: 80 %
        :align: center
 
 2. repérer  **GitHub** et cliquer sur ``remove``
 
-   .. image:: /figures/Credential-Manager-1.PNG
+   .. image:: /IT/figures/Credential-Manager-1.PNG
        :scale: 100 %
        :align: center
 
