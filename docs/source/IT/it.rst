@@ -24,6 +24,26 @@ sur le bon écran et faire :
 
 Si un seul écran, alors pas besoin de presser la touche Alt.
 
+Impression à l'échelle d'un pdf
+-------------------------------
+
+::
+
+   .. image:: /figures/ImpressionAlEchelle.png
+       :scale: 80 %
+       :align: center
+	       ::
+
+   .. image:: /figures/ImpressionAlEchelle2.png
+       :scale: 80 %
+       :align: center
+	       ::
+
+   .. image:: /figures/ImpressionAlEchelle3.png
+       :scale: 80 %
+       :align: center
+	       
+
 MINGW32
 =======
 Pour envoyer un message avec Outlook
