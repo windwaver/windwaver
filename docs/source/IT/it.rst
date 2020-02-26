@@ -72,7 +72,7 @@ Pour éditer le .emacs ou le créer au bon emplacement
   C-f ~/.emacs
   
 Pour ne pas être embêté par l'affichage des accents
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------------------
 Je préfère encoder en ``UTF-8``. Pour cela j'insère ce bloc de code
 dans le .emacs.
 
@@ -84,8 +84,11 @@ dans le .emacs.
   (set-language-environment 'utf-8)
   (prefer-coding-system 'utf-8)
 
-Si le défaut persiste, on peut essayer la méthode suivante pour
+Si le défaut persiste, on peut essayer les méthodes suivante pour 
 enlever remettre les accents.
+
+Méthode 1
+^^^^^^^^^
 
  1. renommer le fichier en .txt
  2. rouvrir ce dernier avec ``Emacs``
@@ -98,7 +101,105 @@ Remarque : Dans un pdf, si les accents sont bien présents dans emacs
 et pas dans le pdf. Il faut alors faire le racourci clavier suivant~:
 ``C-x RET f codage RET`` et choisir ``latin-1``.
 
-  
+Méthode 2
+^^^^^^^^^
+
+1) ::
+
+    M-x revert-buffer-with-coding-system
+    
+2) choisir utf-8 ou latin-1
+   
+Méthode 3
+^^^^^^^^^
+
+Si des accents s'affichent dans TeXworks malgré tous les packages et
+l'encodage UTF-8 réglés correctement (cela m'ai arrivé lors d'un
+copier-coller du contenu de Outlook dans emacs.)
+
+1) copier le contenu du fichier.tex dans un bloc note
+2) enregistrer sous encodage UTF-8
+
+Cela devrait fonctionner.
+
+Méthode 4
+^^^^^^^^^
+You can also mark the entire file with C-x h and then try M-x
+recode-region. It will ask you for Text was really in and But was
+interpreted as. For the first file in your question, it looks like it
+should be latin-1 and utf-8, and for the second example it should
+probably be the other way around, utf-8 and latin-1. 
+
+After you got it right, you can choose which coding system to save the
+file with using M-x set-buffer-file-coding-system (or C-x C-m f for
+short).
+
+copier/coller sans toujours à répondre à la même question du coding
+-------------------------------------------------------------------
+
+Pour pouvoir copier/coller depuis windows et pour pas que emacs
+demande à chaque fois le format du coding, insérer la ligne suivante
+dans fichier .emacs.
+
+::
+   
+  (setq selection-coding-system 'compound-text-with-extensions)
+
+Raccourcis clavier
+------------------
+Ci-dessous quelques raccourcis utiles pour l'utilisation de Emacs et
+LaTeX. La plupart de ces raccourcis ont été trouvés à l'addresse
+suivante
+https://loquehumaine.wordpress.com/2010/04/01/mes-raccourcis-emacs/ Un
+grand Merci donc à cette personne. 
+
+Général
+^^^^^^^
+
++===================+==============================================+
+| Raccourcis        | Descriptions raccourcis                      |
++===================+==============================================+
+| F7                | mode flyspell correcteur orthographique)     |
++-------------------+----------------------------------------------+
+| F8                | appelle Ispell buffer                        |
++-------------------+----------------------------------------------+
+| C-h a             | propos                                       |
++-------------------|----------------------------------------------+
+| C-h k             | recherche de ce que fait un raccourci        |
++-------------------+----------------------------------------------+
+| C-g g             | annuler                                      |
++-------------------+----------------------------------------------+
+| C-u 5 -           | répète 5 fois                                |
++-------------------+----------------------------------------------+
+| C-u 5 BackSpace   | efface les 5 derniers caractères             |
++-------------------+----------------------------------------------+
+| M-/               | complétion avec les mots des buffers ouverts |
++-------------------+----------------------------------------------+
+| M-x load-buffer   | charger un .emacs                            |
++-------------------+----------------------------------------------+
+| M-x xxx-mode      | mode xxx (latex,html,python,...)             |
++-------------------+----------------------------------------------+
+| M-\$              | ispell sur le mot                            |
++-------------------+----------------------------------------------+
+| M-!               | exécuter une commande bash                   |
++-------------------+----------------------------------------------+ 
+| C-u- M-!          | insérer le résultat d'une commande bash      | 
++-------------------+----------------------------------------------+
+| M-x               | écrire des commandes en ligne de commande    |
++-------------------+----------------------------------------------+
+| M-x menu-bar-mode | pour afficher / enlever la barre d'outils    |
++-------------------+----------------------------------------------+ 
+| M-x cua-mode      | copier-coller d'une autre applications       |
++-------------------+----------------------------------------------+
+| C-x C-c           | quitte Emacs                                 |
++-------------------+----------------------------------------------+
+| C-z               | minimise Emacs                               |
++-------------------+----------------------------------------------+
+| C-x u             | pour annuler (undo)                          |
++-------------------+----------------------------------------------+
+| C-x C-s           | enregistre le buffer courant                 |
++-------------------+----------------------------------------------+
+
 Changer le thème (couleur de fond,...)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 J'utilise le thème misterioso (il en existe bien sûr d'autres)
@@ -124,39 +225,6 @@ psTricks qui produit directement un pdf.
     
 2) Command -> TeXing Options -> Use XeTeX engine
    
-
-Problème d'affichage des accents
---------------------------------
-Méthode 1
-^^^^^^^^^
-1) ::
-
-    M-x revert-buffer-with-coding-system
-    
-2) choisir utf-8 ou latin-1
-   
-Méthode 2
-^^^^^^^^^
-Si des accents s'affichent dans TeXworks malgré tous les packages et
-l'encodage UTF-8 réglés correctement (cela m'ai arrivé lors d'un
-copier-coller du contenu de Outlook dans emacs.)
-
-1) copier le contenu du fichier.tex dans un bloc note
-2) enregistrer sous encodage UTF-8
-
-Cela devrait fonctionner.
-
-Méthode 3
-^^^^^^^^^
-You can also mark the entire file with C-x h and then try M-x
-recode-region. It will ask you for Text was really in and But was
-interpreted as. For the first file in your question, it looks like it
-should be latin-1 and utf-8, and for the second example it should
-probably be the other way around, utf-8 and latin-1. 
-
-After you got it right, you can choose which coding system to save the
-file with using M-x set-buffer-file-coding-system (or C-x C-m f for
-short).
 
 LaTeX
 =====
