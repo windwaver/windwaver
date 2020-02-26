@@ -39,7 +39,7 @@ Impression à l'échelle d'un pdf
     :scale: 80 %
     :align: center
 	       
-
+	    
 MINGW32
 =======
 Pour envoyer un message avec Outlook
@@ -61,6 +61,8 @@ emacs
 
 .emacs
 ------
+Le nom de ce fichier n'a pas de préfixe, il a juste un suffixe
+(extension) qui est ``.emacs`` Il faut le copier dans ``home/yd``
 
 Pour éditer le .emacs ou le créer au bon emplacement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,7 +84,22 @@ dans le .emacs.
   (set-language-environment 'utf-8)
   (prefer-coding-system 'utf-8)
 
-Changer le theme (couleur de fond,...) 
+Si le défaut persiste, on peut essayer la méthode suivante pour
+enlever remettre les accents.
+
+ 1. renommer le fichier en .txt
+ 2. rouvrir ce dernier avec ``Emacs``
+ 3. copier tout le contenu
+ 4. couper dans un nouveau fichier .tex
+ 5. à la demande d'``Emacs`` si demande il y'a, ne pas l'enregistrer
+    en UTF8, mais taper tab et choisir latin1
+
+Remarque : Dans un pdf, si les accents sont bien présents dans emacs
+et pas dans le pdf. Il faut alors faire le racourci clavier suivant~:
+``C-x RET f codage RET`` et choisir ``latin-1``.
+
+  
+Changer le thème (couleur de fond,...)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 J'utilise le thème misterioso (il en existe bien sûr d'autres)
 
@@ -1250,3 +1267,22 @@ Essayer pandoc |pendoc|
 
    <a href="http://pandoc.org/try/?text=&from=rst&to=rst"
    target="_blank">ici</a>
+
+Conversions du son
+^^^^^^^^^^^^^^^^^^
+
+CD -> mp3
+'''''''''
+
+* Avec Ubuntu 12.04, j'utilise ``asunder``, c'est un bon programme car
+  il extrait directement les métadonnées du CD.  
+
+* ``soundKonverter`` : on peut aussi utiliser ce programme. Astuce :
+  copier/coller le contenu du CD sur le disque dur. 
+
+  
+Extraire une bande son
+''''''''''''''''''''''
+
+Pour couper (extraire/éditer) une bande son :
+``Audacity``
