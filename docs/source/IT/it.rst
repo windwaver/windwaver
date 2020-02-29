@@ -461,13 +461,32 @@ Formatage
 +--------------------+----------------------------------------------+
 | C-c *              | marquer la  section                          |
 +--------------------+----------------------------------------------+
-| C-M-a              | début d'environement                         |
+| C-M-a              | début d'environnement                         |
 +--------------------+----------------------------------------------+
-| C-M-e              | fin d'environement                           |
+| C-M-e              | fin d'environnement                           |
 +--------------------+----------------------------------------------+
+
+Pour supprimer les ^M en fin de ligne
+-------------------------------------
+
+Faire la séquence suivante :
+
+``M-< C-q C-M Enter C-q C-j Enter !``
+
+Explications :
+
+1. M-< on se place au début du document
+2. M-% on active le mode de remplacement de caractères
+
+#. C-q C-M on va remplacer les ^M
+#. C-q C-j on va y mettre à la place des retours à la ligne
+#. ! on applique ces modifications à toutes les occurences rencontrées
+   dans le fichier
+   
 
 Changer le thème (couleur de fond,...)
 --------------------------------------
+
 J'utilise le thème misterioso (il en existe bien sûr d'autres)
 
 ::
@@ -476,9 +495,12 @@ J'utilise le thème misterioso (il en existe bien sûr d'autres)
 
 à placer dans le .emacs
 
+
 Compilation
 -----------
 .. _Compilation avec XeLaTeX depuis emacs:
+
+
 
 Compilation avec XeLaTeX depuis emacs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
