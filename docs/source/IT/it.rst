@@ -533,10 +533,11 @@ Sur un pdf :
       
       pdftops -eps fichierpdf.pdf
     
-   **remarque** cette commande marche uniquement sur un pdf d'une page
-   seulement, si le pdf contient plusieurs pages, il faudra au
-   préalable extraire la page qui nous intéresse. 
-   Pour ce faire, voir :ref:`extraire une page d'un document pdf` 
+   .. Note::
+      **remarque** cette commande marche uniquement sur un pdf d'une page
+      seulement, si le pdf contient plusieurs pages, il faudra au
+      préalable extraire la page qui nous intéresse. 
+      Pour ce faire, voir :ref:`extraire une page d'un document pdf` 
 2) utiliser le fichier FicViePSTriBox.tex téléchargeable depuis |lien1|
 3) pour créer le pdf directement utiliser XeLaTeX (voir :ref:`Compilation
    avec XeLaTeX depuis emacs`)
