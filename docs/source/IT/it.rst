@@ -475,14 +475,19 @@ Faire la séquence suivante :
 
 Explications :
 
-1. M-< on se place au début du document
-2. M-% on active le mode de remplacement de caractères
+1. ``M-<`` on se place au début du document
+2. ``M-%`` on active le mode de remplacement de caractères
 
-#. C-q C-M on va remplacer les ^M
-#. C-q C-j on va y mettre à la place des retours à la ligne
-#. ! on applique ces modifications à toutes les occurences rencontrées
+#. ``C-q C-M`` on va remplacer les ^M
+#. ``C-q C-j`` on va y mettre à la place des retours à la ligne
+#. ``!`` on applique ces modifications à toutes les occurences rencontrées
    dans le fichier
    
+Débugger emacs
+--------------
+
+``C-c apostrophe espace``
+
 
 Changer le thème (couleur de fond,...)
 --------------------------------------
