@@ -533,8 +533,9 @@ Installation LaTex, Emacs et auxtex sous Linux
    c. écrire dans un terminal :
       ::
 	 perl install-tl
+
    d. I
-   f. ``etc/environement``, modifier le fichier pour que ça ressemble
+   e. ``etc/environement``, modifier le fichier pour que ça ressemble
       à ceci :
       ::
 	 PATH="/usr/local/texlive/2016/bin/i386-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games" 
