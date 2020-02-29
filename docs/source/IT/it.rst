@@ -527,17 +527,18 @@ Installation LaTex, Emacs et auxtex sous Linux
 
 1. télécharger la dernière version de ``tex-live`` sur le site
    officiel
-   1. télécharger le .iso
-   2. copier les dossiers sur le bureau
-   3. écrire dans un terminal :
+   a. télécharger le .iso
+   b. copier les dossiers sur le bureau
+   c. écrire dans un terminal :
       ::
 	 perl install-tl
-   4. I
-   5. ``etc/environement``, modifier le fichier pour que ça ressemble
+   d. I
+   f. ``etc/environement``, modifier le fichier pour que ça ressemble
       à ceci :
       ::
-	 PATH="/usr/local/texlive/2016/bin/i386-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
-	 MANPATH="/usr/local/texlive/2016/texmf/doc/man" INFOPATH="/usr/local/texlive/2016/texmf/doc/info"
+	 PATH="/usr/local/texlive/2016/bin/i386-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games" 
+	 MANPATH="/usr/local/texlive/2016/texmf/doc/man"
+	 INFOPATH="/usr/local/texlive/2016/texmf/doc/info"
    .. note::
       changer si nécessaire 2016
 2. installer emacs avec le synaptique
@@ -552,7 +553,7 @@ Installation LaTex, Emacs et auxtex sous Linux
     (setq reftex-plug-into-AUCTex t)
     (global-font-lock-mode t)
 Tout ceci est tirer du site
-https:\\www.math.purdue.edu/~dvb/xdvi.html} pour que le script pour la
+https:\\www.math.purdue.edu/~dvb/xdvi.html pour que le script pour la 
 conversion des Figures PSTicks fonctionne, il faut rajouter (dans le
 script) -shell-escape après la commande
 latex. (ex. latex -shell-escape 1.tex)
