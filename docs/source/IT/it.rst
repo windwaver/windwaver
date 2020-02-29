@@ -527,6 +527,7 @@ Installation LaTex, Emacs et auxtex sous Linux
 
 1. télécharger la dernière version de ``tex-live`` sur le site
    officiel
+   
    a. télécharger le .iso
    b. copier les dossiers sur le bureau
    c. écrire dans un terminal :
