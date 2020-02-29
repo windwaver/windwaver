@@ -339,7 +339,7 @@ Rechercher et remplacer
 +--------------------+----------------------------------------------+
 | M-x replace-string | recherche / remplacer (permet de remplacer   |
 +--------------------+----------------------------------------------+
-|                    | par un mot commençant par un \verb+\+ )      |
+|                    | par un mot commençant par un \\verb+\\+ )    |
 +--------------------+----------------------------------------------+
 
 
