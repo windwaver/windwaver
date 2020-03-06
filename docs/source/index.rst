@@ -11,7 +11,7 @@ Welcome to windwaver's documentation!
    :caption: Contents:
 
    IT/it
-   MesProjets/MesProjet   
+   MesProjets/MesProjets   
 
 Indices and tables
 ==================
