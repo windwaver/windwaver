@@ -548,7 +548,7 @@ Installation LaTex, Emacs et auxtex sous Linux
 #. installer auxtec avec le synap
 #. copier .emacs dans yd
 #. pour que auxtex et emac communique entre eux, il faut rajouter 
-  ces lignes dans le .emacs (c'est déjà fait)~:
+  ces lignes dans le .emacs (si pas déjà fait)~:
   ::
     (require 'tex-site)
     (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
