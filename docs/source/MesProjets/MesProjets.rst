@@ -1,5 +1,5 @@
-Mes Projets
-###########
+.. Mes Projets
+.. ###########
 
 eBike
 *****
@@ -71,12 +71,17 @@ Acheté chez Conrad avec les références suivantes :
 
 
 Boîtier Batterie
-^^^^^^^^^^^^^^^^
+----------------
 
 Batteries
-'''''''''
+^^^^^^^^^^
 
 Câble
+'''''
+
+Cosse en cuivre
+'''''''''''''''
+
 
 Support Bloc Batterie / Boîtier Electrique
 ------------------------------------------
