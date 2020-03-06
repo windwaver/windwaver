@@ -1,5 +1,5 @@
-.. Mes Projets
-.. ###########
+Mes Projets
+###########
 
 eBike
 *****
@@ -30,7 +30,7 @@ Boîtier Electrique
 ------------------
 
 Mettre l'**Intérupteur Anti-étincelle** sur la face de dessous (percer le
-**Support Bloc Batterie / Boîtier Electrique** 
+**Support Bloc Batterie / Boîtier Electrique**) 
 
 Plaque de refroidissement VESC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
