@@ -52,6 +52,7 @@ Garantit l'étanchéité des câbles de la **Poignée de Gas** et de la
 **Levier de Freinage**
 
 Goupilles en Carbone
+^^^^^^^^^^^^^^^^^^^^
 
 Elles tiennent les Connecteurs XT30 dans la **Plaque de Connexion Femelle**
 
