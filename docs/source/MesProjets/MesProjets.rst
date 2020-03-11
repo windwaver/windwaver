@@ -10,17 +10,88 @@ Partie Mécanique
 Poulie Crantée Imprimée 
 -----------------------
 
+Matière : PLA Imprimée en 3D
+Nbre de dents : 400 dents
+
+
 Moteur
 ------
+
+Hacker A60-18L
+148 kV
+12S
 
 Poulie Crantée Moteur
 ---------------------
 
+20 dents
+Achetée chez Uiker
+
+
 Fixation Moteur
 ---------------
 
+C'est un L plié en aluminium d'épaisseur 3mm avec deux tôles
+d'épaisseur 2mm soudés sur les cotés pour rigidifié le tout. 
+
+
+Courroie Crantée
+----------------
+
+2100mm de longueur
+Achetée chez Uiker
+
 Tendeur Courroie
 ----------------
+
+Il a pour but de tendre la **Courroie Crantée** et d'augmenter le
+nombre de dents engagés sur la **Poulie Tendeur**. Il ne peut y avoir
+un ressort, car sinon lors de freinage électrique cela provoquerait
+des problèmes. 
+
+Composé de deux **Leviers Tendeur**, d'une **Poulie Tendeur** en nylon 
+(imprimée en 3D), d'un **Axe Poulie Tendeur**, de deux **Entretoises
+15mm** et de **Visserie** 
+
+Levier Tendeur
+^^^^^^^^^^^^^^
+
+Découpé à l'aide d'une scie sauteuse. Muni d'un oblong qui sert à
+tendre la **Courroie Crantée** 
+
+Poulie Tendeur
+^^^^^^^^^^^^^^
+
+Imprimée en 3D et munie de deux **Roulements Tendeur**
+
+Diamètre 38mm
+Matière : nylon
+Diamètre intérieur : ...
+
+Roulement Tendeur
+'''''''''''''''''
+
+6...RS
+Acheté chez Uiker
+
+Axe Poulie Tendeur
+^^^^^^^^^^^^^^^^^^
+
+C'est une vis sans tête M6 à six-pans creux. (à vérifier si possible
+de prendre une vis)
+
+Visserie
+^^^^^^^^
+
+- 2x Vis M6 inox à 6pans creux lg = ...
+- 3x Ecrou M6 inox
+- 3x Rondelles M6
+
+
+Entretoise 15mm
+^^^^^^^^^^^^^^^
+
+Matière : aluminium
 
 
 Partie Electrique
@@ -81,7 +152,7 @@ abouti des régulateurs. Voici en grande ligne ces caractéristiques :
   configurer et pour l'affichage d'une multitude de mesures en temps
   réelle. La communication se fait sans fil NRF BLE (Bluetooth Low
   Energy) 
-- 12s
+- 12s (60V)
 - 80A en continu
 - 150A Max
  
