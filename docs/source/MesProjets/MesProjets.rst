@@ -372,3 +372,6 @@ aurait dû être utilisé qui serait trop encombrant. Nombre de fil d'une
 batterie 6s sur le connecteur d'équilibrage est de 7 fils. D'où 4 x 7
 = 28 fils.
 
+
+
+
