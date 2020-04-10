@@ -12,7 +12,8 @@ Welcome to windwaver's documentation!
 
    IT/it
    MesProjets/MesProjets   
-
+   Contact/Contact
+   
 Indices and tables
 ==================
 
