@@ -32,8 +32,18 @@ Fixation Moteur
 ---------------
 
 C'est un L plié en aluminium d'épaisseur 3mm avec deux tôles
-d'épaisseur 2mm soudés sur les cotés pour rigidifié le tout. 
+d'épaisseur 2mm soudés sur les cotés pour rigidifier le tout. 
 
+Rondelle Epaisse Moteur
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Cette rondelle a pour but de bien plaquer la **Fixation Moteur**
+Elle fait 5mm d'épaisseur
+
+Cache
+^^^^^
+Cette partie protège le moteur des éclaboussures. C'est une tôle pliée
+d'épaisseur de 1mm et juste collé avec du mastique.
 
 Courroie Crantée
 ----------------
@@ -94,6 +104,8 @@ Entretoise 15mm
 Matière : aluminium
 
 
+
+
 Partie Electrique
 =================
 
@@ -128,12 +140,29 @@ Goupilles en Carbone
 Elles tiennent les Connecteurs XT30 dans la **Plaque de Connexion Femelle**
 
 
-
 Plaque de refroidissement VESC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Cette plaque a pour but de refroidir le **Régulateur de Vitesse VESC
 6** par dissipation thermique.
+
+Joint
+^^^^^
+
+Moule Joint
+'''''''''''
+
+Matière : silicone
+
+- 1.5g durcisseur
+- 30g silicone
+
+Visserie
+^^^^^^^^
+
+- vis à tôle 2.9mm lg 13mm inox
+- vis à tôle 2.9mm lg 19mm inox
+  
 
 Régulateur de Vitesse VESC 6
 ----------------------------
@@ -301,5 +330,45 @@ Vis M5 Inox à Tête Conique
 Elle servent à visser la **Fixation du Bloc de Batterie / Boîtier
 Electrique** au cadre du vélo à la place du porte-gourde.
 
-Configuration
--------------
+
+Paramètrages
+------------
+
+Avant utilisaton, il faut configurer le régulateur VESC (puissance,
+batteries, ...)
+
+
+Contrôleur de tension
+---------------------
+
+Ce dispositif sert à mesurer chaque cellule du Bloc
+Batterie. C'est-à-dire 4 * 6 = 24 cellules. Les batteries LiPo sont
+très vulnérables. Si l'on sort de la plage de tension qui est de 2.7 à
+4.2 V, on risque à coup sûr de l'endommager. C'est pourquoi un
+Contrôleur de tension à été construit. Il est muni de 4 circuits
+électroniques standard (possibilité de mesure 1S à 8S). Dès que l'on
+descends en dessous des 2.7V alors un bip assourdissant retentit qui
+indique la décharge complète d'une cellule. L'avantage d'avoir ce
+dispositif et que l'on peut vraiment aller jusqu'à la décharge
+complète de la batterie sans avoir à se préoccuper d'endommager la
+batterie. Sans cet artifice, il faut mettre une marge aux 2.7V pour
+être sûr qu'aucune cellule ne passe pas en dessous des 2.7V, car
+chaque cellule ne se décharge pas de la même vitesse. Donc une plus
+grande autonomie de la batterie sans risque de l'endommager. 
+
+Cet élément est fixé sur la tige de la selle et peut être enlever très
+facilement pour ne pas se le faire voler. Comme l'affichage de la
+tension de chaque cellule est faite par des indicateurs 7 segments, on
+utilisera la lumière émise par ce dernier pour en faire un phare
+arrière. Donc une pierre deux coups! 
+
+Câblage
+^^^^^^^
+
+Connecteur DB-25
+''''''''''''''''
+La pin 1 est utilisée plusieurs fois car sinon un connecteur DB-37
+aurait dû être utilisé qui serait trop encombrant. Nombre de fil d'une
+batterie 6s sur le connecteur d'équilibrage est de 7 fils. D'où 4 x 7
+= 28 fils.
+
