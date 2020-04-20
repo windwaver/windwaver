@@ -16,6 +16,10 @@ Nbre de dents : 400 dents
 Fabrication poulie en PLA
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. image:: /figures/par_Imp3D_Poulie.png
+    :scale: 50 %
+    :align: center
+
 La poulie sera d'un diamètre plus grand par rapport au modèle
 précédent. Ceci est possible grâce à la roue dotée de frein à
 disque. En effet, les freins en caoutchouc ne permettait pas à fixer
