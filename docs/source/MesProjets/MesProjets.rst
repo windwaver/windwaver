@@ -13,6 +13,110 @@ Poulie Crantée Imprimée
 Matière : PLA Imprimée en 3D
 Nbre de dents : 400 dents
 
+Fabrication poulie en PLA
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La poulie sera d'un diamètre plus grand par rapport au modèle
+précédent. Ceci est possible grâce à la roue dotée de frein à
+disque. En effet, les freins en caoutchouc ne permettait pas à fixer
+la poulie directement sur la surface de freinage.
+Un diamètre plus grand de la nouvelle poulie en plastique, permettra, en conservant
+le même rapport de transmission, une poulie moteur plus grande. Cela
+impliquera moins de courbure de la courroie et améliorera ainsi la
+durée de vie et un meilleur roulement donc moins de bruit, je pense.
+
+Calculs préliminaires
+'''''''''''''''''''''
+
+Détermination du diamètre de la roue arrière et du diamètre de
+l'ancienne poulie déjà imprimée.
+Cette opération sert à déterminer le facteur de rétrécissement du
+plastique. On appliquera ce facteur lors de la modélisation de la
+nouvelle poulie sur le diamètre de l'épaulement de centrage.
+
+- Mesures
+  
+Mesuré avec bande de papier largeur 30mm.
+
+circonférence roue vélo : 1990mm
+circonférence poulie crantée plastique : 1916mm 
+
+- Calcul diamètres
+
+
+diamètre roue vélo : 1990/3.14 = 633.8mm
+diamètre poulie crantée plastique : 1916/3.14 = 610.2mm
+
+- Calcul du facteur de rétrécissement
+
+
+diamètre du modèle = 612.1mm
+
+facteur = 610.2/612.1 = 0.996
+
+- Calcul du diamètre de l'épaulement de centrage avec facteur de rétrécissement
+
+
+633.8/0.996 = 636.3mm
+
+On constate qu'il faudra rajouter 2.5mm au diamètre de l'épaulement de
+centrage.
+
+ajoutons encore un jeux de 0.5mm -> 636.8mm
+
+Résultats
+'''''''''
+
+- 1er essai
+
+
+Après avoir fait tous les segments et emboité tous ces derniers pour
+former la couronne entière, on constate un jeux d'environ 2mm entre la
+roue et l'épaulement de centrage. (sur le rayon). 
+
+calculons le nouveau diamètre de centrage :
+
+nous avions 636.8mm
+enlevons 4mm au diamètre ce qui fait 632.8mm
+
+- 2ème essai
+
+
+Après avoir réimprimé une poulie entière avec 4mm de moins sur le
+diamètre, le deuxième essai à l'air d'être ok. Un léger jeux persiste
+mais est minime. Pour le pointage on calera avec du scotch de
+carrrosier jusqu'à ce que la poulie ne présente plus de jeux. Pour ma
+roue j'ai utiliser deux couches de scotch de carrossier. (bande de 2cm
+deux par segment)
+
+Montage de la poulie sur la roue
+''''''''''''''''''''''''''''''''
+
+- Pointage
+
+.. warning::
+  Il faut placer la poulie en quinquonce sur la jonction de la jante
+  forgée. Car au niveau de la jonction il y une grande épaisseur de
+  matière, donc impossible à vis les vis à cet endroit là.
+
+Serrer avec 4 clamps (4 x 90degrés). Pour le pointage il faut prendre
+une mêche à centrer diam. 3.5mm. 
+Attention avec le frottement la mêche à centrer chauffe et fait fondre
+le plastique. 
+
+- Perçage
+
+Utiliser une mêche de diamètre 2.7mm (2.5mm trop gros j'ai cassé une
+vis en la serrant trop fort)
+
+Fixation
+''''''''
+
+Les têtes de vis ont touchés le cadre du vélo. J'ai dû faire des
+lamages profondeur 1.5mm pour noyer la tête de la vis. Je pense que si
+c'était à refaire, il faut faire des lamages de 2mm (impression 3D) et
+utiliser des vis inox diam 3.5 lg 22mm.
+
 
 Moteur
 ------
@@ -34,6 +138,13 @@ Fixation Moteur
 C'est un L plié en aluminium d'épaisseur 3mm avec deux tôles
 d'épaisseur 2mm soudés sur les cotés pour rigidifier le tout. 
 
+Clavette
+^^^^^^^^
+
+Elle a pour but de garantir l'alignement de la poulie du moteur par
+rapport à la poulie de la roue. Elle facilite le montage - démontage
+car la clavette n'a pratiquement pas de jeux. 
+
 Rondelle Epaisse Moteur
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -48,7 +159,7 @@ d'épaisseur de 1mm et juste collé avec du mastique.
 Courroie Crantée
 ----------------
 
-2100mm de longueur
+GT3 5mm 2100mm de longueur, 9mm de largeur
 Achetée chez Uiker
 
 Tendeur Courroie
