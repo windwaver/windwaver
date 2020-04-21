@@ -16,18 +16,21 @@ Nbre de dents : 400 dents
 Fabrication poulie en PLA
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /figures/par_Imp3D_Poulie.png
+.. image:: /MesProjets/figures/par_Imp3D_Poulie.png
     :scale: 50 %
     :align: center
 
 La poulie sera d'un diamètre plus grand par rapport au modèle
 précédent. Ceci est possible grâce à la roue dotée de frein à
-disque. En effet, les freins en caoutchouc ne permettait pas à fixer
-la poulie directement sur la surface de freinage.
-Un diamètre plus grand de la nouvelle poulie en plastique, permettra, en conservant
-le même rapport de transmission, une poulie moteur plus grande. Cela
-impliquera moins de courbure de la courroie et améliorera ainsi la
-durée de vie et un meilleur roulement donc moins de bruit, je pense.
+disque. En effet, les freins "patins" en caoutchouc ne permettait pas
+à fixer la poulie directement sur la surface de freinage. 
+Un diamètre plus grand de la nouvelle poulie en plastique, permettra,
+en conservant le même rapport de transmission, une poulie moteur plus
+grande. Cela impliquera moins de courbure de la courroie et améliorera
+ainsi la durée de vie et un meilleur roulement donc moins de bruit, je
+pense. (il s'est avéré après montage, que la courroie est juste assez
+longue pour la nouvelle poulie et ne laissait plus de marge à prendre
+une poulie moteur plus grande) 
 
 Calculs préliminaires
 '''''''''''''''''''''
