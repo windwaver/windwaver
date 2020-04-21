@@ -17,7 +17,7 @@ Fabrication poulie en PLA
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: /MesProjets/figures/par_Imp3D_Poulie.png
-    :scale: 50 %
+    :scale: 30 %
     :align: center
 
 La poulie sera d'un diamètre plus grand par rapport au modèle
@@ -113,7 +113,7 @@ le plastique.
 
 - Perçage
 
-Utiliser une mêche de diamètre 2.7mm (2.5mm trop gros j'ai cassé une
+Utiliser une mêche de diamètre 2.7mm (2.5mm trop petit j'ai cassé une
 vis en la serrant trop fort)
 
 Fixation
@@ -150,7 +150,8 @@ Clavette
 
 Elle a pour but de garantir l'alignement de la poulie du moteur par
 rapport à la poulie de la roue. Elle facilite le montage - démontage
-car la clavette n'a pratiquement pas de jeux. 
+car la clavette n'a pratiquement pas de jeux. Elle est goupillée à la
+**Fixation Moteur** à l'aide de deux **Goupilles**. 
 
 Rondelle Epaisse Moteur
 ^^^^^^^^^^^^^^^^^^^^^^^
