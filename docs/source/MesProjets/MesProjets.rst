@@ -354,8 +354,44 @@ XT30 Mâle**.
 Fabriqué avec une imprimante 3D. Il contient les 4 **Batteries Lipo 6s
 6000mAh**, dont deux jeux de batteries en série branchées en
 parallèle. Ce qui génère une tension de 42V et une capacité de 
-12Ah ou 540Wh (ça déchirre quoi!) 
+12Ah ou 540Wh (ça déchirre quoi!)
 
+Couplage Batterie
+^^^^^^^^^^^^^^^^^
+Cette pièce sert à maintenir les **Connecteur XT30 Femelle** ainsi que
+le **Connecteur DB-37 femelle** qui sont reliés aux 4 **Batteries Lipo
+6s 6000mAh**.
+
+Méthode pour connecter les Batteries aux différents connecteur
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#. on perce les trous dans les 4 **Connecteur XT-30 Femelle** avec une
+   mêche de 1mm en prenant le **Couplage Batterie** comme office de
+   gabarit de perçage (il faudrait avoir une mêche spécialement longue
+   pour cette opération, mais si l'on tourne la mêche avec une pince
+   cela fait moins mal aux doigts)
+#. on coupe à raz les fils d'équilabrage des tensions
+#. on met une gaine thermo de diamètre 2mm intérieur et de longueur
+   6mm
+#. on dénude et on soude
+#. on isole avec la gaine thermo préalablement enfilée, la partie
+   soudée 
+#. on répète ceci pour toutes les 4 Batteries
+#. on coupe le gros conducteur ici sur du 12awg à raz le connecteur
+   XT-60
+#. on dénude à 40mm
+#. on enlève deux torons (on en garde 6 sur 8)
+#. à l'extrémité, on garde 1.5 toron sur 8mm (c'est le bon diamètre
+   pour l'enfiler dans le **Connecteur XT-30 Femelle**
+#. on passe une gaine thermo de 40mm et la passe par dessus la grosse
+   isolation en silicone du gros cable de la batterie tout en laissans
+   dépasser les 1.5 torons de 8mm.
+#. on serre la gaine au foehn industriel
+#. on passe une gaine thermo de longueur de 12mm sur les 6 torons
+#. on passe dans le **Couplage Batterie**
+#. on soude sur le **Connecteur XT-30 Femmelle**
+#. on passe la gaine thermo de 12mm de longueur sur la partie soudée
+   et on la serre au foehn industriel
+   
 Batteries Lipo 6s 6000mAh
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Achetée chez Aliexpress 6S 6000mAh 30C poids 940g dimensions :
