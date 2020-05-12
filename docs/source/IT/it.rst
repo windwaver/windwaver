@@ -150,9 +150,10 @@ dans fichier .emacs.
 Pour que les fichiers effacés en mode dired aillent dans la Corbeille
 de Windows
 
-Placé ce code dans le .emacs :
+Placer ce code dans le ``.emacs`` :
 
 ::
+   
    (setq delete-by-moving-to-trash t)
 
 
