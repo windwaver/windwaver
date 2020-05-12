@@ -69,10 +69,11 @@ Pour éditer le .emacs ou le créer au bon emplacement
 
 ::
    
-  C-f ~/.emacs
+  C-x-f ~/.emacs
+  
   
 Pour ne pas être embêté par l'affichage des accents
----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Je préfère encoder en ``UTF-8``. Pour cela j'insère ce bloc de code
 dans le .emacs.
 
@@ -84,11 +85,11 @@ dans le .emacs.
   (set-language-environment 'utf-8)
   (prefer-coding-system 'utf-8)
 
-Si le défaut persiste, on peut essayer les méthodes suivante pour 
+Si le défaut persiste, on peut essayer les méthodes suivantes pour 
 enlever remettre les accents.
 
 Méthode 1
-^^^^^^^^^
+'''''''''
 
  1. renommer le fichier en .txt
  2. rouvrir ce dernier avec ``Emacs``
@@ -102,7 +103,7 @@ et pas dans le pdf. Il faut alors faire le racourci clavier suivant~:
 ``C-x RET f codage RET`` et choisir ``latin-1``.
 
 Méthode 2
-^^^^^^^^^
+'''''''''
 
 1) ::
 
@@ -111,7 +112,7 @@ Méthode 2
 2) choisir utf-8 ou latin-1
    
 Méthode 3
-^^^^^^^^^
+'''''''''
 
 Si des accents s'affichent dans TeXworks malgré tous les packages et
 l'encodage UTF-8 réglés correctement (cela m'ai arrivé lors d'un
@@ -123,7 +124,8 @@ copier-coller du contenu de Outlook dans emacs.)
 Cela devrait fonctionner.
 
 Méthode 4
-^^^^^^^^^
+'''''''''
+
 You can also mark the entire file with C-x h and then try M-x
 recode-region. It will ask you for Text was really in and But was
 interpreted as. For the first file in your question, it looks like it
@@ -135,7 +137,7 @@ file with using M-x set-buffer-file-coding-system (or C-x C-m f for
 short).
 
 copier/coller sans toujours à répondre à la même question du coding
--------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pour pouvoir copier/coller depuis windows et pour pas que emacs
 demande à chaque fois le format du coding, insérer la ligne suivante
@@ -144,6 +146,15 @@ dans fichier .emacs.
 ::
    
   (setq selection-coding-system 'compound-text-with-extensions)
+
+Pour que les fichiers effacés en mode dired aillent dans la Corbeille
+de Windows
+
+Placé ce code dans le .emacs :
+
+::
+   (setq delete-by-moving-to-trash t)
+
 
 Raccourcis clavier
 ------------------
