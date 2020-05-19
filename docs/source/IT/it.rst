@@ -601,6 +601,15 @@ Voir le résultat compilé avec xelatex avec TeXworks)
 Cropper automatiquement un pdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Pour enlever le blanc autours d'une figure, utiliser
+|pdfcrop|. Selectionner automatique pour vraiment enlever tout le
+blanc autours d'une figure. L'inconvénient est qu'il y aura plus de
+marge entre le texte et la figure, il faudra insérer une ligne vide.
+
+.. |pdfcrop| raw:: html
+			      
+   <a href="https://pdfresizer.com/crop"
+   target="_blank">le service en ligne pdfresizer</a>
 
 	    
 Redessiner sur un pdf :
