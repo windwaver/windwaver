@@ -583,8 +583,8 @@ Pour créer des figures pstricks j'utilise emacs pour compiler en
 xelatex et TeXworks pour voir le résultat compilé en mettant la fenêtre
 texwork à côté de celle de emacs.
 
-Pour ouvrir le pdf avec TeXworks (compilé avec xelatex)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Voir le résultat compilé avec xelatex avec TeXworks)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. clique droit sur le pdf
 #. ouvrir avec
@@ -597,8 +597,13 @@ Pour ouvrir le pdf avec TeXworks (compilé avec xelatex)
    .. image:: /IT/figures/pstrick_xelatex.png
     :scale: 80 %
     :align: center
+
+Cropper automatiquement un pdf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 	    
-Redessiner Sur un pdf :
+Redessiner sur un pdf :
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 1) convertir le pdf en .eps dans une console Unix en tapant :
@@ -1186,8 +1191,28 @@ pdf en svg
 
    <a href="https://convertio.co/fr/"
    target="_blank">ici</a>
+
+		
+Insérer une ligne vide
+^^^^^^^^^^^^^^^^^^^^^^
+
+Utile par exemple quand on insère une figure croppée automatiqueemnt
+(pas de marge blanche autours de la figure).
+
+::
    
-	       
+  .. # define a hard line break for HTML
+  .. |br| raw:: html
+
+   <br />
+
+Mettre à l'emplacement où l'on veut avoir une ligne blanche :
+
+::
+
+   |br|
+
+
 Surbrillance d'un texte
 ^^^^^^^^^^^^^^^^^^^^^^^
 
