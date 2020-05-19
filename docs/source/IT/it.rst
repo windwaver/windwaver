@@ -594,7 +594,7 @@ Pour ouvrir le pdf avec TeXworks (compilé avec xelatex)
 #. en compilant avec C-c-c, la fenêtre TeXworks se rafraîchit
    automatiquement
 
-   .. image:: /IT/figures/pstrick_xelatex.PNG
+   .. image:: /IT/figures/pstrick_xelatex.png
     :scale: 80 %
     :align: center
 	    
