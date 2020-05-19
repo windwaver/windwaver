@@ -1197,7 +1197,8 @@ Insérer une ligne vide
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Utile par exemple quand on insère une figure croppée automatiqueemnt
-(pas de marge blanche autours de la figure).
+(pas de marge blanche autours de la figure). Ainsi le texte ne sera
+pas trop de la figure.
 
 ::
    
