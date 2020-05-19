@@ -518,7 +518,6 @@ Compilation
 .. _Compilation avec XeLaTeX depuis emacs:
 
 
-
 Compilation avec XeLaTeX depuis emacs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 J'utilise souvent cette méthode pour compiler une figure dessinée par
@@ -529,7 +528,11 @@ psTricks qui produit directement un pdf.
         M-x menu bar-mode
     
 2) Command -> TeXing Options -> Use XeTeX engine
-   
+
+ou simplement :
+
+C-c-c tab et sélectionner xelatex
+
 
 LaTeX
 =====
@@ -573,11 +576,30 @@ script) -shell-escape après la commande
 latex. (ex. latex -shell-escape 1.tex)
 
 
-Redessiner sur une image / figure avec psTricks
------------------------------------------------
+Figure psTricks
+---------------
 
-Sur un pdf :
-^^^^^^^^^^^^
+Pour créer des figures pstricks j'utilise emacs pour compiler en
+xelatex et TeXworks pour voir le résultat compilé en mettant la fenêtre
+texwork à côté de celle de emacs.
+
+Pour ouvrir le pdf avec TeXworks (compilé avec xelatex)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. clique droit sur le pdf
+#. ouvrir avec
+#. TeXworks - a graphical user interface to the typesetting system TeX
+   and its extensions
+#. placer la fenêtre à coté de celle de emacs
+#. en compilant avec C-c-c, la fenêtre TeXworks se rafraîchit
+   automatiquement
+
+   .. image:: /IT/figures/pstrick_xelatex.PNG
+    :scale: 80 %
+    :align: center
+	    
+Redessiner Sur un pdf :
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 1) convertir le pdf en .eps dans une console Unix en tapant :
    ::
