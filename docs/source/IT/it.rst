@@ -1152,7 +1152,20 @@ fichier ``index.rst``
        :scale: 80 %
        :align: center
       
+Image svg
+'''''''''
 
+Pour avoir une image non pixelisée, le format svg peut être utilisé.
+
+J'utilise l'adresse suivante (cliquer |svg|) pour convertir le format
+pdf en svg 
+
+ .. |svg| raw:: html
+
+   <a href="https://convertio.co/fr/"
+   target="_blank">ici</a>
+   
+	       
 Surbrillance d'un texte
 ^^^^^^^^^^^^^^^^^^^^^^^
 
