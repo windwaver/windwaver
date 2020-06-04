@@ -546,29 +546,35 @@ Installation LaTex, Emacs et auxtex sous Linux
    a. télécharger le .iso
    b. copier les dossiers sur le bureau
    c. écrire dans un terminal :
+      
       ::
 	 perl install-tl
 
    d. I
    e. ``etc/environement``, modifier le fichier pour que ça ressemble
       à ceci :
+      
       ::
 	 PATH="/usr/local/texlive/2016/bin/i386-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games" 
 	 MANPATH="/usr/local/texlive/2016/texmf/doc/man"
 	 INFOPATH="/usr/local/texlive/2016/texmf/doc/info"
+	 
    .. note::
       changer si nécessaire 2016
+      
 2. installer emacs avec le synaptique
 
 #. installer auxtec avec le synap
 #. copier .emacs dans yd
-#. pour que auxtex et emac communique entre eux, il faut rajouter 
-  ces lignes dans le .emacs (si pas déjà fait)~:
+#. pour que auxtex et emac communique entre eux, il faut rajouter ces
+   lignes dans le .emacs (si pas déjà fait)~: 
+  
   ::
     (require 'tex-site)
     (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
     (setq reftex-plug-into-AUCTex t)
     (global-font-lock-mode t)
+    
 Tout ceci est tirer du site
 https:\\www.math.purdue.edu/~dvb/xdvi.html pour que le script pour la 
 conversion des Figures PSTicks fonctionne, il faut rajouter (dans le
@@ -1205,7 +1211,7 @@ pdf en svg
 Insérer une ligne vide
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Utile par exemple quand on insère une figure croppée automatiqueemnt
+Utile par exemple quand on insère une figure croppée automatiquement
 (pas de marge blanche autours de la figure). Ainsi le texte ne sera
 pas trop de la figure.
 

@@ -10,8 +10,16 @@ Partie Mécanique
 Poulie Crantée Imprimée 
 -----------------------
 
+Version A
+^^^^^^^^^
 Matière : PLA Imprimée en 3D
 Nbre de dents : 400 dents
+
+Version B
+^^^^^^^^^
+
+
+
 
 Fabrication poulie en PLA
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,16 +136,31 @@ utiliser des vis inox diam 3.5 lg 22mm.
 Moteur
 ------
 
+Version A
+^^^^^^^^^
 Hacker A60-18L
 148 kV
 12S
 
+Version B
+^^^^^^^^^
+.. image:: figures/Motor_120KV.JPG
+    :width: 500
+    :align: center
+
 Poulie Crantée Moteur
 ---------------------
 
+Version A
+^^^^^^^^^
 20 dents
 Achetée chez Uiker
 
+Version B
+^^^^^^^^^
+.. image:: figures/Poulie_Poly_Chain_8M-12.JPG
+    :width: 500
+    :align: center
 
 Fixation Moteur
 ---------------
@@ -346,6 +369,9 @@ Acheté chez Conrad avec les références suivantes :
 Bloc de Batteries
 -----------------
 
+Version A
+^^^^^^^^^
+
 La fonction de cet élément est de tenir et de protéger les 4
 **Batteries Lipo 6s 6000mAh**   
 Il possède une **Plaque de Connexion Mâle**, munie de 4 **Connecteurs
@@ -355,6 +381,13 @@ Fabriqué avec une imprimante 3D. Il contient les 4 **Batteries Lipo 6s
 6000mAh**, dont deux jeux de batteries en série branchées en
 parallèle. Ce qui génère une tension de 42V et une capacité de 
 12Ah ou 540Wh (ça déchirre quoi!)
+
+Version B
+^^^^^^^^^
+.. image:: figures/Batterie_Tatoo_12s_16AhPNG.JPG
+    :width: 500
+    :align: center
+
 
 Couplage Batterie
 ^^^^^^^^^^^^^^^^^
