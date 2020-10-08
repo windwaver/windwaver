@@ -59,6 +59,19 @@ Le %0A est pour insérer un retour à la ligne
 emacs
 =====
 
+Insatallation
+-------------
+
+#. Installer MiKTteX (développer...)
+#. Installer emacs
+   #. Prendre la dernière version du site officiel (le .zip)
+   #. Dézipper
+   #. M-x package-install
+   #. choisir auctex
+   #. C-x C-f ~/.emacs (cela créera le .emacs au bon endroit)
+   #. copier ses lignes préférées dans celui-ci   
+
+
 .emacs
 ------
 Le nom de ce fichier n'a pas de préfixe, il a juste un suffixe
@@ -70,12 +83,21 @@ Pour éditer le .emacs ou le créer au bon emplacement
 ::
    
   C-x-f ~/.emacs
-  
+
+Pour envoyer les choses deletée à la poubelle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cela permet de récupérer les fichiers ou répertoire effacés par
+mégarde.
+
+::
+   
+  (setq delete-by-moving-to-trash t)
+
   
 Pour ne pas être embêté par l'affichage des accents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Je préfère encoder en ``UTF-8``. Pour cela j'insère ce bloc de code
-dans le .emacs.
+dans le .emacs
 
 ::
 
@@ -114,8 +136,8 @@ Méthode 2
 Méthode 3
 '''''''''
 
-Si des accents s'affichent dans TeXworks malgré tous les packages et
-l'encodage UTF-8 réglés correctement (cela m'ai arrivé lors d'un
+Si des accents s'affichent dans TeXworks malgré tous les packages et 
+l'encodage UTF-8 réglés correctement (cela m'est arrivé lors d'un
 copier-coller du contenu de Outlook dans emacs.)
 
 1) copier le contenu du fichier.tex dans un bloc note
