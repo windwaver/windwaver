@@ -64,7 +64,8 @@ Insatallation
 
 #. Installer MiKTteX (développer...)
 #. Installer emacs
-   #. Prendre la dernière version du site officiel (le .zip)
+   
+   a. Prendre la dernière version du site officiel (le .zip)
    #. Dézipper
    #. M-x package-install
    #. choisir auctex

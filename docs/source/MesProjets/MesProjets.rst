@@ -4,6 +4,12 @@ Mes Projets
 eBike
 *****
 
+.. raw:: html
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/Vc5kHuZoNoM" frameborder="0"
+    allowfullscreen></iframe>
+
 Partie Mécanique
 ================
 
@@ -560,6 +566,23 @@ aurait dû être utilisé qui serait trop encombrant. Nombre de fil d'une
 batterie 6s sur le connecteur d'équilibrage est de 7 fils. D'où 4 x 7
 = 28 fils.
 
+Solar Tracker
+*************
+
+.. raw:: html
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/mxfS1FFBtw0" frameborder="0"
+    allowfullscreen></iframe>
+
+e-Foil
+******
+
+.. raw:: html
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/up6nGq6eJy8" frameborder="0"
+    allowfullscreen></iframe>
 
 
 
