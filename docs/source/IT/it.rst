@@ -624,7 +624,7 @@ Voir le résultat compilé avec xelatex avec TeXworks)
    automatiquement
 
    .. image:: /IT/figures/pstrick_xelatex.png
-    :scale: 80 %
+    :width: 500
     :align: center
 
 Cropper automatiquement un pdf
@@ -706,7 +706,144 @@ pour modifier les marges.
 
      \usepackage{nopageno}
 
-   
+Regex
+=====
+
+Java Script
+-----------
+
+caractère seul
+
+- \d -> 0-9 \D -> pas des chiffres
+- \w -> A-Z a-z 0-9  \W -> pas des lettres ni des chifres
+- \s -> espace, tabulation  \S tout sauf des espaces
+- . -> n'importe quel caractère
+
+Quantificateur
+
+- \* -> 0 ou plus
+- \+ -> 1 ou plus
+- ? -> 0 ou un seul
+- {min,max} -> entre min et max fois
+- {n} -> n fois
+- ? si appairé avec un quantificateur alors ce ne sera pas
+  gridy. gridy veut dire qui prendre la plus grande correspondance
+  
+Exemple pour Gridy :
+
+.. image:: /IT/figures/Regex_gridy1.PNG
+       :width: 500
+       :align: center
+	       
+pour enlever le gridy :
+
+.. image:: /IT/figures/Regex_not_gridy.PNG
+       :width: 500
+       :align: center
+
+
+Position
+
+^ -> début de ligne
+$ -> fin de ligne
+\b -> word boundery
+
+Exemple pour \b :
+
+.. image:: /IT/figures/RegexWordBoundery1.PNG
+       :width: 500
+       :align: center
+.. image:: /IT/figures/RegexWordBoundery2.PNG	   
+       :width: 500
+       :align: center
+
+Classe de caractère
+
+[abc] -> soit un a un b ou un c
+[-.] -> le point n'est pas un charactère meta mais un point litéral
+(car il est compris dans une classe)
+on échappera avec \ si l'on veut un point litéral et qu'il n'est pas
+dans une classe.
+
+"-" si il est au début de la classe il sera pris commme
+un trait d'union litéral. Par-contre s'il est au centre de par exemple
+[a-d] il sera interpréter comme un interval ici a ou b ou c ou d
+"^" s'il est au début alors ça inverse, par exemple [^a-c] alors tous
+les autres caractères seront pris sauf a,b,c.
+
+
+Exemple :
+
+.. image:: /IT/figures/Regex1.PNG
+       :width: 500
+       :align: center
+
+
+Altération
+
+(net|com) si on veut "net" ou "com"
+
+Groupe
+
+.. image:: /IT/figures/Regex_group.PNG
+       :width: 500
+       :align: center
+
+on appellera $1 $2 suivant qu'il y plusieurs groupe $0 représente tout
+ce qui a été trouvé
+
+Back Reference
+
+.. image:: /IT/figures/Regex_Back_Reference.PNG
+       :width: 500
+       :align: center
+
+Implémentation de Regex dans Java Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+variable string:
+
+var s = "hello"
+
+variable regex :
+
+var r = /hello/
+
+.. image:: /IT/figures/Regex_test.PNG
+       :width: 500
+       :align: center
+
+Flags :
+
+g pour global
+
+/\d{3}/g
+
+i pour case insensitive
+
+match :
+
+.. image:: /IT/figures/Regex_match.PNG
+       :width: 500
+       :align: center
+
+match construit un array avec g, mais si la regex comporte un groupe
+() alors si le flag g est présent le groupe ne sera pas mis dans l'array	     
+
+.. image:: /IT/figures/regex_match_group.PNG
+       :width: 500
+       :align: center
+
+pour que même le groupe soit pris dans l'array, il faut utiliser
+r.exec(s) et faire une boucle::
+
+
+  var results;
+  while (results=r.exec(s){
+  createP(results[1]);
+  }
+
+
 bash
 ====
 Echo
@@ -1415,8 +1552,25 @@ Ce qui donnera :
       <iframe width="560" height="315"
       src="https://www.youtube.com/embed/UaIvrDWrIWM" frameborder="0"
       allowfullscreen></iframe>
-    
-		    
+
+Pour insérer des formules mathématiques
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Normalement, on peut inclure des maths avec ``:math:`code LaTeX```
+ou alors avec ``.. math:: code LaTeX sur une seule ligne``
+
+.. code-block:: rst
+		
+  .. math::
+
+     a^2
+     
+Ce qui donne :
+
+.. math::
+
+   a^2
+
 Création du document pdf
 ------------------------
 
@@ -1472,6 +1626,71 @@ Divers liens utiles
 
    <a href="http://docutils.sourceforge.net/rst.html"
    target="_blank">docutils.sourceforge</a>
+
+Java Script
+===========
+
+Coté client
+-----------
+
+Pour développer un script, il faut utiliser Visual Studio et
+installer l'extension Live Server. Ensuite ouvrir le répertoire et
+clique droite sur le fichier index.html qui contient le script et open 
+with live server.
+
+Pour que la page se rafraichisse automatiquement dans le browser, il 
+faut mettre dans Visual Studio Code un délais à 600ms à Autosave.
+
+Sever Side
+----------
+
+How to install node.js
+^^^^^^^^^^^^^^^^^^^^^^
+
+Without amin rights : 
+
+https://medium.com/@github.gkarthiks/how-to-install-nodejs-and-npm-in-non-admin-access-windows-machines-102fd461b54c
+
+
+install that so it doesn't need to restart the sever always:
+
+- npm install -g nodemon
+
+Then enter :
+
+- nodemon index.js
+
+React
+-----
+
+L'installation a réussi à dans le répertoire xxxxx_y, dans le
+répertoire formation cela échoue.
+
+Pour netoyer après installation rapide voir cette video :
+
+https://www.youtube.com/watch?v=dMH1_YtUTSQ
+  
+Working with .xml
+-----------------
+
+JavaScript Tip: Loading XML Data Using Fetch
+
+https://www.youtube.com/watch?v=0gON4MUdJE8
+
+JavaScript Question: How do I Work with XML Data?
+
+https://www.youtube.com/watch?v=Fkw_OlcLcwE
+
+
+Good videos to learn
+--------------------
+
+
+2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript
+https://www.youtube.com/watch?v=Kw5tC5nQMRY&t=443s
+
+2.4 Saving to a Database - Working with Data and APIs in JavaScript
+https://www.youtube.com/watch?v=xVYa20DCUv0
 
 Read The Docs
 =============
@@ -1798,3 +2017,13 @@ Extraire une bande son
 
 Pour couper (extraire/éditer) une bande son :
 ``Audacity``
+
+PLEX
+----
+
+Remote access
+^^^^^^^^^^^^^
+
+.. image:: /IT/figures/PlexRemoteAccess.png
+       :width: 500
+       :align: center
