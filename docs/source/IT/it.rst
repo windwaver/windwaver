@@ -38,7 +38,15 @@ Impression à l'échelle d'un pdf
 .. image:: /IT/figures/ImpressionAlEchelle3.PNG
     :scale: 80 %
     :align: center
-	       
+
+	    
+Pour effacer un répertoire sous dos
+-----------------------------------
+
+::
+
+   rmdir /s
+
 	    
 MINGW32
 =======
@@ -1663,13 +1671,302 @@ Then enter :
 React
 -----
 
-L'installation a réussi à dans le répertoire xxxxx_y, dans le
-répertoire formation cela échoue.
+L'installation a réussi dans le répertoire xxxxx_y, dans le
+répertoire formation cela échoue. Déplacer le répertoir où l'on veut
+après. 
 
-Pour netoyer après installation rapide voir cette video :
+Pour compiler tapez : ::
+  
+  npm start
+  
+
+Pour nettoyer après installation rapide voir cette video :
 
 https://www.youtube.com/watch?v=dMH1_YtUTSQ
-  
+
+Fichiers de base
+^^^^^^^^^^^^^^^^
+
+Il faut au minimum un fichier ``index.html`` et ``index.js``.
+
+Contenu du fichier ``index.html`` :
+
+.. literalinclude:: /IT/sources/js/react/index.html
+
+
+Contenu du fichier ``index.html`` :
+
+.. literalinclude:: /IT/sources/js/react/index.js
+
+on remarque la ligne
+::
+
+   React from "react"
+
+qui est là pour activer JSX, une combinaison entre html et js.
+::
+   
+   <h1>Hello world!</h1>
+
+est écrit en JSX.
+
+Si l'on veut mettre plusieurs balise html comme ::
+
+  <h1>Hello world!</h1><p>Ceci est un paragraphe</p>
+
+nous devrons les inclure dans un un div ::
+
+  <div><h1>Hello world!</h1><p>Ceci est un paragraphe</p></div>
+
+ReactDOM & JSX
+^^^^^^^^^^^^^^
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=565s
+
+Objective: Fill in the boilerplate React code required to render an
+unordered list (<ul>) to the page. The list should contain 3 list
+items (<li>) with anything in them you want.
+
+HINTS:
+import the libraries you need first
+use one of the libraries to render some JSX to the page
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=1472s
+
+
+.. literalinclude:: /IT/sources/js/react/ReactDOM&JSXPractice/index.js
+
+Functional Components Practice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=1234s
+
+Objectives:
+
+1. Set up the basic React code from scratch
+2. Create a functional component called MyInfo that returns the
+   following UI:
+   
+     a. An h1 with your name
+     b. A paragraph with a little blurb about yourself
+     c. An ordered or unordered list of the top 3 vacaton spots you'd
+        like to visite
+	
+3. Render an instance of that functional component to the browser
+   Extra challenge: learn on your own (Google) how you can add some
+   style to your page.
+   (We will also cover this in an upcoming lesson).
+
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=1472s		     
+
+
+.. literalinclude:: /IT/sources/js/react/FunctionalComponentsPractice/index.js
+
+		    
+Move Components into Seperate Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Il serait bien de mettre les composants dans un répertoire nommé
+components.
+
+.. image:: /IT/sources/js/react/MoveComponentsIntoSeperateFiles/structure.PNG
+       :width: 200
+       :align: center
+
+Un fichier portant le même nom que le composant doit être créé.
+Il devra comporter  import et export
+
+.. literalinclude:: /IT/sources/js/react/MoveComponentsIntoSeperateFiles/MyInfo.js
+
+
+Le fichier index devra importer ce fichier dans le répertoire où il se
+trouve. Noter bien le Nom du composant est précédé par < suivi d'un
+espace />.
+
+.. literalinclude:: /IT/sources/js/react/MoveComponentsIntoSeperateFiles/index.js
+
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=1781s
+
+
+Parent/Child Components
+^^^^^^^^^^^^^^^^^^^^^^^
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=2107s
+
+Voici une structure dont une page internet se définirait :
+
+.. image:: /IT/sources/js/react/ParentChildComponents/structure.PNG
+       :width: 500
+       :align: center
+
+Set up the React app from scratch
+Render an App component (defined in a separate file)
+Inside App, render:
+
+1. A Navbar component
+2. A MainContent component
+3. A Footer component
+
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=2594s
+
+Voici arborescence des fichiers :
+
+.. image:: /IT/sources/js/react/ParentChildComponents/structure2.PNG
+       :width: 200
+       :align: center   
+
+Le fichier  index.js :
+
+.. literalinclude:: /IT/sources/js/react/ParentChildComponents/index.js
+
+Le composant App :
+
+.. literalinclude:: /IT/sources/js/react/ParentChildComponents/App.js
+
+Le composant Header :
+
+.. literalinclude:: /IT/sources/js/react/ParentChildComponents/Header.js
+
+Le composant MainContent :
+
+.. literalinclude:: /IT/sources/js/react/ParentChildComponents/MainContent.js
+
+Le composant Footer :
+
+.. literalinclude:: /IT/sources/js/react/ParentChildComponents/Footer.js
+
+Voici le résultat:
+
+.. image:: /IT/sources/js/react/ParentChildComponents/result.PNG
+       :width: 300
+       :align: center
+
+Todo App - Phase 1
+^^^^^^^^^^^^^^^^^^
+
+- From scratch, initialize the React app
+- Render an <App /> component
+- Create the <App /> component from scratch
+- Have the <App /> component render 3 or 4 checkboxes with paragraphs
+  or spans next to it like you are making a todo list with some
+  hard-coded items on it
+
+Le fichier index.js :
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase1/index.js
+
+Le component App.js : 		    
+		    
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase1/App.js
+
+Le résultat :
+
+.. image:: /IT/sources/js/react/TodoApp-Phase1/result.PNG
+       :width: 300
+       :align: center
+
+Styling React with CSS Classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On placera le fichier style.css à l'endroit suivant :
+
+.. image:: /IT/sources/js/react/StylingReactWithCSS_Classes/structure.png
+       :width: 300
+       :align: center
+
+Le fichier style.css :
+
+.. literalinclude:: /IT/sources/js/react/StylingReactWithCSS_Classes/style.css	       
+
+En JSX on doit utiliser className="..."
+
+Le fichier Header.js :
+
+.. literalinclude:: /IT/sources/js/react/StylingReactWithCSS_Classes/Header.js
+
+Le résultat :
+
+.. image:: /IT/sources/js/react/StylingReactWithCSS_Classes/result.PNG
+       :width: 500
+       :align: center
+	       
+JSX to JavaScript and Back
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Le code suivant n'affichera pas les variables firstName et lastName.
+
+.. literalinclude:: /IT/sources/js/react/JSXtoJavaScriptAndBack/index.js
+
+.. image:: /IT/sources/js/react/JSXtoJavaScriptAndBack/Capture.PNG
+       :width: 300
+       :align: center
+
+Si l'on veut qu'à l'intérieur de JSX, du Java Script soit interprété,
+il faudra faire l'usage d'accolades {}
+
+.. literalinclude:: /IT/sources/js/react/JSXtoJavaScriptAndBack/index2.js
+
+.. image:: /IT/sources/js/react/JSXtoJavaScriptAndBack/Capture2.PNG
+       :width: 200
+       :align: center		    
+
+En ES6 cela donnera:
+
+.. literalinclude:: /IT/sources/js/react/JSXtoJavaScriptAndBack/index3.js
+
+Un autre exemple:
+
+.. literalinclude:: /IT/sources/js/react/JSXtoJavaScriptAndBack/index4.js
+
+Ce qui donnera:
+
+.. image:: /IT/sources/js/react/JSXtoJavaScriptAndBack/Capture3.PNG
+       :width: 300
+       :align: center		    
+
+	       
+Inline Styles with the Style Property
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+si l'on veut mettre du style sur un h1 par exemple on mettra deux accolades
+un pour dire que l'on est dans du java script et l'autre pour dire que
+c'est un objet. Tous les noms qui ont un trait d'union devront être
+modifiés : enlever les traits d'union et mettre une lettre majuscule
+sur le nom qui venait après le trait d'union. Exemples
+background-color devient : backgroundColor. Si la propriété n'a que
+des chiffres on peut enlever les guillemets. Exemple : fontSize: 20
+mais si on veut spécifier l'unité on remettra les guillements :
+fontSize: "20px"
+
+::
+
+  <h1 style={{color:"#FF8C00"},{backgroundColor:}}> ... </h1>
+
+Si beaucoup de style est appliqué, alors il peut être bien de noter
+cela comme suit :
+
+
+::
+   
+   const styles = {
+     color: "#FF8C00",
+     backgroundColor: "#FF2D00",
+     fontSize: 20
+   }
+   
+   <h1 style={styles}> ... </h1>
+
+
+L'inline Styles peut être intéressant lorsque l'on veut quelque chose
+de dynamique. Prenons l'exemple fait plus haut.
+
+.. literalinclude:: /IT/sources/js/react/InlineStylesWithTheStyleProperty/index.js
+   
+
+
 Working with .xml
 -----------------
 
