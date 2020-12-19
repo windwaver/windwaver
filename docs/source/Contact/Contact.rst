@@ -1,7 +1,6 @@
 Contact
 *******
 
-
 email : waverwind@gmail.com
 
 internet : https://windwaver.readthedocs.io/en/latest/index.html

@@ -1423,8 +1423,16 @@ Tapez :
   POUR AFFICHER CECI (un bloc avec du code)
   
 
-Pour créer un lien à l'intérieur d'un document
+Pour créer un lien à l'intérieur d'un document 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+interne à la page ou à une autre page .rst
+
+.. warning::
+
+   Pour que le lien fonctionne il faut bien effacer le répertoire
+   ``build`` avant (rmdir /s build) et refaire une compilation (make html).
+
 
 label (à mettre où l'on veut tomber) :
 
@@ -1927,11 +1935,12 @@ Ce qui donnera:
        :width: 300
        :align: center		    
 
+
 	       
 Inline Styles with the Style Property
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-si l'on veut mettre du style sur un h1 par exemple on mettra deux accolades
+Si l'on veut mettre du style sur un h1 par exemple on mettra deux accolades
 un pour dire que l'on est dans du java script et l'autre pour dire que
 c'est un objet. Tous les noms qui ont un trait d'union devront être
 modifiés : enlever les traits d'union et mettre une lettre majuscule
@@ -1956,17 +1965,351 @@ cela comme suit :
      backgroundColor: "#FF2D00",
      fontSize: 20
    }
-   
+   return(
    <h1 style={styles}> ... </h1>
-
+   ...
+   )
 
 L'inline Styles peut être intéressant lorsque l'on veut quelque chose
 de dynamique. Prenons l'exemple fait plus haut.
 
 .. literalinclude:: /IT/sources/js/react/InlineStylesWithTheStyleProperty/index.js
+
+En testant à différentes heures
+
+::
+
+   const date = new Date(2020,12,16,1,13)
+
+
+.. image:: /IT/sources/js/react/InlineStylesWithTheStyleProperty/Capture.PNG
+       :width: 300
+       :align: center
+
+::
+
+   const date = new Date(2020,12,16,7,28)
+
+
+.. image:: /IT/sources/js/react/InlineStylesWithTheStyleProperty/Capture2.PNG
+       :width: 300
+       :align: center
+
+::
+
+   const date = new Date(2020,12,16,14,47)
+
+
+.. image:: /IT/sources/js/react/InlineStylesWithTheStyleProperty/Capture3.PNG
+       :width: 300
+       :align: center
+
+::
+
+   const date = new Date(2020,12,16,21,16)
+
+
+.. image:: /IT/sources/js/react/InlineStylesWithTheStyleProperty/Capture4.PNG
+       :width: 300
+       :align: center
+
+Todo App - Phase 2
+^^^^^^^^^^^^^^^^^^
+
+Time to have fun styling! But first things first:
+
+1. Change the input/p combo below to be a new component called
+   <TodoItem />. <TodoItem /> (for now) will just have the same
+   displayed data below (every todo item is the same) hardcoded inside
+   of it. (We'll learn soon how to make the TodoItem more flexible)
+
+2. Style up the page however you want! You're welcome to use regular
+   CSS (in the CSS file) or inline styles, or both!   
+
    
+Le component TodoItem :
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase2/TodoItem.js
+
+Le component App :
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase2/App.js
+
+Le fichier index.js :
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase2/index.js
+
+Le fichier style.css :
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase2/style.css		    
+
+		    
+Le résultat :
+
+.. image:: /IT/sources/js/react/TodoApp-Phase2/Capture.PNG
+       :width: 500
+       :align: center
+
+On remarque que l'on a utiliser deux className qui ont été placé dans
+la balise <div>.	       
 
 
+Props in React
+^^^^^^^^^^^^^^
+
+Prenons un exemple d'une page qui a des parties similaires ici nous
+avons des cartes de visite de chat (voir figure ci-dessous),
+comportant chaqu'une une image un nom, un numéro de téléphone et un
+email. Nous pouvons apparenté ces cartes de visite à des components
+avec bien sur des données différentes comme les images, noms
+etc... Vient ici la notion de Props qui sont en fait les différentes
+données que l'on souhaite afficher dans la carte de visite. 
+
+.. image:: /IT/sources/js/react/PropsInReact/Capture.JPG
+       :width: 300
+       :align: center
+
+
+En codant les données "en dur" nous aurons pour le fichier App.js :
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/App.js
+
+On aura très vite compris que s'il y avait un grand nombre de carte le
+fichier App.js deviendrait très grand.
+
+En créant un component ContactCard nous pourrions simplement appeler
+ce component dans App.js autant de fois qu'il y a de carte de visite.
+
+Voici le component ContactCard (dans fichier nommé ContactCard.js) :
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/ContactCard.js
+
+et voici le component App (fichier App.js) :
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/App2.js
+
+		    
+On remarque sur la figure suivante que les données des cartes de
+visites sont toutes identiques. C'est là qu'il nous faut intégrer
+Props dans nos components.
+
+.. image:: /IT/sources/js/react/PropsInReact/Capture2.JPG
+       :width: 300
+       :align: center
+
+A l'instar des functions recevant des variables d'entrée, les
+component recevront les données en entrée.
+
+Pour passer les données au component ContactCard, on procédera de la
+manière suivante :
+
+**Remarque:** on peut mettre les données toutes sur une ligne séparée 
+d'un espace mais il est préférable de les indenter.
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/App3.js
+
+Pour utiliser les données dans le component ContactCard, il faudra
+écrire ::
+
+  function ContactCard(props){
+  ...
+
+  
+A ce moment là les données sont passées au component ContactCard.
+Vérifions avec un console.log :
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/ContactCard2.js 
+
+.. image:: /IT/sources/js/react/PropsInReact/Capture3.PNG
+       :width: 500
+       :align: center  
+
+Etant donné que le component est appelé quatre fois, les quatres
+objets avec leurs propriétés sont retournées.
+
+Maintenant au lieu d'avoir les données codées en dur, mettons les
+données à la place.
+
+::
+
+   <img src=props.imgURL/>
+
+Ceci ne fonctionnera pas car nous sommes dans du JSX, il faut mettre
+enre accolades pour que se soit interprété en JS.
+
+::
+
+   <img src={prop.imgURL}/>
+
+
+Voici le fichier ContactCard.js:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/ContactCard3.js 
+
+
+Admettons maintenant que la liste des contacts serait de 50, la liste
+serait très longue à écrire. On peut alors paser un objet contact avec
+ces propriétés:
+
+::
+
+   <ContactCard
+      contact={{name: "Mr. Whiskerson", imgURL:
+      "http://placekitten.com/300/200", phone: "(212) 555-1234"}}
+      />
+
+Notez bien la double accolade: une pour rentrer dans JS et l'autre
+pour dire que c'est un objet. 
+
+Les données passées ainsi ont bien meilleures allures, mais elles ne
+seront jamais écrite dans ce fichier mais plûtot écrites dans un fichier
+de données comme du JSON.
+
+En passant cet objet contact, il nous faudra adapter le component
+ContactCard:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/ContactCard4.js
+
+		    
+Props and Styling Practice
+''''''''''''''''''''''''''
+
+One LAST time in this course, set up a React app from scratch. Render
+an <App /> component App should be in its oww file. App should render
+5 <Joke /> components. Each Joke should receive a "question" prop and
+a "punchLine" prop and render those however you'd like.
+
+EXTRA CREDIT: Some jokes are only a punch line with no question: E.g.:
+"It's hard to explain puns to kleptomaniacs because they always take
+things literally." If you don't pass in a "question" prop, how might
+you make it only show the punchline instead? Spend time practicing the
+style of your Joke component.
+
+Voici le fichier index.js:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/index.js 
+
+Le fichier App.js:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/App.js
+
+Le fichier Joke.js:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/Joke.js		    
+
+On remarque l'utilisation de
+
+::
+
+  <br/>
+
+pour insérer une ligne vide entre chaque joke. On aurait aussi pû
+utiliser
+
+::
+
+  <hr/>
+
+pour afficher une ligne de séparation  
+
+On remarque où il n'y pas de question la marque Question:
+subsiste. Pour faire disparaître ceci on utilisera la commande
+suivante style et display:
+
+::
+
+   <h3 style={{display: props.question ? "block" : "none"}}>Question:
+   {props.question}<h3/>
+
+un autre moyen (plus difficile à comprendre:
+
+::
+
+   <h3 style={{display: !props.question && "none"}}> Question:
+   {props.question}<h3/>
+
+   
+.. image:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/Capture2.PNG
+       :width: 300
+       :align: center
+
+et le fichier Joke.js:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/Joke2.js
+
+En mettant une couleur grise aux réponses qui ne possèdent pas de
+question:
+
+.. literalinclude:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/Joke3.js
+
+.. image:: /IT/sources/js/react/PropsInReact/PropsAndStylingPractice/Capture3.PNG
+       :width: 450
+       :align: center		    
+
+	       
+Mapping Components
+^^^^^^^^^^^^^^^^^^
+
+Dans les exemples précédents, les données ont été codées en dur. La
+plupart du temps les données affichée par React proviennent de
+requêtes http par le biais d'API. Ces données sont stockées dans une
+base de données qui sont ensuite exportée dans un fichier JSON. Comme
+nous ne savons pas encore utiliser ces moyens, nous nous servirons des
+données stockées dans un fichier sous forme d'un tableau.
+
+Voici le fichier JokesData.js:
+
+.. literalinclude:: /IT/sources/js/react/MappingComponents/JokesData.js
+
+on note la commande export default JokeData, pour que l'on puisse
+utiliser les données dans App.js
+
+Comment peut-on prendre les données d'un tableau et les convertir en
+nombre de components? Nous allons utiliser une fonction d'ordre
+supérieur dans un tableau:
+
+exemple :
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture.PNG
+       :width: 300
+       :align: center
+
+nous pouvons réduire cette function en array function :
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture1.PNG
+       :width: 300
+       :align: center
+
+Comme nous avons qu'un paramètre en entrée nous pouvons omettre les
+parenthèses :
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture2.PNG
+       :width: 300
+       :align: center
+
+Et comme une arrow function retourne dans tous les cas une valeur on
+peut omettre le mot return et mettre tout sur une ligne.
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture3.PNG
+       :width: 350
+       :align: center
+
+Et voici le résultat:
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture4.PNG
+       :width: 500
+       :align: center
+
+	       
+On remarque que cet function d'ordre supérieur applique sur tous les
+éléments du tableau une multiplication par 2. On remarque aussi que
+map ne modifie pas le tableau original. Il faut donc attribuer le
+résultat à un nouveau tableau (ici doubled)	       
+
+D'autre fonction d'ordre supérieur sont intéressantes à étudier comme
+filter et reduce
+
+   
 Working with .xml
 -----------------
 
