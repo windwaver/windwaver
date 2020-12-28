@@ -1676,6 +1676,114 @@ Then enter :
 
 - nodemon index.js
 
+.. _lienClasse:
+
+Classes
+-------
+
+.. image:: /IT/sources/js/classes/Capture1.PNG
+       :width: 300
+       :align: center
+
+.. image:: /IT/sources/js/classes/Capture2.PNG
+       :width: 300
+       :align: center
+
+Nous retournera 4.
+
+On peut réassigner des nouvelles valeurs :
+
+.. image:: /IT/sources/js/classes/Capture3.PNG
+       :width: 300
+       :align: center
+
+Ici le résultat sera de 3.
+
+On peut aussi déclarer des fonctions dans nos class :
+
+.. image:: /IT/sources/js/classes/Capture4.PNG
+       :width: 300
+       :align: center
+
+.. image:: /IT/sources/js/classes/Capture5.PNG
+       :width: 300
+       :align: center	       
+
+qui retounera : Loud Noise et 3
+
+On peut passer une variable d'entrée Meow :
+
+.. image:: /IT/sources/js/classes/Capture6.PNG
+       :width: 300
+       :align: center
+
+Le résultat : Meow et 3
+
+On peut aussi créer des static function :
+
+.. image:: /IT/sources/js/classes/Capture7.PNG
+       :width: 300
+       :align: center
+
+.. image:: /IT/sources/js/classes/Capture8.PNG
+       :width: 300
+       :align: center
+
+On peut alors accéder à la fonction sans passer par une variable (let)
+
+La fonction get permet de traiter notre objet comme une propriété.
+
+.. image:: /IT/sources/js/classes/Capture9.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/js/classes/Capture10.PNG
+       :width: 300
+       :align: center
+
+voici le résultat :
+
+.. image:: /IT/sources/js/classes/Capture11.PNG
+       :width: 300
+       :align: center
+
+Admettons maintenant que nous voulions appliqué notre class à d'autre
+animaux comme chien, souris et que ces animaux hérite la même classe.
+
+.. image:: /IT/sources/js/classes/Capture12.PNG
+       :width: 400
+       :align: center
+
+Ici Animal est la classe parent et Cat la classe enfant Cat aura
+hérité toutes les propriétés de Animal et on aura mis une autre valeur
+par défault à sound (meow).
+
+Importons la class Cat
+
+.. image:: /IT/sources/js/classes/Capture13.PNG
+       :width: 300
+       :align: center
+
+et appelons cat.makeNoise()
+
+Voici le résultat :
+
+.. image:: /IT/sources/js/classes/Capture14.PNG
+       :width: 400
+       :align: center
+
+Faisons un cat.metaData:
+
+.. image:: /IT/sources/js/classes/Capture15.PNG
+       :width: 300
+       :align: center	       
+
+Résultat :
+
+.. image:: /IT/sources/js/classes/Capture16.PNG
+       :width: 400
+       :align: center
+	       
 React
 -----
 
@@ -2251,7 +2359,7 @@ Mapping Components
 ^^^^^^^^^^^^^^^^^^
 
 Dans les exemples précédents, les données ont été codées en dur. La
-plupart du temps les données affichée par React proviennent de
+plupart du temps les données affichées par React proviennent de
 requêtes http par le biais d'API. Ces données sont stockées dans une
 base de données qui sont ensuite exportée dans un fichier JSON. Comme
 nous ne savons pas encore utiliser ces moyens, nous nous servirons des
@@ -2261,20 +2369,21 @@ Voici le fichier JokesData.js:
 
 .. literalinclude:: /IT/sources/js/react/MappingComponents/JokesData.js
 
-on note la commande export default JokeData, pour que l'on puisse
+Ce tableau comporte des éléments qui sont des objets avec trois
+propriétés : id, question et punchline.		    
+
+On note la commande export default JokeData, pour que l'on puisse
 utiliser les données dans App.js
 
 Comment peut-on prendre les données d'un tableau et les convertir en
 nombre de components? Nous allons utiliser une fonction d'ordre
-supérieur dans un tableau:
-
-exemple :
+supérieur dans un tableau. Qu'est que c'est que ça? prenons exemple :
 
 .. image:: /IT/sources/js/react/MappingComponents/Capture.PNG
        :width: 300
        :align: center
 
-nous pouvons réduire cette function en array function :
+nous pouvons réduire cette function en arrow function :
 
 .. image:: /IT/sources/js/react/MappingComponents/Capture1.PNG
        :width: 300
@@ -2301,15 +2410,555 @@ Et voici le résultat:
        :align: center
 
 	       
-On remarque que cet function d'ordre supérieur applique sur tous les
+On remarque que cette function d'ordre supérieur applique sur tous les
 éléments du tableau une multiplication par 2. On remarque aussi que
 map ne modifie pas le tableau original. Il faut donc attribuer le
 résultat à un nouveau tableau (ici doubled)	       
 
 D'autre fonction d'ordre supérieur sont intéressantes à étudier comme
-filter et reduce
+``filter`` et ``reduce``.
+
+En appliquant le même raisonnement à notre tableau dataJokes. Ce que
+nous souhaitons appliquer à tous les éléments de dataJokes, c'est
+d'avoir une ligne comme ressemblant à ceci :
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture5.PNG
+       :width: 500
+       :align: center
+
+et voici donc la commande map qui fait cela :
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture6.PNG
+       :width: 500
+       :align: center
+
+Maintenant nous pouvons mettre ce tableau de components dans React et
+JSX fait cela très bien!
+
+.. literalinclude:: /IT/sources/js/react/MappingComponents/App.js
+
+Et le résultat est identique. On déplore toutefois un avertissement :		    
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture7.PNG
+       :width: 500
+       :align: center
+
+Ceci est dû au mappage du tableau. Il faut inclure une clé (key)
+unique par élément. On aurait pû choisir key=question car on sait
+qu'il n'y aura pas deux questions identiques. Le mot key doit
+obligatoirement être choisi. Dans un fichier data, ily a souvent une
+propriété id (qui est unique) utilisons-la pour notre tableau: 
+
+.. image:: /IT/sources/js/react/MappingComponents/Capture8.PNG
+       :width: 500
+       :align: center
+
+Et voici le fichier final de App.js:
+
+.. literalinclude:: /IT/sources/js/react/MappingComponents/App2.js
+
+Et le component Joke qui n'a pas bougé depuis l'exercie précédent :
+
+
+.. literalinclude:: /IT/sources/js/react/MappingComponents/Joke.js
+
+
+Commme déjà cité plus haut il y a plusieurs méthodes relatif au
+tableau qui sont bons à voir ou à revoir (tapez MDN et la méthode dans
+google):
+
+- filter
+- map
+- sort
+- reduce
+- every
+- some
+- find
+- findindex
+
+Mapping Components Practice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Given a list of products (as an array of objects, as seen in
+vschoolProducts) render a <Product /> component (which you'll also to
+create) for each product in the list.
+
+Make sure to use the array's `.map()` method to create thes
+components, and don't forget to pass a `key` prop to it to avoid the
+warning.
+
+Voici le fichier vschoolProducts.js:
+
+.. literalinclude:: /IT/sources/js/react/MappingComponentsPractice/vschoolProducts.js
+
+Normalement les données du tableau mappé devrait ressembler à ça:
+
+.. image:: /IT/sources/js/react/MappingComponentsPractice/Capture.PNG
+       :width: 500
+       :align: center
+
+c'est-à-dire que nous passions les propriétés de l'objet. On peut
+aussi passer l'objet entier et sortir les propriétés dans le composant
+enfant (ici Product)
+
+Voilà le fichier App.js:
+
+.. literalinclude:: /IT/sources/js/react/MappingComponentsPractice/App.js
+
+*Remarque*: Quand on export des données d'un fichier ici du fichier
+vschoolProducts.js nous l'exportons avec la commande suivante: export
+default products, mais il est possible de l'importer avec un autre
+nom: dans le fichier App nous l'importons avec le nom productsData
+(import productsData from "./vschoolProducts"		    
+	       
+Et le fichier Product.js:
+
+.. literalinclude:: /IT/sources/js/react/MappingComponentsPractice/Product.js
+
+Pour afficher l'unité du prix, on s'est servi de la méthode string.
+
+Le résultat final:
+
+.. image:: /IT/sources/js/react/MappingComponentsPractice/Capture2.PNG
+       :width: 300
+       :align: center
+
+	       
+Todo App - Phase 3
+^^^^^^^^^^^^^^^^^^
+
+Let's practice props and mapping components on our todo list app:
+
+I've created a js file with some todos data in it, which I'm imported
+into this files. (Normally this data would come from an API call, not
+a local file).
+
+Challenge: Using the array map method, render a child component for
+each todo item in the todosData array and pass the relevant data to
+it.
+
+L'exercice est très similaire à l'exercice précédent, j'exposerai
+seulement les fichiers comme résultat. Sauf pour la partie case à
+cocher, j'expliquerai comment coché avec la propriété checked.
+
+Voici le fichier todosData.js:
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase3/todosData.js
+
+Voici le fichier index.js (rien de nouveau dans celui-ci):
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase3/index.js
+
+Voici le fichier App.js:
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase3/App.js
+
+Attention de bien mettre key pour empêcher les doublons.		    
+
+et le fichier TodoItem.js:
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase3/TodoItem.js
+
+On remarque l'utilisation de la propriété checked:
+
+::
+
+   <input type="checkbox" checked={props.item.completed} />
+
+
+Pour afficher un vu suivant props.item.completd fixé par true ou false
+dans le fichier todosData.js. Le navigateur affiche un message
+d'erreur car cela fige la case à cocher (plus de possibilité de cocher 
+ou de décocher manuellement). Mais cela va être résolut par la suite.
+
+Class-based Components
+^^^^^^^^^^^^^^^^^^^^^^
+
+Si l'on veut approfondir avec React, on sera limité par l'utilisation
+des Functional Component. C'est pourquoi nous allons utiliser les
+Class-based Components. Pour l'instant nous allons introduire les
+Class-based Components pour reproduire exactement ce que les fonctions
+peuvent faire. Mais dans les prochaines leçons nous allons découvrir
+que les Class-based Components peuvent faire bien plus, comme States,
+Livecycle Methods. 
+
+Découvrons maintenant comment convertir une Functional Component en
+Class-based Component:
+
+::
+
+   import React from "react"
+
+   function App() {
+      return (
+         <div>
+	    <h1>Code goes here</h1>
+	 <div>
+      )
+   }
+
+pour une Class-based Component, il n'y pas de parenthèses commme pour
+une Functional Component.
+
+::
+
+   class App extends React.Component
+
+
+   export default App
+
+Chaque Class-based Component à besoi d'au moin une méthode et cette
+méthode est la méthode render et cela doit impérativement être écrit
+de la cette manière :
+
+::
+
+   class App extends React.Component {
+      render() {
+
+      }
+   }   
+
+   export default App
+
+ 
+La méthode render va retourner exactement la même chose que ce que
+l'on a pour les Functional Components. Nous pouvons donc copier ce
+qu'il y a dans dans return avec le mot return de la Functional
+Component : 
+
+ ::
+
+   class App extends React.Component {
+      render() {
+         return (
+            <div>
+	       <h1>Code goes here</h1>
+	    </div>
+	 )   
+      }
+   }   
+
+   export default App
 
    
+Cette Class-based Component est identique à la Functional Component.
+
+Voyons maintenant la méthode render(), à chaque fois que l'on désire
+faire une logique d'affichage, comme par expemple l'exercice
+d'affichage du texte en fonction de l'heure que l'on avait fait plus
+haut, le code sera inséré après la méthode render() et avant return :
+
+::
+   
+   class App extends React.Component {
+      render() {
+         const date = new Date();
+         return (
+            <div>
+	       <h1>Code goes here</h1>
+	    </div>
+	 )   
+      }
+   }   
+
+   export default App
+
+L'inline styling pourra aussi y être placé.
+
+On peut créé des méthodes après class et avant render() et les appeler
+après la méthode render() avec this.yourMehodHere():
+
+::
+   
+   class App extends React.Component {
+
+      yourMethodeHere() {
+
+      }
+      
+      render() {
+         const style = this.yourMethodeHere()
+         return (
+            <div>
+	       <h1>Code goes here</h1>
+	    </div>
+	 )   
+      }
+   }   
+
+   export default App
+
+Pour l'utilisation de props on fera précédé le mot props par this. :
+
+::
+   
+   class App extends React.Component {
+
+      yourMethodeHere() {
+
+      }
+      
+      render() {
+         return (
+            <div>
+	       <h1>Code goes here{this.props.whatever}</h1>
+	    </div>
+	 )   
+      }
+   }   
+
+   export default App
+
+
+En ayant l'habitude d'utiliser props dans des functional Component, on
+oubliera vite le mot this. dans une Class-based Component.
+
+
+Class-based Components Practice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pour cette exercice nous allons mettre tous les composants dans un
+même fichier. Normalement, chaque composant est mis dans un fichier
+séparé.
+
+Challenge:
+
+1. Convert all 3 components to be class-based
+2. Fix the small bug
+
+   
+.. literalinclude:: /IT/sources/js/react/Class-basedComponentsPractice/index.js   
+
+Pour convertir une Functional Component en Class-base Component :
+
+1. Remplacer le mot function en class
+#. Enlever les () après le nom de la fonction
+#. Ecrire extends React.Component   
+#. Ecrire render()
+#. Si il y a du code pour styling, etc... le mettre juste après
+   render()
+#. Copier return et son contenu
+#. Si il y a des props, mettre {this.props.whatever}
+
+.. literalinclude:: /IT/sources/js/react/Class-basedComponentsPractice/index2.js
+
+On voit qu'il y un message d'erreur 'props' is not defined. Ceci est
+normal, car dans une class on doit utiliser this.props.whatever
+
+Aussi, il faut passer les données à props
+
+::
+
+   <Header username="windwaver" />
+
+
+Voici le code final:
+
+.. literalinclude:: /IT/sources/js/react/Class-basedComponentsPractice/index3.js
+
+Et le résultat:
+
+.. image:: /IT/sources/js/react/Class-basedComponentsPractice/Capture.PNG
+       :width: 350
+       :align: center
+
+
+State
+^^^^^
+
+Voilà, nous sommes arrivés au point le plus important de React. C'est
+la compréhension de state. State est utilisé pour la gestion des
+données. State permet de modifier les données. La différence entre
+state et props c'est que les données passées à un autre component par
+props ne peuvent être changées, elle sont immuables. State permet
+cela.
+On ne pourra par exemple jamais attribué une valeur à props comme par
+exemple :
+
+.. image:: /IT/sources/js/react/State/Capture.png
+       :width: 350
+       :align: center
+
+	       
+Chaque fois que l'on veut modifier une donnée on devra passer par
+state. Et state ne peut être invoqué que par une Class-based
+Component.
+
+Pour introduire state dans une Class-based Component, il nous faut
+écrire la méthode constructor() une ligne en dessous de class...
+La méthode constructor() est issue du Java Script. Elle initialise la
+class.
+
+Pour se familiariser avec class voir :ref:`lienClasse` ou voir la
+vidéo suivante : 
+
+https://scrimba.com/p/p4Mrt9/cQnMDHD
+
+Ensuite en dessous il nous faut écrire super() cette méthode à
+pour but de tirer quelque goodies de React.Component. Un des goodies
+est la méthode set state() que l'on verra plus loin.
+En dessous de super() on mettra this.state = {} qui est un objet avec
+une propriété que l'on peut appeler dans le Component.
+
+Voici le fichier:
+
+.. literalinclude:: /IT/sources/js/react/State/App.js
+
+et le résultat :
+
+.. image:: /IT/sources/js/react/State/Capture1.png
+       :width: 300
+       :align: center
+
+Le this.state initialise notre state. Le fait particulier de state est
+que l'on peut modifier sa valeur plus tard. On peut passer state à un
+component enfant en invoquant props.
+
+.. literalinclude:: /IT/sources/js/react/State/App2.js
+
+Un truc cool avec state est quand on modifie la variable state tous
+les composant utilisant sa valeurs vont être rafraîchit. Nous verrons
+ceci plus tard avec la commande set state.		    
+
+State Practice
+^^^^^^^^^^^^^^
+
+Challenge:
+
+Given an incomplete class-based component without a constructor, add a
+constructor and initialiye state to fix the brocken component.
+
+.. literalinclude:: /IT/sources/js/react/StatePractice/App.js
+
+.. literalinclude:: /IT/sources/js/react/StatePractice/App2.js		    
+
+
+Et le résultat:		    
+		    
+.. image:: /IT/sources/js/react/StatePractice/Capture.PNG
+       :width: 350
+       :align: center
+		    
+State Practice 2
+^^^^^^^^^^^^^^^^
+
+Given a stateless functional component, add state to it. State should
+have a property called `isLoggedIn` wich is a boolean (true if logged
+in, false if not). Then, give your best shot at rendering the word
+"in" if the user is logged in or "out" if the user is logged out.
+
+.. literalinclude:: /IT/sources/js/react/StatePractice2/App.js		    
+
+voici pour la première partie:
+
+.. literalinclude:: /IT/sources/js/react/StatePractice2/App2.js
+
+pour la dernière partie on utilisera du conditional
+rendering. Attention de bien le placer entre render() et return() :
+
+.. literalinclude:: /IT/sources/js/react/StatePractice2/App3.js
+
+et le résulat :
+
+.. image:: /IT/sources/js/react/StatePractice2/Capture.PNG
+       :width: 300
+       :align: center
+
+
+.. image:: /IT/sources/js/react/StatePractice2/Capture2.PNG
+       :width: 300
+       :align: center
+
+.. image:: /IT/sources/js/react/StatePractice2/Capture3.PNG
+       :width: 300
+       :align: center
+
+.. image:: /IT/sources/js/react/StatePractice2/Capture4.PNG
+       :width: 300
+       :align: center	       
+
+	       
+Todo App - Phase 4
+^^^^^^^^^^^^^^^^^^
+
+In the previous iteration of this todo list app, we pulled in todos
+data from a JSON file and mapped over it to display the todo items.
+Eventually we'll want to be able to modify the data, which will only
+happen if we've "loaded" the data in to the component's state
+
+Challenge: Change the <App /> component into a stateful class
+component and load the imported `todosData` into state.
+
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase4/App.js
+
+en changeant en class:
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase4/App2.js
+
+
+Handling Events in React
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Handling Events sont des événements tel que l'utilisateur déclenchera
+quand il clique sur un élément ou passe la souris sur un élément.
+Vous serez sûrement familié avec le language html qui est le suivant:
+
+::
+
+   <button onclick="myFunction()">Click me</button>
+
+
+Avec React c'est presque la même chose: les événements sont repris du
+Java Script, ils auront une majuscule.Ppour l'évémement de
+ci-dessus cela deviendrait:
+
+::
+
+   onClick
+
+Pour:
+
+::
+
+   onmouseover
+
+cela devient:
+
+::
+
+   OnMouseOver
+
+Ici quelques nom d'événement à réviser:
+
+https://reactjs.org/docs/events.html#supported-events
+
+Voici un code avec un bouton sans événement:
+
+.. image:: /IT/sources/js/react/HandlingEventsInReact/Capture.PNG
+       :width: 300
+       :align: center
+
+Administrons une fonction à l'événement onClick à ce bouton:
+
+.. image:: /IT/sources/js/react/HandlingEventsInReact/Capture2.PNG
+       :width: 400
+       :align: center
+
+et le résultat quant on clique sur le bouton:
+
+.. image:: /IT/sources/js/react/HandlingEventsInReact/Capture3.PNG
+       :width: 400
+       :align: center	       
+
+Ou en appelant la fonction déclarée séparément:
+
+.. image:: /IT/sources/js/react/HandlingEventsInReact/Capture4.PNG
+       :width: 400
+       :align: center
+	  
+
 Working with .xml
 -----------------
 
