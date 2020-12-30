@@ -3144,8 +3144,8 @@ Récapitulons :
    
 #) Une fois que la méthode handleClick a été "bindé", on peut utiliser
    la méthode setState pour soit attribué un objet pour créer une
-   nouvel version de state (sans se préoccupé des versions
-   précédentes)
+   nouvel version de state (sans se préoccupé de la version
+   précédente)
 
    .. image:: /IT/sources/js/react/ChangingState/Capture8.PNG
        :width: 300
@@ -3158,7 +3158,12 @@ Récapitulons :
    .. image:: /IT/sources/js/react/ChangingState/Capture9.PNG
        :width: 300
        :align: center      	       
-   
+
+Cette partie de state est très importante à connaître car elle sera
+utilisée souvent lors des prochaines leçon. Donc effacer tout le code
+et regarder si vous pouvez tous le refaire de tête. C'est le
+meilleure moyens d'en prendre connaissance.
+
 
 Working with .xml
 -----------------
