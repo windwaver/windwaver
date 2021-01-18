@@ -3144,8 +3144,8 @@ Récapitulons :
    
 #) Une fois que la méthode handleClick a été "bindé", on peut utiliser
    la méthode setState pour soit attribué un objet pour créer une
-   nouvel version de state (sans se préoccupé des versions
-   précédentes)
+   nouvel version de state (sans se préoccupé de la version
+   précédente)
 
    .. image:: /IT/sources/js/react/ChangingState/Capture8.PNG
        :width: 300
@@ -3158,7 +3158,370 @@ Récapitulons :
    .. image:: /IT/sources/js/react/ChangingState/Capture9.PNG
        :width: 300
        :align: center      	       
+
+Cette partie de state est très importante à connaître car elle sera
+utilisée souvent lors des prochaines leçons. Donc effacer tout le code 
+et regarder si vous pouvez tout le refaire de tête. C'est le
+meilleure moyens d'en prendre connaissance.
+
+
+Todo App - Phase 6
+^^^^^^^^^^^^^^^^^^
+
+Dans cet exercice, nous allons modifier le code de notre Todo App de
+telle façon que lorsque l'on clique sur une case à cocher, la case
+sera cochée ou décochée. Nous allon en fait modifier le state.
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase6/App.js
+
+Faisons cela dans un ordre quelquonque : toute d'abord faisons un
+console.log à notre méthode handleChange :
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture.PNG
+       :width: 500
+       :align: center      	       
+
+pour tester lorsqu'on clique sur une case l'id est bien affiché.
+Maintenant, faisons les points 2. et 3. :
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture2.PNG
+       :width: 500
+       :align: center      	       
+
+Donc le point 2, dit qu'il faut passer notre méthode handleChange à
+notre composant TodoItem:
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture3.PNG
+       :width: 500
+       :align: center
+
+et maintenant notre TodoItem reçoit notre méthode:
+props.handleChange. Prenez note que la méthode prend id comme
+paramètre et que OnChange reçoit une propriété event. Cela n'est pas
+suffisant d'appeler notre props de cette manière :
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture4.PNG
+       :width: 300
+       :align: center
+
+car onChange ne pas recevoir une propriété event, mais seulement un
+objet event à la place.	       
+
+on insérer une fonction qui émet une propriété event et qui appelle la
+méthode handleChange avec comme paramètre props.item.id.
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture5.PNG
+       :width: 400
+       :align: center
+
+Dans ce cas nous n'allons pas utiliser event on peut donc juste
+l'effacer:
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture6.PNG
+       :width: 400
+       :align: center
+
+Faisons un test en cliquant sur les cases à cocher on voit que l'id
+correspondant s'affiche correctement:
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture7.PNG
+       :width: 150
+       :align: center
+
+Voici le code complet de TodoItem.js:
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase6/TodoItem.js
+
+		    
+Voilà les points 2 et 3 sont achevés. Occupons-nous d'actualisé notre
+state : 	       
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture8.PNG
+       :width: 500
+       :align: center
+
+Cette partie est la plus trickie. Nous devons nous occuper de l'entier
+du tableau, car nous enregistrons notre tableau dans notre state et
+nous ne voulons jamais changer notre state directement, nous ne
+pouvons pas simplement changer l'élément du bon id en flippant sa
+valeur de true à false ou vice versa car cela modifie la version
+original de state. A l'opposé nous allons créer un nouveau tableau en
+conservant tous les éléments à l'exception de l'élément qui passera de
+true à false ou vice versa. Pour ce faire, nous allons utiliser la
+méthode map car comme nous le savons déjà celle-ci retournera un tout
+nouveau tableau.
+
+Donc ce que l'on va d'abord faire c'est utiliser setState avec une
+fonction pour conserver la version originale :
+Nous allons utiliser map pour faire une boucle de notre tableau
+original.
+
+prevState.todos est notre ancienne version de todos. Nous allons
+parcourir tous les éléments de ce tableau avec
+
+::
    
+   todo => {
+     if (todo.id === id)}
+
+et cet id est l'élément que l'on veut basculer.
+
+ensuite nous allons retourner todo pour mettre ce nouveau tableau dans
+updateTodos.
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture9.PNG
+       :width: 500
+       :align: center
+
+encore un return pour assigner le nouveau tableau à la propriété todos
+de l'objet.
+
+   .. image:: /IT/sources/js/react/TodoApp-Phase6/Capture10.PNG
+       :width: 500
+       :align: center
+
+Et voici le code complet de App.js:
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase6/App2.js
+
+Le test a bien fonctionné en cliquant sur une case ça bascule bel et
+bien. 
+
+Lifecycle Methods Part 1
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Chaque component sous React possède en arrière plan des méthodes de
+cycle de vie. Comme la vie humaine qui a une naissance, ..., et une
+mort.
+Tous les éléments React vont traverser des événements lorsqu'ils sont
+rendus (rendered) et mis à jour. L'équipe de React a déprecié trois
+Lifecycle methods. Au lieu de prendre chaqu'une des méthodes une à
+une, nous allons présenter les méthodes les plus utilisées. Pour une
+introduction plus complète à ces méthodes veuillez vous référer à ce
+site:
+https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
+
+et le site officiel de l'équipe React:
+
+https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes
+
+
+Conditional Rendering
+^^^^^^^^^^^^^^^^^^^^^
+
+Le Conditional Rendering peut être appliqué de beaucoup de façon
+différentes. Proposons une façons dans le code suivant:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRendering/App.js
+
+Dans le code de ci-dessus, on a ajouté un state avec une propriété
+isLoading à true. Ceci est souvent utilisé lors d'appel vers un API,
+et pendant le chargement on veut afficher quelque chose pour dire
+qu'il y a un processus en cours. Ainsi l'utilisateur n'aura pas
+l'impression que l'app a crashé. Le Conditional Rendering intervient
+là.
+Nous avons un autre Component Conditional qui reçoit le props
+isLoading avec la version courante de state : this.state.isLoading.
+Dans Conditional nous allons ajouter ce que l'on veux afficher à
+l'écran.
+
+Rappelez-vous que la méthode componentDidMount() est une chance pour
+nous d'écrire du code pour qu'il s'execute avant que notre Component
+ici App s'execute à l'écran pour la première fois. Le code compris
+dans componentDidMount est en fait un code qui simule une requête
+API. Nous avons mis un délai de 1500 via la fonction setTimeout qui va
+faire basucler la propriété isLoading à false.
+Une fois que ça bascule à false, le component Conditional va recevoir
+une nouvel prop, ce qui va réexuter la méthode render() ce qui va
+faire à nouveau s'excuter le component Conditional qui est une functional
+component et selon ce qui a dedans faire executer quelque chose
+d'autre. Donc notre component Conditional va recevoir une nouvel
+prop. Avant d'aller plus loin vérifions que notre component
+Conditional fonctionne, en mettant un console.log(props.isLoading) :
+ci-dessous le component Conditional:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRendering/Conditional.js 
+
+Lorsque l'on rafraîchit la page, true s'affiche tout de suite et 1.5s
+plus tard false s'affiche.
+
+Maintenant au lieu d'afficher Temp nous allons mettre une condition
+qui affichera quelque chose de différent suivant la valeur de
+isLoading.
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRendering/Conditional2.js
+
+Le résultat est que ça affiche isLoading pendant 1.5s et ensuite Some
+cool stuff...
+
+Ce code utilise du pur Java Script avec if. On préférera réécrire ce
+code de la façon suivante avec ce mode de conditionnement mais c'est
+un choix personnel bien-sûr :
+
+condition ? statement if true : statement if false
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRendering/Conditional3.js
+
+Nous avons mis ce code dans un component Conditional, mais le meilleur
+endroit pour mettre ce genre de code est dans le component App.
+Car c'est dans la méthode render() qui est le plus approprié à dire
+qu'un composant doit être executé ou pas.
+
+Voici le code App.js et Conditional.js:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRendering/App2.js
+.. literalinclude:: /IT/sources/js/react/ConditionalRendering/Conditional4.js
+
+		    
+Conditional Rendering Part 2
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Un autre moyen que d'utiliser: condition ? statement if true :
+statement if false est l'opérateur && (and):
+
+Si à gauche de && est true alors ce qui est à droite est fait
+(retourne false si à droite c'est false). Si à
+gauche de && est faux alors ce qui est à droite est null ou n'est pas executé.
+
+Prenons un exemple:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPart2/App.js
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPart2/Capture.PNG
+     :width: 350
+     :align: center		    
+
+Ce code affiche le nombre de message non lus. Quand il n'y pas de
+message ce code affiche quand même quelque chose :
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPart2/App2.js
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPart2/Capture2.PNG
+     :width: 350
+     :align: center		    
+
+Lorsqu'il n'y pas de message on ne souhaiterait pas non plus être
+informé qu'il y 0 message (trop d'information tue
+l'information). D'après ce que l'on vient de voir dans la leçon
+précédente on peut écrire ceci comme cela:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPart2/App3.js
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPart2/Capture3.PNG
+     :width: 350
+     :align: center
+
+Qui n'affiche rien quand il y a zéro message.
+
+On peut grâche à l'opérateur && réduire ce code comme cela:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPart2/App4.js
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPart2/Capture4.PNG
+     :width: 350
+     :align: center
+
+qui a le même résultat qu'avant.
+
+En mettant trois messages on remarque que le message réapparaît avec
+trois messages non lus. 
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPart2/App5.js
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPart2/Capture5.PNG
+     :width: 350
+     :align: center
+
+	     
+Conditional rendering Practice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPractice/App1.js
+
+Hints:
+
+Pour faire cet exercice, il nous faudra en 1) un class-base component
+et une méthode constructor. En 2) Il faudra un state avec une
+propriété d'objet booléene, appelons-là isLoggedIn (true or
+false). En 3) on ajoutera un even listener (onClick) et pour l'extra
+challenge on utilisera du Conditional Rendering. On appliquera aussi
+du Conditional Rendering au point 4).
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPractice/App2.js
+
+Pour commencer il nous faut un class-based component car nous devons
+utiliser state. On remplace function par App et on enlève les
+parenthèses. Etant donné qu'il nous faudra introduire state nous
+devrons avoir la méthode constructor() suivi de super(). On initialise
+state qui est un objet avec une propriété isLoggedIn.
+
+Donc voici pour les points 1) et 2)
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPractice/App3.js
+
+Maintenant nous devons ajouter un bouton. Ensuite on ajoute un event
+listner pour permettre à notre button d'effectuer une action. Une
+méthode de classe nommée this.handClick est attribué à l'event
+listner. Créons la méthode de classe handlClick. "Bindons" la dans
+constructor(). Avant d'aller plus loin, il est bien de contrôler que
+tout fonctionne jusque là. Mettons un console.log pour vérifier cela:
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPractice/App4.js
+
+et le résultat affiche bien ce que l'on veut quand on clique sur le
+bouton.
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPractice/Capture.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPractice/Capture2.PNG
+     :width: 350
+     :align: center
+
+Ce que l'on souhaite maintenant faire c'est de basculer la propriété
+isLoggedIn à true ou false suivant la donnée courante. On utilise
+setState pour ce faire, et comme on veut définir state en fonction de
+la valeur précédente, on utilisera une function. Pour afficher la
+nouvelle valeur de state on placera dans le render() le texte sur le
+bouton égale à l'inverse de isLoggedIn. On placera aussi un autre
+texte suivant que l'on est connecté ou pas. Pour placer ces textes on
+fera usage du Conditional Rendering : 
+
+.. literalinclude:: /IT/sources/js/react/ConditionalRenderingPractice/App5.js
+
+Et le résultat:		    
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPractice/Capture3.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/ConditionalRenderingPractice/Capture4.PNG
+     :width: 350
+     :align: center
+
+On voit bien que lorsque on clique sur le bouton l'état change
+impéccablement et le texte aussi.
+
+Todo App - Phase 7
+^^^^^^^^^^^^^^^^^^
+
+Reprenons notre exercice de Todo. Dans cette exercice nous allons
+appliquer un style lorsque la tâche a été effectuée. Comme mettre la
+ligne en italique, grisée, et biffée.
+
+On utilise pour cela du inline styling. En fonction de la valeur de
+props.item.completed on choisira d'appliquer le style ou non. Voici le
+code :
+
+.. literalinclude:: /IT/sources/js/react/TodoApp-Phase7/TodoItem.js
+
+Et un screenshot pour montrer le résultat :
+
+.. image:: /IT/sources/js/react/TodoApp-Phase7/Capture.PNG
+     :width: 350
+     :align: center
+	     
 
 Working with .xml
 -----------------
@@ -3174,7 +3537,6 @@ https://www.youtube.com/watch?v=Fkw_OlcLcwE
 
 Good videos to learn
 --------------------
-
 
 2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript
 https://www.youtube.com/watch?v=Kw5tC5nQMRY&t=443s
