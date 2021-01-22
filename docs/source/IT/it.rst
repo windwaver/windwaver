@@ -3521,7 +3521,235 @@ Et un screenshot pour montrer le résultat :
 .. image:: /IT/sources/js/react/TodoApp-Phase7/Capture.PNG
      :width: 350
      :align: center
+
 	     
+Fetching data from an API
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Voici un lien pour l'explication de la comande fetch :
+
+https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+
+La commande fetch renvoie une promise. Pour l'explication de promise
+voir le site suivant:
+
+https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+
+Dans cet exemple nous allons capturer les données de personnages du
+film Star Wars. Un site existe et se trouve à l'adresse suivante:
+
+https://swapi.dev
+
+
+.. literalinclude:: /IT/sources/js/react/FetchingDataFromAnAPI/App1.js
+
+.. image:: /IT/sources/js/react/FetchingDataFromAnAPI/Capture.PNG
+     :width: 500
+     :align: center		    
+		    
+Pour enregistrer les données reçue par fetch nous allons les mettre
+dans state.
+
+Voici le code pour ce faire:
+
+.. literalinclude:: /IT/sources/js/react/FetchingDataFromAnAPI/App2.js
+
+Et le résultat:
+
+.. image:: /IT/sources/js/react/FetchingDataFromAnAPI/Capture2.PNG
+     :width: 350
+     :align: center
+
+Pour informer l'utilisateur que les données sont en cours de
+téléchargement on peut écrire un message d'information avec le code
+suivant:
+
+.. literalinclude:: /IT/sources/js/react/FetchingDataFromAnAPI/App3.js
+
+Le téléchargement est ici tellement rapide que l'on a à peine le temps
+de voir loading. Mais cela s'affiche correctement.
+
+Forms Part 1
+^^^^^^^^^^^^
+
+Un peu de théorie avant de se plonger dans le vif du sujet:
+
+https://reactjs.org/docs/forms.html
+
+
+La saisie dans un formulaire avec React déclenche un événement
+onChange qui modifie state après chaque caractère saisi. Pour
+illustrer ceci faisons un exemple d'une simple saisie d'un input.
+
+
+.. literalinclude:: /IT/sources/js/react/FormsPart1/App1.js
+
+Pour voir chaque changement dans cette input box, on mettra un
+déclencheur onChange dans input box. Donc chaque fois que l'on
+changera la saisie dans l'input box on activera une fonction.
+Le but étant de changer state à chaque caractère saisi. Donc on doit
+prendre la valeur de input box et la passer à state. Pour l'instant
+state n'a pas de propriété à changer, mettons en un maintenant.
+
+.. literalinclude:: /IT/sources/js/react/FormsPart1/App2.js
+
+Etant donné que l'on ne se soucie pas de la valeur précédente de state
+on instanciera state de la manière suivante:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture.PNG
+     :width: 250
+     :align: center
+		    
+et que doit-on mettre à la place des points d'interrogation?
+On sait que lors de déclenchement d'événement il y des paramètre
+prédéterminés qui sont transmis à la fonction. Nous allons donc mettre
+le paramètre event à notre fonction:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture2.PNG
+     :width: 250
+     :align: center
+
+On trouve des informations importantes dans le paramètre event. Par
+exemple, on peut accéder à la valeur de notre input box.	     
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture3.PNG
+     :width: 350
+     :align: center
+
+event.target représente la source de l'événement déclenché ici c'est
+l'input box. Donc notre state est vraiment le reflet de la valeur
+saisie de notre input box.
+
+pour voir la valeur de state mettons un h1 pour voir le résultat:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture4.PNG
+     :width: 350
+     :align: center
+
+On voit que rien de s'affiche. C'est parce que nous n'avons pas binder
+notre handleChange. Il faut mettre la commande suivante dans le
+constructor()
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture5.PNG
+     :width: 350
+     :align: center
+
+Et maintenant on voit que ça fonctionne:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture6.PNG
+     :width: 350
+     :align: center
+
+Maintenant au lieu d'avoir qu'une seule valeur dans notre formulaire,
+mettons en plusieurs:
+
+.. literalinclude:: /IT/sources/js/react/FormsPart1/App3.js
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture7.PNG
+     :width: 350
+     :align: center
+
+Le résultat n'est pas vraiment satisfaisant car il efface First Name
+dès que l'on commence à tapez quelque chose dans Last Name.	     
+
+Pour parer à celon nous pourrions très bien faire une fonction pour
+chaque entrée d'un formulaire comme par exemple
+handleChangeLastName. Mais cela ne sera pas très simple lorsque le
+formulaire aura beaucoup de champs.
+
+Au lieu de cela nous n'allons pas coder en dur firstName ici:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture8.PNG
+     :width: 350
+     :align: center
+
+Mais donner un nom de propriété à notre input box:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture9.PNG
+     :width: 350
+     :align: center
+
+et aussi apporter le changement suivant à notre fonction
+handleChange():
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture10.PNG
+     :width: 350
+     :align: center
+
+On voit que ça fonctionne bien:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture11.PNG
+     :width: 350
+     :align: center
+
+Encore une chose pour améliorer on ajoute value à notre input box:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture12.PNG
+     :width: 350
+     :align: center
+
+et lorsque la ligne devient longue on peut mettre chaque attribut sur
+une ligne :
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture13.PNG
+     :width: 350
+     :align: center
+
+De cette manière on force la value à ce qu'est state.
+
+
+Une autre chose pour simplifier le déboggage et pour rendre plus
+lisible le code:
+
+.. image:: /IT/sources/js/react/FormsPart1/Capture14.PNG
+     :width: 350
+     :align: center	     
+
+Et pour clore cette section le code de App.js en entier:
+
+.. literalinclude:: /IT/sources/js/react/FormsPart1/App4.js
+
+Forms Part 2
+^^^^^^^^^^^^
+
+Nous allons introduire maintenant les différents éléments utiles que
+peuvent contenir les éléments de formulaires qui sont: 
+
+- <textarea /> element
+- <input type="checkbox" />
+- <input type="radio" />
+- <select> and <option> elements
+
+textarea
+''''''''
+
+En html, textarea n'a pas de self closing tag comme input mais
+comporte un closing tag:
+
+::
+   
+   <textarea></textarea>
+   
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture.PNG
+     :width: 350
+     :align: center	        
+
+Que l'on peut étendre dans la page web. L'utilisateur a aussi la
+possibilité de mettre un largeur et un hauteur fixe.
+
+En React, il n'y a pas de closing tag. Ca reprend la même philosophie
+que input et est plus consistent.
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture1.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture2.PNG
+     :width: 350
+     :align: center	     	     
+
+
 
 Working with .xml
 -----------------
