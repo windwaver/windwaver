@@ -3749,6 +3749,406 @@ que input et est plus consistent.
      :width: 350
      :align: center	     	     
 
+input type= checkbox
+''''''''''''''''''''
+
+Il n'y pas de propriété value comme utilisé avec type text ou
+textarea. Il faut penser que sa propriété est checked ou pas. Cela
+veut dire que l'on va mettre un propriété checked:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture3.PNG
+     :width: 350
+     :align: center	     	     
+
+Et ceci va faire entrer la notion d'une propriété Bolean. Donc
+checkbox maintiennent des valeurs booléennes dans state. Pour
+l'exemple, mettons:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture4.PNG
+     :width: 350
+     :align: center	     	     
+
+Déclarons cette valeur dans state:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture5.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture6.PNG
+     :width: 350
+     :align: center	     	     	     
+
+On remarque que la page ne nous permet pas de déchecké. Ceci est
+normal car nous avons mis la propriété à true par state. Pour pouvoir
+être en mesure de déchecker on va rajouter la propriété onChange et un
+name:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture7.PNG
+     :width: 350
+     :align: center
+
+et mettons un peu en forme:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture8.PNG
+     :width: 350
+     :align: center
+
+Maintenant la partie tricky: dans une input box on trace ce qui à été
+tapez. Rappelez vous dans le handleChange on traçait par value pour la
+mise à jour de state. Dans une check box il n'y a pas de value mais
+une propriété checked et cette propriété va retourner soit vraie ou
+false. Ce que nous aurons besoins pour maintenir notre handleChange,
+c'est savoir si notre élément de notre formulaire est une checkbox ou
+pas. Nous devrons tirer de event.target le type et checked:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture9.PNG
+     :width: 350
+     :align: center
+
+Parce que une checkbox n'a pas value nous ne pourrons pas executer le
+code:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture10.PNG
+     :width: 350
+     :align: center
+
+mais nous voudrons changer [name] qui est friendly et lui assigner la
+valeur checked:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture11.PNG
+     :width: 500
+     :align: center
+
+Et là nous pouvons déchecker:
+
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture12.PNG
+     :width: 350
+     :align: center
+
+Pour enlever le warning pour textarea mettons aussi un handleChange: 
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture13.PNG
+     :width: 350
+     :align: center
+
+	     
+radio button
+''''''''''''
+
+Les bouton radio sont une combinaison entre input type text et input
+type check box. Ce que l'on entend par là c'est qu'il va utiliser la
+propriété value et la propriété checked.
+
+Construisons deux boutons radios un pour female et un autre pour male: 
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture14.PNG
+     :width: 350
+     :align: center
+
+On remarque que lorsque que Is friendly n'est pas coché on ne peut pas
+activer ni pour Male ni pour Female. Ceci est dû au fait que l'on a
+repris le state de isFriendly. Se qui provoque des comportemenents
+étranges. Mettons à la place:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture15.PNG
+     :width: 350
+     :align: center
+
+Et déclarons:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture16.PNG
+     :width: 350
+     :align: center
+
+Voici le résultat:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture17.PNG
+     :width: 350
+     :align: center
+
+Le programme enregistre ces valeurs que l'on peut illustrer:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture18.PNG
+     :width: 350
+     :align: center
+
+et le résultat:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture19.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture20.PNG
+     :width: 350
+     :align: center	     
+
+Il est claire que du premier abord ceci paraît bien compliqué, ceci
+n'a pas lieu d'être mémorisé, il suffit de reprendre des exemples. Il
+existe un librairie Formik facilitant la tâche.
+
+select box
+''''''''''
+
+React heureusement maintient la propriété value par exemple si l'on
+veut une liste de notre couleur préférée:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture21.PNG
+     :width: 350
+     :align: center
+
+La valeur que l'on choisira dans option sera transmise à
+state.favColor
+
+Déclarons cette propriété dans state:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture22.PNG
+     :width: 350
+     :align: center
+
+mettons aussi handleChange et name pour être sûr que ça coïncide avec
+notre propriété de state, les valeurs de options doivent être
+remplies:
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture23.PNG
+     :width: 350
+     :align: center
+
+et le résultat:	     
+
+.. image:: /IT/sources/js/react/FormsPart2/Capture24.PNG
+     :width: 350
+     :align: center	     
+
+Ce qui cool avec react c'est que tout les éléments peuvent être
+activés par une seule fonction handlChange. Check box doit juste être
+testée avec une condition if (ou ? ... : ...).
+
+Pour le summit button, html5 gère ça très bien: quand il trouve button
+dans un form il l'associera automatiquement à un summit button. Dès
+que l'utilisateur appuiera sur ce bouton l'événment onSumit du
+formulaire sera déclenché.
+
+Voici le app.js:
+
+.. literalinclude:: /IT/sources/js/react/FormsPart2/App.js
+
+Forms Practice
+^^^^^^^^^^^^^^
+
+Voici un exercice sur les Forms: la consigne se trouve à l'intérieur
+du fichier Apps.js
+
+.. literalinclude:: /IT/sources/js/react/FormsPractice/App.js
+
+Il y plusieurs manières d'aborder cet exercice.
+Tout d'abord nous allons initialiser tout ce qu'il y a à l'intérieur
+de state:
+
+
+**Remarques:**
+
+La propriété age mettons-la à 0 pour l'instant.
+La location sera sous la propriété destination.
+Une check box pour dietaryRestrictions. Il y aura en fait plusieurs
+check boxes car on peut très bien être allergique à plusieurs
+ingrédients. C'est pourquoi nous l'initialiserons avec un tableau. 
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture.PNG
+     :width: 350
+     :align: center
+
+Maintenant que nous avons initialisé ce qu'il y a dans state, nous
+allons remplir les éléments existant dans les input donnée dans le
+fichier Apps.js faisant office de consigne.
+
+Nous savons que nous aurons besoin d'une propriété name pour chaque
+input et d'une value déterminée par state (this.state.???). Chaque
+input sera aussi sujet au changement (onChange=...) qui appellera
+probablement handleChange. Attention les trois figures suivantes le
+nom de handChange a mal été orthographié, c'est en fait handleChange.
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture2.PNG
+     :width: 500
+     :align: center
+
+Pour plus de lisibilité mettons cela sur plusieurs lignes:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture3.PNG
+     :width: 350
+     :align: center
+
+Attribuons maintenant à name les propriétés de state respectivement,
+complétons aussi this.state. ... avec les mêmes noms:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture4.PNG
+     :width: 350
+     :align: center
+
+Avant que nous poursuivons par rajouter des éléments, occupons-nous de
+handleChange et ne pas oublier le bind:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture5.PNG
+     :width: 350
+     :align: center
+
+Descendons maintenant pour voir si ces trois inputs fonctionnenet
+correctement:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture6.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture7.PNG
+     :width: 350
+     :align: center	     
+
+Jusque-là tout à l'air fonctionner mais essayer d'initialiser la
+propriété age à null et le navigateur grogne. Mettons la à un empty
+string est ça a l'air mieux.
+
+Occupons-nous de notre gender, il est bien de le mettre entre un
+label.
+On se rappelle radio button possède une value, name et une propriété
+checked. Et celui-ci est un peu tricky lorsque celui-ci est male alors
+il sera checked.   
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture8.PNG
+     :width: 350
+     :align: center
+
+Copions ce bribe de code pour female:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture9.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture10.PNG
+     :width: 350
+     :align: center
+
+Parfait on peut sélectionner male ou female.
+
+Mettons encore ceci à l'affichage de gender.
+
+Occupons-nous de select box pour Destination.
+
+select box contiendra 4 options car ce n'est pas une grande compagnie
+aérienne.
+
+Chaque option prendra une propriété value. Les valeurs de nos options
+sont en fait les valeurs que state devrait être si une de ces options
+a été choisie. Ce sont en fait nos différentes locations. Mettons ces
+valeurs en minuscule pour que l'on soit consistent avec le reste. La
+valeur value de select est la valeur choisie. Et comme les autres,
+soyons sûr qu'il comporte un name qui match avec la propriété dans
+state. Et comme d'habitude onChange. Et dans la partie display on met
+la destination.
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture11.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture12.PNG
+     :width: 350
+     :align: center
+
+On remarque que Germany est affiché dans la liste par défault et que
+dans le display il ne s'affiche pas. Pour en fait sélectionner Germany
+il faudra d'abord sélectionner un autre pays et séléctionner
+Germany. Pour parer à ce défaut, on affichera par défault un autre
+texte:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture13.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture14.PNG
+     :width: 350
+     :align: center
+
+Ok, nous avons gardé le plus difficile pour la fin et c'est nos
+checked box. Souvenons-nous lors de l'initialisation de nos propriété
+de state, nous avions mis un tableau vide pour dietaryRestrictions. En
+fait il sera plus facille de créer un sous objet et une valeur
+booléene pour chaque dietaryRestriction.
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture15.PNG
+     :width: 350
+     :align: center
+
+Nous aurons donc trois check boxes. Englobons check box dans un
+label. type sera à "checkbox", name à la valeur de notre propriété de
+state comme isVegan, onChange l'événement déclenchant handleChange,
+checked qui sera égal à une propriété nested. Le text de label sera
+Vegan? Copions ceci et remplaçons avec les autres restrictions
+culinaires.
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture16.PNG
+     :width: 350
+     :align: center
+
+Vous noterez que nous ne sommes pas en mesure de checker ces
+checkboxes. Les checkbox n'a pas de propriété value et handleChange ne
+peut modifier que les propriétés value. Nous devons d'abord contrôler
+si le type une checkbox, donc nous devons tirer de event: type et
+checked. On ne peut pas simplement dire que ``[name]: checked``, car
+nous avons choisi d'avoir un nested object. Pour une raison que je ne
+saurai expliquer le concept de nested object doit être oublié. Mais
+peut être une piste pourquoi ça ne marche pas c'est peut-être dû au
+fait que changer un nested object les autres propriété de state ne se
+mettent pas à jour. Comme workaround nous allons supprimé notre
+subobject : dietaryRestrictions. Et mettre chaque élément comme une
+propriété de state. 
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture17.PNG
+     :width: 350
+     :align: center
+
+et modifions encore:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture18.PNG
+     :width: 350
+     :align: center
+
+et là ça a l'air de marcher:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture19.PNG
+     :width: 350
+     :align: center
+
+Complétons encore le display:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture20.PNG
+     :width: 350
+     :align: center
+
+On remarque que lorsque l'on coche restriction, React n'affiche pas de
+boléen.
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture21.PNG
+     :width: 350
+     :align: center
+
+On peut écrire le code suivant pour une bon affichage:
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture22.PNG
+     :width: 350
+     :align: center
+
+et le résultat final :
+
+.. image:: /IT/sources/js/react/FormsPractice/Capture23.PNG
+     :width: 350
+     :align: center
+
+.. literalinclude:: /IT/sources/js/react/FormsPractice/App1.js
+		    
+	     
+Container/Component Architecture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
+https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
 
 
 Working with .xml
