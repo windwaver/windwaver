@@ -4371,6 +4371,9 @@ Ne pas oublier le bind à placer dans constructor()
      :width: 350
      :align: center
 
+Affichons maintenant les données de state :
+
+
 	     
 	     
 Working with .xml
