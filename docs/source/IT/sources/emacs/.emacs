@@ -4,12 +4,14 @@
 (set-language-environment 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; Pour envoyer les choses deletée à la poubelle
+(setq delete-by-moving-to-trash t)
+
+;; Changement de thème
+(load-theme 'misterioso)
+
 ;; Langue par défaut et caractères accentués
  (setq current-language-environment "French")
-
-;; Set a Color Theme Permanently
-
-(load-theme 'misterioso)
 
 ;; Position et mise en forme de la fenêtre
 (setq default-frame-alist'
@@ -56,8 +58,6 @@
 ;; COMMANDE AucTex / LaTex
 ;; ----------------------------------------------------------------------
 
-;; Pour voir les équations compilées directement dans emacs
-(load "preview-latex.el" nil t t)
 
 ;; correction orthographique
 (autoload 'ispell-word "ispell" "Check the spelling of word in buffer." 't)
@@ -168,3 +168,16 @@
 ;      ;; dictionnaire évitant les erreurs d'accents
 ;      (ispell-change-dictionary "francais")
 ;)))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(auctex)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

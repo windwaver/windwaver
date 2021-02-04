@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc} % changer si ça bug en utf8
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{pstricks,pst-node}
+\usepackage{xifthen}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+
+\graphicspath{{./symboles/}} %les symboles du flow chart sont à mettre
+                             %dans ce répertoire comme les B.eps,
+                             %BR.eps, ...
+
+\newcommand{\B}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{B.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{B.eps}\Large\raisebox{4pt}#1}}}
+
+\newcommand{\BR}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{BR.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{BR.eps}\Large\raisebox{1pt}#1}}}
+
+\newcommand{\C}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{C.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{C.eps}\Large\raisebox{4pt}#1}}}
+
+\newcommand{\CH}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{CH.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{CH.eps}\Large\raisebox{1pt}#1}}}
+
+\newcommand{\E}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{E.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{E.eps}\Large\raisebox{2pt}#1}}}
+
+\newcommand{\EV}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{EV.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{EV.eps}\Large\raisebox{2pt}#1}}}
+
+\newcommand{\F}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{F.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{F.eps}\Large\raisebox{4pt}#1}}}
+
+\newcommand{\I}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{I.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{I.eps}\Large\raisebox{1pt}#1}}}
+
+\newcommand{\M}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{M.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{M.eps}\Large\raisebox{1pt}#1}}}
+
+\renewcommand{\P}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{P.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{P.eps}\Large\raisebox{1pt}#1}}}
+
+\newcommand{\PM}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{PM.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{PM.eps}\Large\raisebox{1pt}#1}}}
+
+\renewcommand{\S}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{S.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{S.eps}\Large\raisebox{1pt}#1}}}
+
+\newcommand{\HG}[1][]{\ifthenelse{\isempty{#1}}{\fbox{\includegraphics[width=0.5cm]{HG.eps}}}%
+  {\fbox{\includegraphics[width=0.5cm]{I.eps}\huge\raisebox{1pt}#1}}}
+
+\newcommand{\Z}{[mnode=dot] Z}   
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{pspicture}
+
+  \small
+\rput[lb](-4,-5){
+\begin{psmatrix}[mnode=r,colsep=0.8cm,rowsep=0.6cm,nodealign=true] 
+  %1    2     3     4          
+     & \B               \\%1 
+     & \Z               \\%2
+     & \I[1] &    &\Z   \\%3  
+     & \S[1]            \\%4
+     & \S[2]            \\%5
+     & \S[3]            \\%6
+     & \E               \\%7
+     & \I[2]            \\%8
+\C[1]&       &\P        \\%9
+\Z   &       &\HG       \\%10 
+\I[3]&                  \\%11
+\C[2]                   \\%12
+&&\Z                    \\%13  
+\psset{arrows=->}
+% Remarque ci-dessous ce ne sont pas des coordonnées mais la position
+% dans la matrice, par exemple {1,2} 1 est la première ligne et 2 la
+% deuxième colonnne.
+ \ncline{1,2}{3,2}  % B à  I1  
+ \ncline{3,2}{4,2}  % I1 à S1
+ \naput[labelsep=1.5pt]{\textcolor{red}{OUI}}
+ \ncline{4,2}{5,2}  % S1 à S2
+ \ncline{5,2}{6,2}  % S2 à S3
+ \ncline{6,2}{7,2}  % S3 à E
+ \ncline{7,2}{8,2}  % E à I2
+ \ncangle[angleA=180,angleB=90,arrows=->]{8,2}{9,1} % I2 à C1
+ \nbput[labelsep=1.5pt,npos=0.35]{\textcolor{red}{NON}}
+ \ncline{9,1}{11,1}  % C1 à I3
+ \ncline{11,1}{12,1}  % I3 à C2
+ \naput[labelsep=1.5pt]{\textcolor{red}{OUI}}
+ \ncangle[angleA=0,angleB=90,arrows=->]{8,2}{9,3} % I2 à P
+ \naput[labelsep=1.5pt,npos=0.35]{\textcolor{red}{OUI}} 
+ \ncline{9,3}{10,3}  % P à HG
+ \ncline{-}{10,3}{13,3}  % HG à noeud
+ \ncangle[angleA=-90,angleB=180,arrows=-]{12,1}{13,3} % C2 à noeud
+ \ncangle[angleA=0,angleB=-90,arrows=-]{13,3}{3,4} % noeud à noeud
+ \ncangle[angleA=90,angleB=0,arrows=->]{3,4}{2,2} % noeud à noeud
+ \ncline{-}{3,2}{3,4} % I1 à noeud
+ \naput[labelsep=1.5pt,npos=0.25]{\textcolor{red}{NON}}
+ \ncbar[angleA=0,angleB=0,arm=1,arrows=->]{11,1}{10,1} % I3 à noeud
+ \naput[labelsep=1.5pt,npos=0.45]{\textcolor{red}{NON}}
+\end{psmatrix}}
+
+\rput[lb](4,-5){
+\begin{tabular}{>{\centering}m{1cm}m{7cm}} %sert à définir une police
+  \label{repsd}
+  \B    & Début \\\\
+  \I[1] & olweolsnkécjas \\\\
+  \I[1] & ewosxcmklwéo? \\\\
+  \S[1] & wesege \\\\
+  \S[2] & wefgfedfvg\\\\
+  \S[3] & tzjughmozhl\\\\ 
+  \E & tziuimbngf\\\\ 
+  \I[2] & éàlgfhjhz\\\\
+  \C[1] & aertéoiudsf.,nw98\\\\ 
+  \I[3] & kljrsdmévélj023\\\\
+  \C[2] & léjwqepr987usdkàretg90è\\\\
+  \P    & léj34p789udsflnjewf\\\\
+  \HG & léj4pr82éljdfsrnjlmkdsfpo\\
+\end{tabular}}
+
+\end{pspicture}
+\end{document}

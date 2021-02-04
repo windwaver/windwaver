@@ -93,8 +93,15 @@ Pour éditer le .emacs ou le créer au bon emplacement
    
   C-x-f ~/.emacs
 
-Pour envoyer les choses deletée à la poubelle
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+Contenu du .emacs
+^^^^^^^^^^^^^^^^^
+
+.. literalinclude:: /IT/sources/emacs/.emacs
+
+		    
+Pour envoyer les choses deletée à la poubelle de windows
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Cela permet de récupérer les fichiers ou répertoire effacés par
 mégarde.
 
@@ -554,7 +561,9 @@ Compilation avec XeLaTeX depuis emacs
 J'utilise souvent cette méthode pour compiler une figure dessinée par
 psTricks qui produit directement un pdf.
 
-1) afficher le menu : ::
+1) afficher le menu :
+
+   ::
      
         M-x menu bar-mode
     
@@ -564,9 +573,13 @@ ou simplement :
 
 C-c-c tab et sélectionner xelatex
 
+   .. image:: /IT/figures/emacs/Capture1.PNG
+    :width: 500
+    :align: center
 
 LaTeX
 =====
+
 
 Installation LaTex, Emacs et auxtex sous Linux
 ----------------------------------------------
@@ -579,6 +592,7 @@ Installation LaTex, Emacs et auxtex sous Linux
    c. écrire dans un terminal :
       
       ::
+	 
 	 perl install-tl
 
    d. I
@@ -586,6 +600,7 @@ Installation LaTex, Emacs et auxtex sous Linux
       à ceci :
       
       ::
+	 
 	 PATH="/usr/local/texlive/2016/bin/i386-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games" 
 	 MANPATH="/usr/local/texlive/2016/texmf/doc/man"
 	 INFOPATH="/usr/local/texlive/2016/texmf/doc/info"
@@ -601,6 +616,7 @@ Installation LaTex, Emacs et auxtex sous Linux
    lignes dans le .emacs (si pas déjà fait)~: 
   
   ::
+     
     (require 'tex-site)
     (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
     (setq reftex-plug-into-AUCTex t)
@@ -613,15 +629,69 @@ script) -shell-escape après la commande
 latex. (ex. latex -shell-escape 1.tex)
 
 
+
+Fichier modèle Document LaTeX
+-----------------------------
+
+.. warning::
+   Essayer toujours de travailler en encodage utf8, en partant du
+   modèle en utf8.
+
+A compiler avec pdflatex. Comprenant titre, logo et table de matière. 
+
+.. literalinclude:: /IT/sources/latex/model_doc_latex.tex
+
+
 Figure psTricks
 ---------------
 
+Fichier modèle
+^^^^^^^^^^^^^^
+
+Pour faire une figure psTricks. A compiler avec fichier tex2pdf.sh
+
+.. warning::
+   Essayer toujours de travailler en encodage utf8, en partant du
+   modèle en utf8.
+
+.. literalinclude:: /IT/sources/latex/pstricks/model_figure_pstricks.tex
+		    
+		    
+Variante A
+^^^^^^^^^^
+
+#. Copier le fichier tex2pdf.sh dans le même répertoire du fichier
+   .tex de la figure
+#. Dans un prompt Anaconda, par exemple et à condition d'avoir
+   installer MiKTeX et réglé le PATH, tapez:
+   
+ ::
+
+    tex2pdf.sh nom_fichier (sans l'extension .tex)
+
+    
+Explication du fichier tex2pdf.sh
+'''''''''''''''''''''''''''''''''
+
+.. literalinclude:: /IT/sources/latex/pstricks/tex2pdf.sh
+
+Ce fichier utilise le schéma suivant pour compiler:
+
+latex -> dvips -> ps2epsi -> epstopdf
+
+
+ps2epsi sert à enlever le blanc autours de la figure. Ensuite grâce au
+``rm``, il efface les fichiers non désirables.
+
+   
+Variante B
+^^^^^^^^^^
 Pour créer des figures pstricks j'utilise emacs pour compiler en
 xelatex et TeXworks pour voir le résultat compilé en mettant la fenêtre
 texwork à côté de celle de emacs.
 
 Voir le résultat compilé avec xelatex avec TeXworks)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 #. clique droit sur le pdf
 #. ouvrir avec
@@ -636,7 +706,7 @@ Voir le résultat compilé avec xelatex avec TeXworks)
     :align: center
 
 Cropper automatiquement un pdf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''''''
 
 Pour enlever le blanc autours d'une figure, utiliser
 |pdfcrop|. Selectionner automatique pour vraiment enlever tout le
@@ -713,6 +783,36 @@ pour modifier les marges.
    ::
 
      \usepackage{nopageno}
+
+
+Diagramme de flux
+^^^^^^^^^^^^^^^^^
+
+Pour dessiner un diagramme de flux ou flow chart, j'utilse pasmatrix
+pour le placement des symboles. Voici les fichiers et répertoire
+nécessaire pour ce projet.
+
+.. image:: /IT/figures/latex/pstricks/FlowChart/Capture1.PNG
+   :width: 350
+   :align: center
+
+.. image:: /IT/figures/latex/pstricks/FlowChart/Capture2.PNG
+    :width: 350
+    :align: center	   
+
+Le fichier FlowChart.tex a été compilé avec le script tex2pdf.sh dans
+un prompte Anaconda. La plupart des symboles sont présents, mais
+d'autres peuvent bien-sûr être rajoutés. (à chercher sur le net)     
+
+Voici le résultat:
+
+.. image:: /IT/figures/latex/pstricks/FlowChart/Capture3.PNG
+    :width: 350
+    :align: center
+
+Et le code source:
+
+.. literalinclude:: /IT/sources/latex/pstricks/FlowChart/FlowChart.tex
 
 Regex
 =====
@@ -1643,8 +1743,443 @@ Divers liens utiles
    <a href="http://docutils.sourceforge.net/rst.html"
    target="_blank">docutils.sourceforge</a>
 
+Visual Studio
+=============
+
+Configuration
+-------------
+
+fichier JSON de configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/VisualStudioCode/Capture1.PNG
+       :width: 250
+       :align: center
+
+.. image:: /IT/sources/VisualStudioCode/Capture2.PNG
+       :width: 250
+       :align: center
+
+Pour les lignes longues on peu mettre dans settings Word Wrap à on.
+
+emmet est installé par défaut. Il permet de ne pas écrire tout la
+syntaxe balistique. Par exemple si on veut écrie <h1></h1>, il suffit
+d'appuyer sur h ensuite sur ce qui est proprosé faire une tabulation à
+droite ou enter.
+
+
+html
+====
+
+- HTML  HYPER TEXT MARKUP LANGUAGE
+- RESPONSIBLE FOR WEBPAGE STRUCTURE
+- <element>content</element>
+- <h1>Heading</h1> === Heading Element
+- <p>Paragraph</p> === Paragraph Element
+- <img src="..."> === Image Element
+- <br /> === Line Break
+
+.. image:: /IT/sources/html/Capture1.PNG
+       :width: 500
+       :align: center
+
+Toutes les pages html suivent la même structure. Tout en haut nous
+avons la déclacration DOCTYPE qui dit au browser en quel version du
+language html la page est écrite. Ensuite nous avons la balise html
+qui englobe tout notre code de la page. Celle possède au moin un head
+et un body. Donc après l'élément html nous avons l'élément head	qui
+contient des informations de la page comme par exemple le titre de la 
+page, les métadatas, et les links vers source extérieures comme les
+fichiers de style css et les fichiers java script. Le contenu de head
+ne sera pas visible dans la page.  
+Le body contiendra headings, paragraphes, links.
+
+Maintenant que nous connaissons les bases du contenu d'une
+page, mettons ceci dans notre première page. En tapant <, VS va nous
+proposer !DOCTYPEhtml qui est la version 5 de html. Ensuite vient la
+balise html. Puis body dans lequel on met un h1 avec du
+texte. Enchaînant avec un paragraph.
+
+.. image:: /IT/sources/html/Capture2.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture3.PNG
+       :width: 350
+       :align: center
+
+Grâce à l'extension live server notre résultat est affiché
+automatiquement après un save.
+
+.. image:: /IT/sources/html/Capture4.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture5.PNG
+       :width: 350
+       :align: center
+
+En mettant autosave notre résultat sera affiché en live.
+
+Tout le contenu que l'on a tapez précédemment peut être simplifié par
+emmet. Tapez simplement ``!`` et ``enter``.
+
+.. image:: /IT/sources/html/Capture6.PNG
+       :width: 350
+       :align: center
+
+Pour l'instant, on fera attention que pour title et se qui se trouve
+dans le body.
+
+headings
+--------
+
+.. image:: /IT/sources/html/Capture7.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture8.PNG
+       :width: 350
+       :align: center
+	       
+paragraph
+---------
+
+Pour info html is white space collapsing, c'est-à-dire que html ignore
+les espaces que l'on aurait fait en trop entre deux mots. Si l'on veut
+vraiment un espace plus grand, on verra ceci plus tard.
+
+Regardons maintenant comment on peut écrire un bout de texte
+(n'importe quel paragraphe) rapidement.
+Tapez : ``Lo`` et choisissez ``lorem``. On peut choisir le nombre de
+mots que l'on souhaite afficher en tapant ``lorem50`` pour 50 mots.
+
+.. image:: /IT/sources/html/Capture9.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture10.PNG
+       :width: 350
+       :align: center	       
+
+Images
+------
+
+Si l'on veut des images quelconques, on peut chercher dans google
+udemy image.
+
+Tapez ``img`` et enter on doit indiquer dans src le chemin où se
+trouve l'image sur le disque. et alt est renseigné pour que si l'image
+ne peut être trouvée, un texte alternative est affiché à la place de
+l'image.
+
+.. image:: /IT/sources/html/Capture11.PNG
+       :width: 350
+       :align: center
+
+Il est préférable d'utiliser le relative path :
+``./``
+
+On peut très bien pointer sur l'adresse d'une image sur le web: dans
+ce cas il faut faire un clique droite sur l'image est faire ``copier
+l'adresse de l'image``. L'inconvénient de cette technique est d'avoir
+une adresse monstrueuse de l'image. Il existe des sites qui propose
+des images sans licences dont l'adresse est plus simple. Comme par
+exemple :
+
+- https://pixabay/en
+- https://www.pexels.com  
+- https://gratisography.com
+
+Enregistrer l'image dans le dossier.
+
+Modifier la taille
+^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture12.PNG
+       :width: 350
+       :align: center
+
+On a prit une grand image et l'affichage est tronqué. Pour ajuster la
+taille de l'image, on pourrait très bien diminué sa taille avec un
+logiciel, mais ici nous allons utiliser les attributs d'html pour
+modifier la taille de l'image.
+
+Pour mettre l'image à la même taille que la première nous allons
+utiliser Visual Studio Code pour en ouvrant la première image.
+
+.. image:: /IT/sources/html/Capture13.PNG
+       :width: 350
+       :align: center
+
+et relever la valeur de 246x205 affichée dans le bandeau inférieur. Et
+pour la plus grande image nous avons 5999x3681
+
+On rajoute un attribut width="246" et le tour est joué.
+
+.. image:: /IT/sources/html/Capture14.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture15.PNG
+       :width: 350
+       :align: center	       
+
+Il y a un autre attribut qui est ``height`` mais si on met celui-ci
+l'image sera déformée, donc garder uniquement ``width``.
+
+Il y a un grand problème encore quand le browser render l'image bien
+qu'elle aie diminué en taille elle sera toujours chargée avec un
+grande taille d'octets. Ce qui va réduire le user experience. Utiliser
+un logiciel libre comme gimp et réduire la taille directement à la
+bonne taille et ensuite enlever le ``width``.
+
+path
+^^^^
+
+Créons un dossier images avec les images dedans. Et modifions le
+chemain des images.
+
+.. image:: /IT/sources/html/Capture16.PNG
+       :width: 350
+       :align: center
+
+	       
+Commentaires
+------------
+
+.. image:: /IT/sources/html/Capture17.PNG
+       :width: 350
+       :align: center
+
+Raccourci clavier : appuyer en même temps sur ctrl alt et "a"
+
+line break
+----------
+
+``<br>``
+
+links
+-----
+
+External links
+^^^^^^^^^^^^^^
+
+Pour mettre un lien
+
+.. image:: /IT/sources/html/Capture18.PNG
+       :width: 350
+       :align: center
+
+Pour que la page s'ouvvre dans une autre page
+
+.. image:: /IT/sources/html/Capture19.PNG
+       :width: 350
+       :align: center
+
+Internal links
+^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture20.PNG
+       :width: 350
+       :align: center
+
+Internal links dans la même page
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture21.PNG
+       :width: 350
+       :align: center
+
+créons un id à l'endroit où l'on veut tomber
+
+.. image:: /IT/sources/html/Capture22.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture23.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture24.PNG
+       :width: 350
+       :align: center       
+
+	       
+Mettre un lien sur une image par exemle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A la place de cliquer sur un texte souligné representant un lien, nous
+pouvons mettre à la place une image.
+
+.. image:: /IT/sources/html/Capture25.PNG
+       :width: 350
+       :align: center
+
+Si l'on ne sait pas encore le lien, on peut mettre un # à la place de
+l'url.
+
+.. image:: /IT/sources/html/Capture26.PNG
+       :width: 350
+       :align: center
+
+sub and sup
+-----------
+
+.. image:: /IT/sources/html/Capture27.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture28.PNG
+       :width: 350
+       :align: center	       
+
+strong
+------
+
+.. image:: /IT/sources/html/Capture29.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture30.PNG
+       :width: 350
+       :align: center	       
+
+em
+---
+
+.. image:: /IT/sources/html/Capture31.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture32.PNG
+       :width: 350
+       :align: center
+
+Normalement, nous utilisons ces éléments dans le css.
+
+Caractères spéciaux
+-------------------
+
+Copyright
+^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture33.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture34.PNG
+       :width: 350
+       :align: center	       
+
+Pour d'autres caractères spéciaux, se référer à google "special html
+caracter".
+
+Liste
+-----
+
+Liste non numérotée
+^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture35.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture36.PNG
+       :width: 350
+       :align: center
+	     
+Exemple d'utilisation des listes non numérotée
+''''''''''''''''''''''''''''''''''''''''''''''
+Pour faire un menu. Pour l'instant le style n'est pas bon, mais nous
+verrons plus tard comment l'améliorer.
+
+.. image:: /IT/sources/html/Capture37.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture38.PNG
+       :width: 350
+       :align: center	       
+
+
+Liste numérotée
+^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture39.PNG
+       :width: 350
+       :align: center	       	       
+	  
+.. image:: /IT/sources/html/Capture40.PNG
+       :width: 350
+       :align: center
+
+Liste imbriquée
+^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture41.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/sources/html/Capture42.PNG
+       :width: 350
+       :align: center	       	       
+
+Table
+-----
+
+.. image:: /IT/sources/html/Capture43.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/sources/html/Capture44.PNG
+       :width: 350
+       :align: center	       	       
+
+avec:
+
+- th pour table head
+- tr pour table row
+- td pour table data
+
+  
 Java Script
 ===========
+
+Get the most recent file in a directory node (à tester)
+-------------------------------------------------------
+
+::
+   
+   function getNewestFile(dir, regexp) {
+     var fs = require("fs"),
+     path = require('path'),
+     newest = null,
+     files = fs.readdirSync(dir),
+     one_matched = 0,
+     i
+
+     for (i = 0; i < files.length; i++) {
+
+        if (regexp.test(files[i]) == false)
+            continue
+        else if (one_matched == 0) {
+            newest = files[i];
+            one_matched = 1;
+            continue
+        }
+
+        f1_time = fs.statSync(path.join(dir, files[i])).mtime.getTime()
+        f2_time = fs.statSync(path.join(dir, newest)).mtime.getTime()
+        if (f1_time > f2_time)
+            newest[i] = files[i]  
+    }
+
+    if (newest != null)
+        return (path.join(dir, newest))
+    return null
+   }
+
 
 Coté client
 -----------
@@ -1783,7 +2318,8 @@ Résultat :
 .. image:: /IT/sources/js/classes/Capture16.PNG
        :width: 400
        :align: center
-	       
+
+
 React
 -----
 
@@ -1833,6 +2369,15 @@ Si l'on veut mettre plusieurs balise html comme ::
 nous devrons les inclure dans un un div ::
 
   <div><h1>Hello world!</h1><p>Ceci est un paragraphe</p></div>
+
+Ce tutoriel est basé sur la video suivante:
+
+https://www.youtube.com/watch?v=DLX62G4lc44&t=16575s
+
+Il y aussi un site de l'enseignant ici :
+
+https://scrimba.com/learn/learnreact
+
 
 ReactDOM & JSX
 ^^^^^^^^^^^^^^
@@ -4371,8 +4916,108 @@ Ne pas oublier le bind à placer dans constructor()
      :width: 350
      :align: center
 
-	     
-	     
+
+La prochaine étape est placé à un endroit notre meme. Rappeler nous
+recevons dans un tableau tout les meme que cet API possède. Et ce que
+nous allons implanté c'est que lorsque l'utilisateur appuie sur le
+bouton GEN, un meme est choisi au hasard. Pour l'afficher dans une air
+en dessous. Nous allons construire cette air maintenant.	     
+
+.. image:: /IT/sources/js/react/MemeGeneratorCapstoneProject/Capture13.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/MemeGeneratorCapstoneProject/Capture14.PNG
+     :width: 500
+     :align: center	     
+
+Create a method that,when the "Gen" button is clicked, chooses one of
+the memes from our àllMemeImgs` array at random and makes it so that
+is the meme image that shows up in the bottom portion of our meme
+generator site.
+
+On pourrait très bien mettre un onClick sur notre button, mais comme
+il est à l'intérieur d'un form, je préfère mettre un onSubmit sur le
+form.
+
+.. image:: /IT/sources/js/react/MemeGeneratorCapstoneProject/Capture15.PNG
+     :width: 350
+     :align: center	     
+
+Créons le handleSubmit avec even en paramètre because we don't prevent
+the default parce que nous ne voulons pas toujours rafraîchir notre
+page. (j'ai rien compris mais bon...). N'oublions pas de binder cette
+nouvelle méthode. Décrivons les étapes de cette méthode:
+
+- get a random int (index in the array)
+- get the meme from that index
+- set `randomImg` to the `.url` of the random item
+
+ .. image:: /IT/sources/js/react/MemeGeneratorCapstoneProject/Capture16.PNG
+     :width: 350
+     :align: center	     
+
+Et en cliquant sur GEN une image aléatoire s'affiche
+
+.. image:: /IT/sources/js/react/MemeGeneratorCapstoneProject/Capture17.PNG
+     :width: 500
+     :align: center	     
+
+Et les codes:
+
+**MemeGenerator.js:**
+
+.. literalinclude:: /IT/sources/js/react/MemeGeneratorCapstoneProject/MemeGenerator.js
+		    
+**Header.js:**
+
+.. literalinclude:: /IT/sources/js/react/MemeGeneratorCapstoneProject/Header.js
+		    
+**style.css:**
+
+.. literalinclude:: /IT/sources/js/react/MemeGeneratorCapstoneProject/style.css
+
+		    
+Writing Modern React Apps
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Dans cette section nous allons voir comment écrire quelques lignes de
+façon plus moderne.
+
+En fait on peut écrire nos méthodes de classe en arrow function: par
+exemple notre méthode handleChange: le changement à l'air très petit
+mais nous permet de supprimer le bind. 
+
+.. image:: /IT/sources/js/react/WritingModernReactApps/Capture1.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/WritingModernReactApps/Capture2.PNG
+     :width: 350
+     :align: center	     	     
+
+Aussi on peut créer directement des variables de classe. Sans que l'on
+ait à créer un constructor.
+
+.. image:: /IT/sources/js/react/WritingModernReactApps/Capture3.PNG
+     :width: 350
+     :align: center
+
+.. image:: /IT/sources/js/react/WritingModernReactApps/Capture4.PNG
+     :width: 350
+     :align: center	     
+
+Voici quelques liens vers des nouveautés de React:
+
+ * Official React Context API - https://reactjs.org/docs/context.html
+ * Error Boundaries - https://reactjs.org/docs/error-boundaries.html
+ * render props - https://reactjs.org/docs/render-props.html
+ * Higher Order Components - https://reactjs.org/docs/higher-order-components.html
+ * React Router - https://reacttraining.com/react-router/core/guides/philosophy
+ * React Hooks - https://reactjs.org/docs/hooks-intro.html
+ * React lazy, memo, and Suspense - https://reactjs.org/blog/2018/10/23/react-v-16-6.html 
+   
+   
 Working with .xml
 -----------------
 
