@@ -1743,8 +1743,8 @@ Divers liens utiles
    <a href="http://docutils.sourceforge.net/rst.html"
    target="_blank">docutils.sourceforge</a>
 
-Visual Studio
-=============
+Visual Studio Code
+==================
 
 Configuration
 -------------
@@ -1767,7 +1767,49 @@ syntaxe balistique. Par exemple si on veut écrie <h1></h1>, il suffit
 d'appuyer sur h ensuite sur ce qui est proprosé faire une tabulation à
 droite ou enter.
 
+Extension
+---------
 
+Prettier - Code formatter 
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Permet d'aligner le code à la sauvegarde
+
+.. image:: /IT/figures/VisualStudioCode/Capture3.PNG
+       :width: 250
+       :align: center
+
+Une fois installé, il faut aller dans settings
+
+.. image:: /IT/figures/VisualStudioCode/Capture4.PNG
+       :width: 250
+       :align: center
+
+Il faut peut-être reloader l'extension si demandé.	       
+	       
+Taper "format" dans la zone recherche
+
+.. image:: /IT/figures/VisualStudioCode/Capture5.PNG
+       :width: 350
+       :align: center	       
+
+	       
+Cocher Format On Paste et Format On Save
+
+.. image:: /IT/figures/VisualStudioCode/Capture6.PNG
+       :width: 350
+       :align: center
+
+Et maintenant à chaque enregistrement du fichier le texte se formate.
+
+
+keyboard shortcuts
+------------------
+
+.. image:: /IT/figures/VisualStudioCode/Capture7.PNG
+       :width: 350
+       :align: center
+	       
 html
 ====
 
@@ -1783,6 +1825,13 @@ html
        :width: 500
        :align: center
 
+<!DOCTYPE html>
+---------------
+
+Pour mettre en entête standard dans index.html on tapera ``!`` et
+return emmmet insérera l'entête standard pour le fichier index.html. 
+	       
+	       
 Toutes les pages html suivent la même structure. Tout en haut nous
 avons la déclacration DOCTYPE qui dit au browser en quel version du
 language html la page est écrite. Ensuite nous avons la balise html
@@ -1793,6 +1842,8 @@ page, les métadatas, et les links vers source extérieures comme les
 fichiers de style css et les fichiers java script. Le contenu de head
 ne sera pas visible dans la page.  
 Le body contiendra headings, paragraphes, links.
+
+
 
 Maintenant que nous connaissons les bases du contenu d'une
 page, mettons ceci dans notre première page. En tapant <, VS va nous
@@ -2143,7 +2194,1134 @@ avec:
 - td pour table data
 
   
-Java Script
+Form
+----
+
+.. image:: /IT/sources/html/Capture44.PNG
+       :width: 350
+       :align: center
+
+Pour l'introduction des formulaires nous ne nous s'occuperons pas de
+acction="" ni de method="" car ces attributs sont pour la collecte de
+donnée avec par exemple php ou JS. 	  
+
+Pour la collecte de données nous pourrions utilisé
+https://formspree.io qui nous enverrais les données par email. 
+
+.. image:: /IT/sources/html/Capture46.PNG
+       :width: 500
+       :align: center	       	       
+
+``action`` est utlisée pour dire à quel email les données collectées
+doivent être envoyée.
+``method="POST"`` est utilisée pour envoyer les données sur un
+server.
+
+input a plusieurs type comme email, button, checkbox. Le plus courant
+est le type text, il a deux attributs name et id. name est l'endroit
+où l'on veut stocker les données. id est utilisé avec label que nous
+montrerons plus loin.
+
+input type="text"
+^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/sources/html/Capture47.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/sources/html/Capture48.PNG
+       :width: 350
+       :align: center
+
+Nous voyons le champs dans lequel on peut écrire quelque chose, mais
+ne se passe.
+
+submit button
+^^^^^^^^^^^^^
+
+L'élément qui vient souvent avec un formulaire est le bouton
+submit. Pour l'implémentation de celui-ci nous avons deux options.
+
+button avec type="submit" et entre button nous pouvons mettre le texte
+du button.
+
+.. image:: /IT/sources/html/Capture49.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture50.PNG
+       :width: 350
+       :align: center	       
+
+si l'on veut un espace entre les deux éléments on peut utiliser <br>
+
+.. image:: /IT/sources/html/Capture52.PNG
+       :width: 350
+       :align: center
+
+Plus nous utilserons <div> pour un meilleure rendu.
+
+Pour l'instant les données entrées sont retournée à la même page.
+
+En tapant eric, nous aurons name=eric
+
+.. image:: /IT/sources/html/Capture53.PNG
+       :width: 350
+       :align: center
+
+Les champs se vident car nous avons appuyer sur le bouton submit.
+
+La deuxième variant pour mettre un bouton submit est d'utiliser input
+avec type="submit".
+
+.. image:: /IT/sources/html/Capture54.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture55.PNG
+       :width: 350
+       :align: center	       
+
+On constate que le texte sur le bouton s'est mis tout seul Un mot en
+français "Envoyé".
+
+label
+^^^^^
+
+Parlons maintenant du id. id vient avec label. On peut mettre un label
+à un champs.
+
+.. image:: /IT/sources/html/Capture56.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture57.PNG
+       :width: 350
+       :align: center	       
+
+input password et email
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Regardons maintenant à d'autre input comme password et email.
+
+placeholder
+^^^^^^^^^^^
+
+Au lieu de label nous pouvons aussi mettre un paragraphe. Mettons un
+placeholder qui écrit à l'intérieur du champs ce que l'on veut.
+
+Mettons l'input email. Remarquons que si l'email n'est pas
+correctememnt formater, il y aura un message d'alerte.
+
+value
+^^^^^
+
+Parlons de l'attribut value qui sert à coder en dure. Le champs est
+directement rempli par value. Aussi on peut mettre type="submit" value
+pour afficher un autre texte sur le bouton submit.
+
+.. image:: /IT/sources/html/Capture58.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture59.PNG
+       :width: 350
+       :align: center	       	       
+
+
+textarea, bouton radio
+^^^^^^^^^^^^^^^^^^^^^^
+
+input ne sont pas les seules élément que l'on peut mettre dans un
+form.
+
+textarea, qui nous permet d'écrire plus de mots. Les attributs cols et
+rows permettent d'ajuster la taille de textarea.
+
+Nous avons aussi les boutons radio. On mettra value pour travailler
+la collecte des inputs. Attention de bien écrire name avec le même nom
+car sinon nous pourrons sélectionner plusieur bouton en même temps. 
+
+.. image:: /IT/sources/html/Capture60.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture61.PNG
+       :width: 350
+       :align: center	       	       
+
+checkbox
+^^^^^^^^
+	       
+Voici comment implémenter les checkbox:
+
+.. image:: /IT/sources/html/Capture62.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture63.PNG
+       :width: 350
+       :align: center
+
+Il y a aussi un attribut ``checked`` pour dire que la case est
+cochée par défaut, il est possible de la déchecker.
+
+.. image:: /IT/sources/html/Capture64.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/sources/html/Capture65.PNG
+       :width: 350
+       :align: center
+
+On remarque que des que l'on appuie sur le submit button les données
+ne sont envoyées à nulle part, mais on constate que l'adresse (url) se
+modifie avec les données saisies dans le forulaire.
+
+select
+^^^^^^
+
+C'est comme un drop down menu.
+
+Documentation
+-------------
+
+- https://www.w3schools.com (plus friendly)
+- https://developer.mozilla.og chercher "html"
+
+Premier Projet
+--------------
+
+Etape "Home"
+^^^^^^^^^^^^
+
+#. Créons d'abord un répertoire sur le disque local avec le nom du
+   projet. Ici le nom du répertoire sera Coffee;
+#. Dans la première ligne tapez ``!`` et return. Emmet insérera un
+   en-tête standard;
+#. Modifions le titre en mettant Coffe Junkie;
+#. Dans le body mettons hello world;
+#. Pour voir notre résultat faisons un clique-droite et sélectionnons
+   Live Server;
+#. Arrangeons un peu les fenêtres. Ouvrons un deuxième instance de
+   Chrome et écrivons l'url de Live Server. Sur un écran, on peut
+   mettre VS prenant un peu plus de la moitié de l'écran et l'autre
+   moitié Chrome. Dans le premier Chrome un mettra la page sur toute
+   sa largeur afin d'avoir une vue total en largeur de la page du site
+   que l'on va créer;
+#. Dans le répertoire Coffee, créons un nouveau répertoire images;
+#. Copions les images dans le répertoire images
+
+   - pour le logo dans google taper coffe logo backround transparent
+   - pour l'image plus grande on ira la chercher sur pexels.com
+
+#. Modifions trois images avec Gimp à une taille de 320px de largeur;
+#. Ecrivons le code pour insérer le logo;
+#. Un h3 pour le titre de la page
+#. Un ul pour faire la liste de navigation.
+
+Et voici le code de notre premier étape   
+
+   .. image:: /IT/figures/html/Capture66.PNG
+       :width: 350
+       :align: center
+
+Et l'apperçu
+
+
+.. image:: /IT/figures/html/Capture67.PNG
+       :width: 350
+       :align: center
+
+	       
+
+#. Insérons l'image backround la grande et nous voyons qu'elle est
+   trop grand sur la fenêtre à coté VS et trop petite sur la grande
+   fenêtre de Chrome. Normalement nous devons faire cela dans css,
+   mais comme nous n'avons pas encore abordé ce sujet, nous mettrons
+   la commande directement dans le html, avec l'attribut width à 100% 
+
+   .. image:: /IT/figures/html/Capture68.PNG
+       :width: 350
+       :align: center
+
+#. Mettons maintenant un h1 pour Feature Product
+#. Un h2 pour House Blend Coffee
+#. Une image
+#. un paragraphe avec ici une petite spécialité que l'on corrige
+   maintenant mais normalement cela va se faire en css. Le paragraphe
+   s'étire sur toute la largeur de la page en plein écran et c'est pas
+   beau. On fait du inline styling en écrivant <p style="width:50%">   
+#. un h3 pour un lien vers wikipedia, remarquer l'attribut de
+   target="_blank" pour que l'utilisge ouvre une nouvelle page et ne
+   quitte notre site
+#. copions ce code pour les deux autres produits et changeons les noms
+   et images.
+#. mettons le copyright avec &copy; pour le caractère spéciale
+#. insrérons quelques br et un lien vers le top ou logo mais étant
+   donné que nous n'avons pas encore de id sur l'image du logo,
+   rajoutons le maintenant
+
+Voici le code pour cette étape:
+
+.. literalinclude:: /IT/sources/html/index1.html
+
+.. image:: /IT/figures/html/Capture69.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/html/Capture70.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/html/Capture71.PNG
+       :width: 350
+       :align: center
+	       
+   
+Etape "About"
+^^^^^^^^^^^^^
+
+Faisons maintenant la page About, qui a aussi l'image background (la
+toute grande) normalement on utilise du css pour définir une
+"background image". Nous avons plusieurs options pour commencer cette
+page, soit de copier coller la page Home déjà faite à la première
+étage, ou soit tout réécrire d'une page blanche. Choisisson la
+première options.
+
+#. Changeons le titre en About
+#. La grande image reste et Feature Product est remplacé par About Us
+#. Effacer les 3 produits
+#. Rajoutons un paragraphe avec 500 mots avec Lorem500 
+
+Etape "Numbers"
+^^^^^^^^^^^^^^^
+
+Pour la page Numbers tout reste la même chose (entête,
+bas-de-page). Donc nous refaisons un copier paste, mais cette fois du
+contenu de la page About.
+
+#. Dans le head, on mettra title à Numbers
+#. Dans le body, on mettra en h1 Our Stores
+#. Insérons une table et commentaire pour notre row city avec tr
+#. th pour titre avec les 4 noms des villes et un commentaire disant
+   que c'est la fin de la première row
+#. faisons la même chose pour la ligne mais avec td pour data
+#. comme ce tableau n'a pas fière allure nous lui appliquons du css.
+   
+.. image:: /IT/figures/html/Capture72.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/html/Capture73.PNG
+       :width: 350
+       :align: center	       
+
+Voici le code pour la page numbers
+
+.. literalinclude:: /IT/sources/html/numbers.html
+
+Etape "Contact"
+^^^^^^^^^^^^^^^
+
+Encore une fois nous allons copier le contenu.
+
+Voici le code pour la page contact
+
+.. literalinclude:: /IT/sources/html/contact.html
+
+Et le résultat du formulaie
+
+.. image:: /IT/figures/html/Capture74.PNG
+       :width: 350
+       :align: center	       
+
+On constate que l'attribut action="" reste vide car pour l'instant
+nous n'allons pas envoyer les données ailleurs.
+
+css
+===
+
+Il y trois façon de travailler avec css :
+
+- inline css
+- internal css
+- external css
+
+  
+inline css
+----------
+  
+Pour le inline dans la balise on écrira l'attribut style=""  
+
+.. image:: /IT/figures/css/Capture1.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture2.PNG
+       :width: 350
+       :align: center
+
+Ajoutons un autre attribut qui est font-size, ne pas oublier de
+séparer les attributs par un point virgule.
+
+.. image:: /IT/figures/css/Capture3.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture4.PNG
+       :width: 350
+       :align: center
+
+Le désavantage de travailler en inline est que pour chaque élément
+nous devrons créer un style. Si par exemple nous aurions 500 x h1
+alors pour tout changer cela risque de prendre longtemps. Donc le
+inline styling est quelque chose de très basique.
+
+
+Internal css
+------------
+
+Pour le internal css, on va mettre entre les tags heads un tag style
+est décrire le style de tous nos éléments par exemple si l'on veut
+pour l'élément h1 une couleur blue et un font-size de 3rem et un autre
+style pour h2 on écrira la chose de la manière suivante: 
+
+.. image:: /IT/figures/css/Capture5.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture6.PNG
+       :width: 350
+       :align: center
+
+avec cette méthode il sera facile de modifier la couleur de tous les
+h1 en entrant simplement la couleur désirée à un seul endroit.	       
+Ceci va marcher uniquement pour la page où est déclaré
+style. Admettons qu'il y a 10 pages html. Il faudrait alors dans
+chaque page insérer style. Au moindre changement de style, il faudra
+passer au travers de tous les fichiers pour modifié le style donc
+beaucoup de temps d'édition. Une autre solution consistera a faire un
+fichier avec une extension .css qui engloberait tous les styles pour
+toutes les pages. En en vient alors à external css.
+
+External css
+------------
+
+Pour ce faire il faut créer un fichier dans le projet nommé xxx.css
+xxx n'est pas bien important du moment où il y l'extension .css. La
+convention toutefois est de préciser le nom à style donc un style.css
+
+.. image:: /IT/figures/css/Capture7.PNG
+       :width: 350
+       :align: center
+
+Pour dire à nos fichiers html d'utiliser ce fichier css, on indiquera
+dans les fichiers entre les tags head,	       
+
+.. image:: /IT/figures/css/Capture8.PNG
+       :width: 350
+       :align: center
+
+Remarque: En général, le fichier styles.css doit ce mettre dans un
+répertoire nommé css. Nous devons donc modifié le path (ou chemin) de
+notre fichier.
+
+.. image:: /IT/figures/css/Capture9.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture10.PNG
+       :width: 350
+       :align: center	       
+
+Priorités entre external/internal/inline css	       
+--------------------------------------------
+
+L'inline vient en première priorité, ensuite internal et l'external
+vient en dernière priorité.
+
+
+Commentaires
+------------
+
+Se qui vient entre ``/* et */`` est considéré comme un commentaire.
+
+Noms des éléments dans le css
+-----------------------------
+
+- selector c'est par exemple h1, h3
+- property c'est par exemple color, font-size
+- value c'est par exemple orange, 4rem
+
+Exemple de fichier styles.css
+-----------------------------
+
+Créons d'abord un fichier index.html avec h1, h2, et p sur lequel nous
+allons appliqué différent style avec le fichier styles.css
+
+.. image:: /IT/figures/css/Capture11.PNG
+       :width: 350
+       :align: center	       	       
+
+Le fichier styles.css
+
+.. image:: /IT/figures/css/Capture12.PNG
+       :width: 350
+       :align: center
+
+Le résultat	       
+	       
+.. image:: /IT/figures/css/Capture13.PNG
+       :width: 350
+       :align: center
+
+Comment faire si l'on veut que tout le texte soit en bleu?
+
+.. image:: /IT/figures/css/Capture14.PNG
+       :width: 350
+       :align: center	       
+
+
+Grouping Selectors
+------------------
+
+Comment dire que tout soit en rouge sauf h1 et h2 en bleu?
+
+on utilisera le grouping selectors
+
+.. image:: /IT/figures/css/Capture15.PNG
+       :width: 350
+       :align: center	       
+
+Remarquer que les différents selectors sont séparés d'une virgule.
+
+
+ID selectors
+------------
+
+Permet d'appliqé différents style sur le même selector
+
+
+.. image:: /IT/figures/css/Capture16.PNG
+       :width: 350
+       :align: center	       
+
+Exemple
+
+Comment peut-on faire si l'on veut appliqué des styles différents à h1
+Title heading et à h1 Footer Heading?
+
+On utilisera l'attribut id dans le fichier html à l'intérieur du tag et
+un dièse avec le nom de l'id dans le fichier styles.css
+
+Fichier index.html
+
+.. image:: /IT/figures/css/Capture17.PNG
+       :width: 350
+       :align: center	       
+
+Fichier styles.css
+
+.. image:: /IT/figures/css/Capture18.PNG
+       :width: 350
+       :align: center
+
+Résultat
+
+.. image:: /IT/figures/css/Capture19.PNG
+       :width: 350
+       :align: center	       	       
+
+	       
+Class selectors
+---------------
+
+Exemple:
+
+.. image:: /IT/figures/css/Capture20.PNG
+       :width: 350
+       :align: center	       	       
+
+.. image:: /IT/figures/css/Capture21.PNG
+       :width: 350
+       :align: center	       	       	       
+
+.. image:: /IT/figures/css/Capture22.PNG
+       :width: 350
+       :align: center	       	       	       
+
+Nous aurions pu utiliser id selector, mais nous aurions du faire un id 
+différents pour chaque h3 différents. L'id doit être unique.
+
+Combinaison entre id et class selector
+--------------------------------------
+
+.. image:: /IT/figures/css/Capture23.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture24.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture25.PNG
+       :width: 350
+       :align: center
+
+Remarquez quand on on écrit class="green lowercase" c'est en fait deux
+class différentes séparée par un espace.
+
+div span
+--------
+
+Prenons un exemple un titre suivi d'un paragraphe, et un deuxième
+titre suivi d'un deuxième paragraph. A l'intérieur du deuxième
+paragraph mettons "hey i'm uppercase" à deux endroit différent. 
+
+.. image:: /IT/figures/css/Capture26.PNG
+       :width: 350
+       :align: center
+
+Maintenant nous voudrions avoir le premier titre et le premier
+paragraphe en rouge. Le second titre et le second paragraphe en bleu. 
+
+Pour ce faire nous ne pouvons sélectionner h3 ni p car nous aurions
+les deux de la même couleur. Bien sûr nous pourrions utiliser id, mais
+il existe une meilleures solution. L'utilisation de div et de span
+pour grouper.
+
+On va donc faire un premier groupe ou bloc avec div en le mettant
+avant le premier h3 et le deuxième tag du div à la fin du premier
+paragraphe. 
+
+.. image:: /IT/figures/css/Capture27.PNG
+       :width: 350
+       :align: center	       
+
+En mettant ce div rien ne change à l'affichage. Nous allons faire de
+même pour notre texte que l'on veut afficher en uppercase, mais cette
+fois nous allons utiliser span pour grouper notre texte.
+
+.. image:: /IT/figures/css/Capture28.PNG
+       :width: 350
+       :align: center	       
+
+Dans notre css mettons un selector div et un span
+
+.. image:: /IT/figures/css/Capture29.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture30.PNG
+       :width: 350
+       :align: center
+
+Donc le div est utilisé pour créer un bloc et span est utilisé pour du
+inline. Un div créera un espace après lui, mais pas span.
+
+Pour mettre une autre couleur à notre deuxième titre et deuxième
+paragraphe, nous allons utilisé nos class dans les div.
+
+Supprimer dans le styles.css le selector div. et mettons les class
+appropriées dans les div du fichier index.html
+
+.. image:: /IT/figures/css/Capture31.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture32.PNG
+       :width: 350
+       :align: center	       	       
+
+Nous pouvons aussi utiliser une class pour span. Par exemple, si nous
+voulons mettre une class red à notre premier span	       
+
+.. image:: /IT/figures/css/Capture33.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture34.PNG
+       :width: 350
+       :align: center
+
+Inheritance
+-----------
+
+Tous les éléments enfants hérite du style des style appliqué aux
+parents. Prenons un exemple de deux paragraphes.
+
+.. image:: /IT/figures/css/Capture35.PNG
+       :width: 350
+       :align: center
+
+Mettons un selector body avec color à red.
+
+.. image:: /IT/figures/css/Capture36.PNG
+       :width: 350
+       :align: center
+	       
+Les deux paragraphes seront de couleur rouge. Car les paragraphes sont
+à l'intérieur de body et sont donc enfant de body. Body est le parent
+de paragraphe. Dans ce cas on dira que p à hérité des styles de body. 
+
+Maintenant mettant les deux paragraphes à l'intérieur de div
+
+.. image:: /IT/figures/css/Capture37.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture38.PNG
+       :width: 350
+       :align: center	       
+	  
+Maintenant les deux paragraphes sont blue. Pourquoi ceci est comme
+cela car div est l'enfant de body. C'est parce que div reçu un style
+spécifique, le style de body ne compte plus. Les deux paragraphes ont
+hérité du style de div.
+
+Si l'on ajoute un h2 dans le div et un selector h2 dans le styles.css,
+alors h2 les styles appliqués sur h2 sera prioritaire. Dans ce cas h2,
+aura une couleur verte qui prime sur le rouge de body, mais héritera
+quand même le uppercase de body.
+
+.. image:: /IT/figures/css/Capture39.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture40.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture41.PNG
+       :width: 350
+       :align: center	       
+
+Il y a quelques proprety de parent qui ne vont pas être hérités par
+les enfants. Dans l'exemple suivant, div possède un proprety border on
+voit que cette property n'est appliquée qu'au div.
+
+.. image:: /IT/figures/css/Capture42.PNG
+       :width: 350
+       :align: center
+
+Last Rule and Specificity Universal Selector
+--------------------------------------------
+
+Il arrive lorsque le fichier styles.css devienne très grand et sans
+faire exprès, nous déclarons un selector plusieurs fois. Le dernier
+déclaré dans le fichier sera pris en considération.
+
+Admettons maintenant que nous avons pour le div une couleur verte
+déclacrée après avoir déclaré h2. Bien que div soit déclaré après la
+couleur de notre h2 reste verte. Il y a donc un spécificité dans les
+sectors qui prennent les propriétés avant les selectors placé après.
+
+Pour plus d'information sur ce sujet, on peut trouver dans google en
+tapant "specificity measurement css". Ou sur 3schools.com
+
+.. image:: /IT/figures/css/Capture43.PNG
+       :width: 350
+       :align: center
+
+Il existe des selectors universels comme par exemple ``*`` qui
+sélectionnera tous les selectors, mais ne sera pas prioritaire sur
+certain selector positionné en fin de liste.  	       
+
+color properties / color background-color
+-----------------------------------------
+
+- color property est responsable de la couleur du texte
+- background-color est responsable de la couleur du fond de texte
+
+Exemple :
+
+.. image:: /IT/figures/css/Capture44.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture45.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture46.PNG
+       :width: 350
+       :align: center	       
+
+comme on peut le constater, l'utilisation de backround-color et
+background produise le même résultat.
+
+L'utilisation la plus commune est d'utiliser les couleurs par leur
+nom. Visual Studio propose directement les noms existants des couleurs.
+Il y 140 nom de couleurs.
+
+RGB
+^^^
+
+Il y a un autre moyen d'indiquer la couleur qui l'utilisation de rgb
+qui signifie red green blue, chaque couleur va de 0-255 0 étant le noir
+
+.. image:: /IT/figures/css/Capture47.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture48.PNG
+       :width: 350
+       :align: center	       
+
+Une valeur 255 pour r représente la couleur pour rouge, 255 pour le g
+représente la couleur verte, 255 pour le b représente la couleur bleu. 	       
+rgba
+^^^^
+
+La lettre a est pour opacité / transparence. (de 0 à 1) 
+
+.. image:: /IT/figures/css/Capture49.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture50.PNG
+       :width: 350
+       :align: center	       
+
+On voit que plus la valeur de a tend vers 0 est plus le fond devient
+transparent.
+
+hex value
+^^^^^^^^^
+
+#RRGGBB
+ 
+Au lieu d'avoir des valeurs variant de 0 à 255 on aura des valeurs
+de 0 à F (hexadecimal) après 9 vient A 
+
+Visual Studio permet de se déplacer dans la zone pour choisir notre
+couleur et l'opacité avec le premier ascenseur à gauche. Et de
+convertire entre les différents code couleurs (rgb, hex, hsl)
+
+.. image:: /IT/figures/css/Capture51.PNG
+       :width: 350
+       :align: center
+
+Choisir sa palette de couleur
+-----------------------------
+
+Il y a un site https://coolors.co il faut appuyer sur space pour
+changer de couleur et sur le cadenas pour choisir la couleur.
+
+
+font-size, width, height, pixels
+--------------------------------
+
+- font-size est pour ajuster la taille du texte
+- width et height contrôle respectivement la largeur et la hauteur
+  d'un élément (h1, ...)
+- pixel est une unité absolue comme le plus petit point d'un écran
+  pourquoi absolue? c'est parce que si on modifie la fenêtre du
+  browser la mesure sera toujours identique.
+
+.. image:: /IT/figures/css/Capture52.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture53.PNG
+       :width: 350
+       :align: center
+
+Quand est-il avec height?
+	       
+.. image:: /IT/figures/css/Capture54.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture55.PNG
+       :width: 350
+       :align: center	       	       
+
+Percent	value / relatives
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture56.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture57.PNG
+       :width: 350
+       :align: center	       
+	       
+On voit que la zone rouge est 50% plus petite en largeur et en hauteur
+par rapport à la partie bleu qui est l'élément parent du div en rouge..
+
+em relative
+^^^^^^^^^^^
+
+Par défaut, la taille du texte dans une fenêtre d'un browser est de
+16px.
+
+.. image:: /IT/figures/css/Capture58.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture59.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture60.PNG
+       :width: 350
+       :align: center	       	       
+
+On voit que la taille des deux textes sont identiques car une fait
+32px et comme 1em fait par défaut 16px donc 2x16=32px
+
+Changeons maintenant la taille dans le browser à très grand, donc on
+modifie la taille par défaut de 16px à plus grand. 1em sera plus grand
+que 16px et apparaîtra plus grand que le texte absolute
+
+
+.. image:: /IT/figures/css/Capture61.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture62.PNG
+       :width: 350
+       :align: center	       	       
+
+Créons des div qui sont des parents à nos h3
+
+.. image:: /IT/figures/css/Capture63.PNG
+       :width: 350
+       :align: center	       	       
+
+.. image:: /IT/figures/css/Capture64.PNG
+       :width: 350
+       :align: center
+	  
+et mettons div selector un font-size de10px
+
+.. image:: /IT/figures/css/Capture65.PNG
+       :width: 350
+       :align: center
+
+On voit que relative est devenu plus petit car font-size de parent est
+devenu plus petit que 16px. Le texte absolute n'a pas changer.
+
+rem
+^^^
+
+Contrairement à em, rem ne dépend pas du parent, mais de root. Le root
+est le tag html.
+
+Dans l'exemple précédent si l'on met à la place de em, rem,
+
+.. image:: /IT/figures/css/Capture66.PNG
+       :width: 350
+       :align: center	       	       
+
+la taille n'héritera pas du parent qui est 16px dans ce cas là (defaut
+du browser). Par contre, si on le mais dans le root,
+
+.. image:: /IT/figures/css/Capture66.PNG
+       :width: 350
+       :align: center
+
+la taille du texte relative changera.
+
+.. image:: /IT/figures/css/Capture67.PNG
+       :width: 350
+       :align: center	       	       
+
+vh - height / vw - width (percent of the screen)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ce sont des unités relatives par rapport à la taille de l'écran
+(fenêtre). 
+
+.. image:: /IT/figures/css/Capture68.PNG
+       :width: 350
+       :align: center	       	       
+
+on mettra vw pour width et vh por height.
+
+.. image:: /IT/figures/css/Capture69.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/figures/css/Capture70.PNG
+       :width: 350
+       :align: center
+
+On voit que le carré rouge fait exactement la moitié de la fenête que
+se soit en hauteur ou en largeur. (ne pas prendre en compte la petite
+marge)	       
+Ces valeurs sont souvent utiliser pour les banners. (entête)
+
+Default browser styles and google devTools
+------------------------------------------
+
+Pour ouvrir le devTool, faire un clique droite sur le browser et
+choisir inspecter. Il est vrai que c'est assez intimidant au
+début. Pour l'instant nous allons uniquement utiliser le menu
+Element.
+On retrouve tous les éléments que notre page possède (head, metatag,
+body, h1...)
+
+Que se passe-t-il lorsque l'on clique sur h1?
+
+.. image:: /IT/figures/css/Capture71.PNG
+       :width: 350
+       :align: center
+
+Nous retrouvons notre css syntaxe. (voir element.style {}). Mais nous
+voyons des autres informations que l'on a pas entrée. Comme par
+exemple dispay: block;  font-size: 2em; En fait ce sont les styles que
+chaque browser applique par défaut.
+
+
+.. image:: /IT/figures/css/Capture72.PNG
+       :width: 350
+       :align: center
+
+On remarque user agent stylesheet, cet inscription signal que ce sont
+les styles du browser appliqués par défaut. On peut réécrire ces
+valeurs comme par exemple la modification des marges.
+
+Rajoutons un h2 est mettons quelques styles
+
+.. image:: /IT/figures/css/Capture73.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture74.PNG
+       :width: 350
+       :align: center	       	       	       
+
+.. image:: /IT/figures/css/Capture75.PNG
+       :width: 350
+       :align: center	       
+
+Le devTool nous indique notre fichier styles.css et en dessous
+qu'elle propriété ne sont plus celle par défaut (biffé) Ce que l'on
+peut faire aussi c'est modifié directement dans le devTool des
+valeurs. Le fichier d'origine ne sera pas modifié.
+
+
+
+Calc
+----
+
+Permet de faire des opérations mathématiques comme addition,
+soustraction, multiplication, division.
+
+
+.. image:: /IT/figures/css/Capture76.PNG
+       :width: 350
+       :align: center	       	       	       
+
+.. image:: /IT/figures/css/Capture77.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture78.PNG
+       :width: 350
+       :align: center
+
+	       
+On remarque que la page est plus grande que ce que
+l'écran peut afficher contre le bas. Le dépassement est égale à 100px
+(la hauteur de navbar) Pour corriger cela on corrigera la hauteur en
+utilisant calc 
+
+
+.. image:: /IT/figures/css/Capture79.PNG
+       :width: 350
+       :align: center
+
+	       
+Cette méthode est souvent utilisée pour la page d'accueil quand il y a 
+une barre de navigation est le banner en dessous. Attention de bien
+mettre un espace avan et après l'opération (ici le - )
+
+font-size font-family
+---------------------
+
+Permet de changer la police d'écriture pour chaque élément que l'on
+veut. 
+
+.. image:: /IT/figures/css/Capture80.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture81.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture82.PNG
+       :width: 350
+       :align: center
+
+	       
+font-stack generic-family
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Il se peut que les polices que l'on a choisie ne soient supportées par
+le browser. Visual Code nous propose une série de font qui se
+ressemble séparée d'une virgule. 
+
+.. image:: /IT/figures/css/Capture83.PNG
+       :width: 350
+       :align: center
+
+Google Fonts
+^^^^^^^^^^^^
+
+Google propose aussi des fonts que l'on peut incorporer.
+	       
+font-weight
+^^^^^^^^^^^
+
+Si l'on veut mettre en gras.
+
+font-style
+^^^^^^^^^^
+
+Pour mettre en italic, oblique, normal.
+
+
+text-align
+^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture84.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture85.PNG
+       :width: 350
+       :align: center
+	       
+On peut utiliser left qui est par défaut à gauche et right pour
+droite. 
+	       
+text-indent
+^^^^^^^^^^^
+
+Sert à indenter la première ligne d'un paragraphe.
+
+line-height letter-spacing word-spacing text-transform text-decoration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture88.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture89.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture90.PNG
+       :width: 350
+       :align: center	       
+
+	       
+JAVA Script
 ===========
 
 Get the most recent file in a directory node (à tester)
@@ -2335,6 +3513,12 @@ Pour compiler tapez : ::
 Pour nettoyer après installation rapide voir cette video :
 
 https://www.youtube.com/watch?v=dMH1_YtUTSQ
+
+Deploy react on c-panel
+^^^^^^^^^^^^^^^^^^^^^^^
+
+follow this blog : https://dev.to/crishanks/deploy-host-your-react-app-with-cpanel-in-under-5-minutes-4mf6
+
 
 Fichiers de base
 ^^^^^^^^^^^^^^^^
