@@ -3320,6 +3320,853 @@ line-height letter-spacing word-spacing text-transform text-decoration
        :width: 350
        :align: center	       
 
+CSS Box Model
+-------------
+
+.. image:: /IT/figures/css/Capture91.PNG
+       :width: 350
+       :align: center	       
+
+Padding
+^^^^^^^
+
+.. image:: /IT/figures/css/Capture92.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture93.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture94.PNG
+       :width: 350
+       :align: center	       	       
+
+Les paddings appliqués sur le p, sont des raccourcis.
+
+Margin
+^^^^^^
+
+Est la marge entre le bord de l'écran et l'élément.
+
+.. Warning::
+
+   Les browsers applique par défaut une marges. C'est souvent source
+   de confusion.
+
+Tout comme le padding, on peut utiliser les raccourcis.
+
+.. image:: /IT/figures/css/Capture95.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture96.PNG
+       :width: 350
+       :align: center	       	       	       
+
+
+Comment faire pour coller ici le carré rouge au carré bleu?
+
+.. image:: /IT/figures/css/Capture97.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture98.PNG
+       :width: 350
+       :align: center	       	       	       
+
+Si l'on veut mettre tous les marges à 0 on écrira :
+
+::
+   
+   margin:0;
+
+On retrouvera les mêmes raccourcis que padding. C'est-à-dire margin:
+20px (1 valeur) appliquera 20px sur les quatre côtés. Avec 2 valeurs
+alors la première valeur représentera le top et le bottom la deuxième
+et pour la marge de droite et de gauche. On peut spécifier avec 4
+valeurs qui sont respectivement pour le top, droite, bas, et gauche.
+
+Border
+^^^^^^
+
+Pour encadrer les éléments.
+
+.. image:: /IT/figures/css/Capture99.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture100.PNG
+       :width: 350
+       :align: center	       	       	       
+
+Il y a aussi des raccourcis pour borer. L'ordre des valeurs est pas
+importante.
+
+.. image:: /IT/figures/css/Capture101.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture102.PNG
+       :width: 350
+       :align: center	       	       	       
+
+On peut aussi choisir qu'un seul coté avec par exemple, border-bottom
+pour le coté du bas.
+
+Arrondir et margin négatif
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pour un placement qui doivent se chevaucher, utiliser un margin
+négatif. Les coins peuvent aussi être arrondi grâce à la commande
+border-radius.
+
+.. image:: /IT/figures/css/Capture103.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture104.PNG
+       :width: 350
+       :align: center	       	       	       
+
+	       
+outline
+^^^^^^^
+
+est utilisé pour déplacer le cadre vers l'extérieur ou vers l'intérieur
+à l'aide de outline-offset suivant qu'il est positif ou négatif.
+
+.. image:: /IT/figures/css/Capture105.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture106.PNG
+       :width: 350
+       :align: center	       	       	       
+
+Display
+-------
+
+- Block crée toujours une ligne d'espacement
+- Inline ne crée pas de ligne d'espacement et sa taille s'ajuste au
+  contenu.
+
+On remarque que block s'étend sur toute la largeur de la page.  
+
+.. image:: /IT/figures/css/Capture107.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture109.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture108.PNG
+       :width: 350
+       :align: center	       	       	       
+
+Certains éléments possèdent leur propre display property.
+
+Avec la propriété display on peut changer le display qui est réglé par
+défaut.
+
+.. image:: /IT/figures/css/Capture110.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture111.PNG
+       :width: 350
+       :align: center
+
+	       
+Horizontal Centering
+--------------------
+
+.. image:: /IT/figures/css/Capture112.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/figures/css/Capture113.PNG
+       :width: 350
+       :align: center
+
+Pour aligner les blocks en bleu, nous devons écrire cela comme ceci
+
+L'utilisation de margin est nécessaire ici 25px est la marges du haut
+et du bas tandis ce que auto est la marge automatique qui centre le
+block.
+
+
+.. image:: /IT/figures/css/Capture114.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture115.PNG
+       :width: 350
+       :align: center
+
+Top Bottom Margin
+-----------------
+
+- Block: Top Bottom Margin Respected
+- Inline: Top Bottom Margin Not Respected
+  
+
+Mobile Navbar
+-------------
+
+Nous voyons que pour le div c'est un block donc les marges du haut et
+du bas peuvent être modifiées.
+
+.. image:: /IT/figures/css/Capture118.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture116.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture117.PNG
+       :width: 350
+       :align: center
+
+Enlevons ce bloc et créons notre Navbar
+
+.. image:: /IT/figures/css/Capture119.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture120.PNG
+       :width: 350
+       :align: center
+
+Faisons notre fichier styles.css
+
+Enlevons d'abord toutes les marges
+
+.. image:: /IT/figures/css/Capture121.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture122.PNG
+       :width: 350
+       :align: center
+
+
+Mettons un font-family sur le body
+
+List-style-type:property
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+pour sélectionné un enfant on écrira ``ul li{...}``
+et pour changer le point de list on utilsera list-style-type
+
+.. image:: /IT/figures/css/Capture123.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture124.PNG
+       :width: 350
+       :align: center
+
+Pour notre Navbar, nous ne voulons pas de point, on les supprime avec
+none.
+
+.. image:: /IT/figures/css/Capture125.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture126.PNG
+       :width: 350
+       :align: center
+
+	       
+descendant selectors
+^^^^^^^^^^^^^^^^^^^^
+
+ul li a est la sélection la plus précise qui va jusqu'à
+l'élément a. ici li ne sera pas sélectionnée.
+
+.. image:: /IT/figures/css/Capture127.PNG
+       :width: 350
+       :align: center	       
+
+#. Enlevons la décoration du texte (le souligné)
+#. Transformons le texte en capitalisant
+#. Mettant de l'espace entre les lettres
+#. Background à 222
+#. color à f15025
+
+   .. image:: /IT/figures/css/Capture128.PNG
+       :width: 350
+       :align: center	          
+
+   .. image:: /IT/figures/css/Capture129.PNG
+       :width: 350
+       :align: center
+	       
+#. espaçons un peu les lignes
+  
+    .. image:: /IT/figures/css/Capture130.PNG
+       :width: 350
+       :align: center
+
+   voilà le résultat, le padding est bien mais les lignes restent
+   serrées.
+	       
+   .. image:: /IT/figures/css/Capture131.PNG
+       :width: 350
+       :align: center
+
+#. essayons de mettre du marging
+
+   .. image:: /IT/figures/css/Capture132.PNG
+       :width: 350
+       :align: center
+
+   .. image:: /IT/figures/css/Capture133.PNG
+       :width: 350
+       :align: center
+
+   Le menu s'est déplacé un peu à droite mais les marges haut et bas
+   n'ont pas été appliquées. On se rappelle les marges haut et bas ne
+   sont pas appliquée aux éléments inlines comme ici un li un élément
+   d'une liste.
+
+#. ok, enlevons d'abord padding et margin et mettons un display: block   
+   
+   .. image:: /IT/figures/css/Capture134.PNG
+       :width: 350
+       :align: center
+
+   .. image:: /IT/figures/css/Capture135.PNG
+       :width: 350
+       :align: center
+
+   On voit que c'est devenu un block car il occupe toute la largeur de
+   la page.
+
+#. Rajoutons padding
+
+   .. image:: /IT/figures/css/Capture136.PNG
+       :width: 350
+       :align: center
+
+   .. image:: /IT/figures/css/Capture137.PNG
+       :width: 350
+       :align: center
+
+#. Si nous rajoutons margin la marge est crée
+
+   .. image:: /IT/figures/css/Capture138.PNG
+       :width: 350
+       :align: center
+
+   .. image:: /IT/figures/css/Capture139.PNG
+       :width: 350
+       :align: center   
+   
+#. Enlevons margin car cela était juste pour montrer que le top et
+   bottom margin était appliqué
+
+Inline-Block
+------------
+
+.. image:: /IT/figures/css/Capture140.PNG
+       :width: 350
+       :align: center   
+
+.. image:: /IT/figures/css/Capture141.PNG
+       :width: 350
+       :align: center	       
+
+faisons le fichier css
+
+.. image:: /IT/figures/css/Capture142.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture143.PNG
+       :width: 350
+       :align: center
+
+on voit que margin n'a fonctionner que pour la droite et la gauche le
+top et le bottom n'a pas bougé. C'est parce qu'on est en inline.
+On peut essayer de mettre le display à block et voir si on peut régler
+le top et bottom.
+
+.. image:: /IT/figures/css/Capture144.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture145.PNG
+       :width: 350
+       :align: center	       
+
+Mais cela n'arrange pas les choses. On n'aimerait avoir tout sur une
+ligne et pouvoir réglé margin top et bottom.
+
+En utilisant inline-block margin top et bottom fonctionne.
+
+.. image:: /IT/figures/css/Capture146.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture147.PNG
+       :width: 350
+       :align: center	       
+
+box-sizing
+----------
+
+.. image:: /IT/figures/css/Capture148.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture154.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture149.PNG
+       :width: 350
+       :align: center
+
+Ajoutons un padding à la box-1
+
+.. image:: /IT/figures/css/Capture150.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture151.PNG
+       :width: 350
+       :align: center
+
+On remarque que la box-1 a c'est agrandie de 20px de chaque coté.
+Mettons aussin un padding à box-3
+
+.. image:: /IT/figures/css/Capture152.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture153.PNG
+       :width: 350
+       :align: center	       
+
+Ouvrons le devTool de chrome et inspectons box-1, on voit que la
+dimensions est passée à 240px par 240px.
+
+.. image:: /IT/figures/css/Capture155.PNG
+       :width: 350
+       :align: center
+
+Le padding est souvent source de confusion car il augmente la taille
+des éléments.
+
+C'est là qu'intervient le box-sizing: border-box
+
+.. image:: /IT/figures/css/Capture156.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture157.PNG
+       :width: 350
+       :align: center
+
+Si l'on inspecte à nouveau le devTool
+
+.. image:: /IT/figures/css/Capture158.PNG
+       :width: 350
+       :align: center
+
+on voit que l'intérieur est passé à 160x160px donc il n'a pas agrandi
+le div, mais à déplacé le texte de 20px de chaque coté vers
+l'intérieur du div.
+
+
+display:none opacity:0 visibility:hidden
+----------------------------------------
+
+.. image:: /IT/figures/css/Capture159.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture160.PNG
+       :width: 350
+       :align: center	       
+
+display:0
+^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture161.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture162.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture163.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture164.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture165.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture166.PNG
+       :width: 350
+       :align: center	       
+
+En ouvrant le devTool, on constate que display à none est complètement
+caché, par contre opacity:0 et visibility:hidden l'élément reste
+présent dans le devTool.
+
+Background images
+-----------------
+
+Pour ce faire piquons sur pexels trois images que l'on va renommer par 
+big.jpg small.jpg et folder-img.jpg. Redimensionnons big.jpg et
+folder-img.jpg à 400px de haut, small.jpg à 100x100px avec Gimp.
+
+Disons que le div n'a pas de limite de largeur, mais une hauteur
+limitée à 400px. et mettons une couleur rouge pour le texte.
+
+.. image:: /IT/figures/css/Capture167.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture168.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture169.PNG
+       :width: 350
+       :align: center	       
+
+Pour le placement de l'image nous allons utiliser background: mais
+cette fois ci pas comme nous avons l'habitude de mettre color, à la
+place nous allons mettre un url().
+
+path image
+^^^^^^^^^^
+
+pour le path de l'image, uniquement cette notation fonctionne pour moi
+pour voir directement dans le chrome en ouvrant index.html (sans live
+server) :
+``url("../big.jpg")``. Si le l'image est dans un dossier nommé **img**
+``url("../img/big.jpg")``  
+
+.. image:: /IT/figures/css/Capture170.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture171.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture172.PNG
+       :width: 350
+       :align: center
+
+On voit que lorsque l'on agrandi la fenêtre, si elle devient plus
+large que l'image alors le browser dupliquera l'image à droite.
+
+.. image:: /IT/figures/css/Capture173.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture174.PNG
+       :width: 350
+       :align: center
+
+Le browser par défaut a remplir tout le div par les images en les
+dupliquant non seulement en largeur mais aussi en hauteur.
+
+.. image:: /IT/figures/css/Capture175.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture176.PNG
+       :width: 350
+       :align: center	       
+
+
+	  
+Background-repeat
+^^^^^^^^^^^^^^^^^
+
+
+``backround-repeat: repeat;`` rien ne change car c'est la valeur par
+  défaut.
+  
+``backround-repeat: no-repeat;``
+
+  .. image:: /IT/figures/css/Capture177.PNG
+       :width: 350
+       :align: center
+
+  .. image:: /IT/figures/css/Capture178.PNG
+       :width: 350
+       :align: center	       
+
+  On voit qu'une image car nous avons réglé à no-repeat.
+
+``background-repeat: repeat-x`` ou ``repeat-y``
+
+.. image:: /IT/figures/css/Capture179.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture180.PNG
+       :width: 350
+       :align: center	         	       
+	       
+Pour répéter l'image en largeur seulement.  Mettre ``repeat-y`` pour
+répéter l'image en hauteur. 
+   
+``background-repeat: space``
+
+  .. image:: /IT/figures/css/Capture181.PNG
+       :width: 350
+       :align: center
+
+  .. image:: /IT/figures/css/Capture182.PNG
+       :width: 350
+       :align: center	           
+
+On distingue de l'espace entre les images répétées.
+
+``background-repeat: round`` permet affichera toujours une image dans
+toute sa largeur. Attention, elle sera déformée.
+
+.. image:: /IT/figures/css/Capture183.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture184.PNG
+       :width: 350
+       :align: center	         	       	       
+
+
+Pour ce qui est le plus couramment utilisé c'est le
+``background-repeat: no-repeat``
+
+Background-size: cover
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Etend l'image sur toute la largeur du div quelque que soit la taille
+de l'image. L'image ne sera pas déformée. Il faudra faire attention à
+bien dimensionné l'image avant pour que l'image ne soit pas trop
+pixelisée en étendant le div.
+
+.. image:: /IT/figures/css/Capture185.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture186.PNG
+       :width: 350
+       :align: center	         	       	       
+
+	       
+Background-size: contain
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture187.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture188.PNG
+       :width: 350
+       :align: center	         	       	       
+
+Ne modifie pas le ratio de l'image.
+
+.. note::
+
+   De tous ces background, celui qui sera le plus utilisé sera le
+   cover pour faire des nices banners.
+
+   
+Background-position
+-------------------
+
+.. image:: /IT/figures/css/Capture189.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture190.PNG
+       :width: 350
+       :align: center	         	       	       
+
+La petite image est centrée.
+
+.. note::
+   
+  Ecrire ``right bottom`` est tout à fait possible.
+  
+	       
+.. image:: /IT/figures/css/Capture191.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture192.PNG
+       :width: 350
+       :align: center	         	       	       	       
+
+Utile si l'on veut voir plûtot le bas, le haut le centre, ou droite ou
+gauche de l'image quand on agrandi l'image. Ici on se penche plutôt
+pour le bas.
+
+Pour un positionnement encore plus précis on écrire en %.
+
+.. image:: /IT/figures/css/Capture193.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture194.PNG
+       :width: 350
+       :align: center	         	       	       	       
+
+Le premier % représente l'horizontal, et le deuxième, la verticale.
+
+
+Background-attachment
+---------------------
+
+Ajustons d'abord le div:
+
+.. image:: /IT/figures/css/Capture195.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture196.PNG
+       :width: 350
+       :align: center	         	       	       	       
+
+La hauteur de l'image est égale à la fenêtre.
+
+et mettons le texte au centre et enlevons le margin par défaut avec
+``*{}`` 
+
+.. image:: /IT/figures/css/Capture197.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture198.PNG
+       :width: 350
+       :align: center
+
+Apportons encore quelques modifications
+
+.. image:: /IT/figures/css/Capture199.PNG
+       :width: 350
+       :align: center
+
+Cette configuration peut-être utilisée pour les images d'arrière-plan
+d'un site internet.
+
+Mettons maintenant un background-attachement
+
+.. image:: /IT/figures/css/Capture200.PNG
+       :width: 350
+       :align: center
+
+Qui a fixé l'image, pendant que l'on scroll vers le bas, le texte sur le
+dessus de l'image bouge.
+
+
+Gradients
+---------
+
+.. image:: /IT/figures/css/Capture201.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture202.PNG
+       :width: 500
+       :align: center
+
+.. image:: /IT/figures/css/Capture203.PNG
+       :width: 350
+       :align: center
+
+Sur une image
+^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture204.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/figures/css/Capture205.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture206.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture207.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture208.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture209.PNG
+       :width: 350
+       :align: center	       
+
+Pour l'instant, on remarque qu'il n'y a pas de dégradé, changeons le 
+paramètre a = 0.1
+
+.. image:: /IT/figures/css/Capture210.PNG
+       :width: 350
+       :align: center
+
+On distingue maintenant le gradué :
+
+.. image:: /IT/figures/css/Capture211.PNG
+       :width: 350
+       :align: center
+
+Associons une image. Attention de ne pas oublier la virgule.
+
+.. image:: /IT/figures/css/Capture212.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture213.PNG
+       :width: 350
+       :align: center
+
+On voit que l'image s'est assombrie, on peut très bien prendre une
+autre couleur aussi.
+
+Utilisation de raccourci pour background
+''''''''''''''''''''''''''''''''''''''''
+
+.. image:: /IT/figures/css/Capture214.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture215.PNG
+       :width: 350
+       :align: center
+
+.. note::
+
+   Attention, no-repeat et fixed ne peuvent être permuter.
+
+
+Cela évite de tapez background... sur plusieurs ligne. L'image à la
+même propriété que la première sauf qu'il y a plus de dégradé. (idéal
+pour lire du texte sur l'image)
+
 	       
 JAVA Script
 ===========
@@ -3357,6 +4204,10 @@ Get the most recent file in a directory node (à tester)
         return (path.join(dir, newest))
     return null
    }
+
+
+
+
 
 
 Coté client
