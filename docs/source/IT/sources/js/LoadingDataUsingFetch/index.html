@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loading and Parsing CSV Data</title>
+   </head>
+  <body>
+    <script>
+
+      
+      const fetchText = async (url) => {
+        const response = await fetch(url);
+        return await response.text();
+      };
+      
+const csvUrl = 'https://gist.githubusercontent.com/windwaver/1d5d788cd934c4369210a7192ff581e4/raw/cssNamedColors.csv'
+      
+      fetchText(csvUrl).then(text => {
+        console.log(text);
+      });
+      
+    </script>
+    
+  </body>
+</html>

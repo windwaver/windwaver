@@ -4163,11 +4163,1340 @@ Utilisation de raccourci pour background
    Attention, no-repeat et fixed ne peuvent être permuter.
 
 
-Cela évite de tapez background... sur plusieurs ligne. L'image à la
+Cela évite de tapez background... sur plusieurs lignes. L'image à la
 même propriété que la première sauf qu'il y a plus de dégradé. (idéal
 pour lire du texte sur l'image)
 
+
+Linear gradient generator
+'''''''''''''''''''''''''
+
+Il existe un site https://www.colorzilla.com/gradient-editor/ qui
+permet de générer les dégradés. Ensuite il faut copier le code css.
+
+.. image:: /IT/figures/css/Capture216.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture217.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture218.PNG
+       :width: 350
+       :align: center	       
+
+Float property
+--------------
+
+.. image:: /IT/figures/css/Capture219.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture220.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture221.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture222.PNG
+       :width: 350
+       :align: center	       	       
+
+On voit que le paragraphe est mis en-dessous de l'image car c'est un
+last block element.
+
+
+Mettons maintenant un border et un padding
+
+.. image:: /IT/figures/css/Capture223.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture224.PNG
+       :width: 350
+       :align: center	       	       
+
+Que se passe-t-il maintenant si l'on utilise la propriété float?
+
+On est tenté de dire que l'image est déjà floated vers la gauche. Mais
+par défaut la propriété est à none. Mettons float à left.
+
+.. image:: /IT/figures/css/Capture225.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture226.PNG
+       :width: 350
+       :align: center
+
+Si l'on met un left alors l'élément suivant va ête aussi à left, comme
+dans ce cas. Si l'on veut mettre l'élément suivant comme normal, il
+faudra utiliser la propriété clear: left.
+
+.. image:: /IT/figures/css/Capture227.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture228.PNG
+       :width: 350
+       :align: center	       	       
+
+Faisons la même chose avec right:
+
+.. image:: /IT/figures/css/Capture229.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture230.PNG
+       :width: 350
+       :align: center	       	       
+
+Rajoutons une deuxième image
+
+.. image:: /IT/figures/css/Capture231.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture232.PNG
+       :width: 350
+       :align: center	       	       
+
+En utilisant clear: both, le paragraphe revient à la ligne
+normal. C'est comme si on lui aurait enlevé la propriété left ou
+right.
+
+.. image:: /IT/figures/css/Capture233.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture234.PNG
+       :width: 350
+       :align: center
+
+L'image sort du div, en utilisant la commande overflow: hidden, on
+coupe la partie qui dépasse.	       
 	       
+.. image:: /IT/figures/css/Capture235.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture236.PNG
+       :width: 350
+       :align: center
+
+Enlevons une image et mettons l'image à droite du paragraphe.
+
+.. image:: /IT/figures/css/Capture237.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture238.PNG
+       :width: 350
+       :align: center
+
+On peut facilement mettre un peu de marge
+
+.. image:: /IT/figures/css/Capture239.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture240.PNG
+       :width: 350
+       :align: center	       
+
+	       
+Un autre exemple avec float
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture241.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture242.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture243.PNG
+       :width: 350
+       :align: center
+
+Si l'on rajoute un h1
+
+.. image:: /IT/figures/css/Capture244.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture245.PNG
+       :width: 350
+       :align: center	       
+
+On croirait que tout va bien le h1 c'est bien mis sur une nouvelle
+ligne.
+
+Mais rajoutons un div
+
+.. image:: /IT/figures/css/Capture246.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture247.PNG
+       :width: 350
+       :align: center	       
+
+On voit que le hello world ne sait pas mis sur une nouvelle ligne.
+
+Pour mettre le h1 comme il devrait s'afficher (sur une nouvelle ligne)
+on fera appel à clear:both.
+
+.. image:: /IT/figures/css/Capture248.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture249.PNG
+       :width: 350
+       :align: center
+
+c'est une bonne habitude de mettre ce clear:both pour des raisons de
+déboggage qui pourraient s'avérer pénible.
+
+position: relative
+------------------
+
+avec position: relative, 4 options permettent de déplacer l'élément
+soient, top, bottom, left, right. Ils déplacent l'élément par rapport
+au flux normal (position normale par défaut) 
+
+.. image:: /IT/figures/css/Capture250.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture252.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture251.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture253.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture254.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture255.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture256.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture257.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture258.PNG
+       :width: 350
+       :align: center	  
+	       
+.. image:: /IT/figures/css/Capture259.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture260.PNG
+       :width: 350
+       :align: center	       
+
+	       
+position: absolute
+------------------
+
+C'est la rock-star du css.
+
+.. image:: /IT/figures/css/Capture261.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture262.PNG
+       :width: 350
+       :align: center	       
+
+Si l'élément d'avant est positionné avec relativ alors cet élément
+sera la référence pour l'élément positionné avec absolute. Pour voir
+mettons l'élément d'avant ici .two avec relative.
+
+.. image:: /IT/figures/css/Capture263.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture264.PNG
+       :width: 350
+       :align: center	       
+
+Enlevons-là pour voir
+
+.. image:: /IT/figures/css/Capture265.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture266.PNG
+       :width: 350
+       :align: center
+
+On voit que la référence est devenu le body.
+
+Mettons la position du div à relative
+
+.. image:: /IT/figures/css/Capture267.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture268.PNG
+       :width: 350
+       :align: center
+
+Pour le mettre à la moitié du body, on enlève le relative de .div
+
+.. image:: /IT/figures/css/Capture269.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture270.PNG
+       :width: 350
+       :align: center
+
+position: fixed
+---------------
+
+Cet propriété sert à fixer un bouton par exemple pour qu'il soit fixe
+lorsque l'on scroll en-bas de la page.
+
+.. image:: /IT/figures/css/Capture271.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture272.PNG
+       :width: 350
+       :align: center
+
+	       
+Media Queries
+-------------
+
+Est utilisé pour appliquer différents styles suivant la grandeur de
+l'écran. En général on commence par l'écran le plus petit vers le plus
+grand.
+
+.. image:: /IT/figures/css/Capture273.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture274.PNG
+       :width: 350
+       :align: center
+
+Attention au un simple oubli d'un espace est la syntaxe est fausse.	       
+
+
+min-width
+^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture275.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture276.PNG
+       :width: 450
+       :align: center
+
+la syntaxe min-width indique à partir de quelle grandeur le style doit
+être appliqué.
+
+On peut utiliser le devTool pour inspecter la grandeur de l'écran.
+	       
+.. image:: /IT/figures/css/Capture277.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture278.PNG
+       :width: 350
+       :align: center
+
+Si nous n'écrasons pas dans @media un style déjà défini, comme par
+exemple text-decoration: underline, ce style sera maintenu.  
+
+Dans l'exemple suivant, on va mettre deux seuils pour avoir en fait
+trois styles différents.
+
+.. image:: /IT/figures/css/Capture279.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture280.PNG
+       :width: 350
+       :align: center
+
+On observe que dès que la fenêtre dépasse 768px alors le style vert
+est appliqué.
+
+max-width
+^^^^^^^^^
+
+max-width indique que jusqu'à max-width le style est appliqué. Au-delà
+un autre style est appliqué.
+
+.. image:: /IT/figures/css/Capture281.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture282.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture283.PNG
+       :width: 450
+       :align: center	       
+
+Ce que l'on doit faire attention c'est que l'on peut écraser
+facilement les styles. Ici 768px écrase le 576px car il inclu ce
+dernier. Donc le style rouge (576px) ne sera jamais utilisé. Par
+contre si un style declaré dans 576px et ne figure pas dans 768px
+alors celui-ci sera tout de même appliqué.
+
+.. image:: /IT/figures/css/Capture284.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture285.PNG
+       :width: 350
+       :align: center	       	       
+
+z-index
+^^^^^^^
+
+Avec z-index, on peut règler l'ordre de juxtaposition des images. 
+
+Nous voulons comme ancêtre pour banner position: relative.
+
+On distingue que les images sont superposées. Dans l'ordre dans
+lequelle elle ont été déclarées.
+
+.. image:: /IT/figures/css/Capture286.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture287.PNG
+       :width: 350
+       :align: center	       	       
+
+	       
+Par défaut, les images ont un z-index égale 0.	       
+
+Si l'on met pour la première image un z-index égale à 0 l'image reste
+comme elle était.
+
+.. image:: /IT/figures/css/Capture288.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture289.PNG
+       :width: 350
+       :align: center	       	       
+
+Mettons z-index à 1 et l'image passe devant les autres.
+
+.. image:: /IT/figures/css/Capture290.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture291.PNG
+       :width: 350
+       :align: center
+
+Passons des z-index au trois, afin que la troisième image passe en
+arrière, ensuite la deuxième et la première en avant.
+
+.. image:: /IT/figures/css/Capture292.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture293.PNG
+       :width: 350
+       :align: center
+
+on peut très bien mette un z-index de -999 c'est la grandeur qui fait
+la priorité.
+
+z-index fonctionne seulement en absolute et en relative. Si l'on met
+static alors z-index ne fonctionnera pas.
+
+.. image:: /IT/figures/css/Capture294.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture295.PNG
+       :width: 350
+       :align: center
+
+Dans ce cas tout fonctionne normalement. Si l'on met un z-index à 100,
+alors rien ne se passe avec position static. (le .one devrait passer
+tout en avant)
+
+.. image:: /IT/figures/css/Capture296.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture297.PNG
+       :width: 350
+       :align: center	       	       
+
+Pour que cela fonctionne il faut mettre à relative ou aboslute
+
+.. image:: /IT/figures/css/Capture298.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture299.PNG
+       :width: 350
+       :align: center
+
+	       
+pseudo elements ::before ::after CONTENT
+----------------------------------------
+
+::before
+^^^^^^^^
+
+Pour l'exemple suivant nous allons créer un simple paragraphe.
+
+.. image:: /IT/figures/css/Capture305.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture300.PNG
+       :width: 350
+       :align: center
+       
+.. image:: /IT/figures/css/Capture301.PNG
+       :width: 350
+       :align: center
+
+On voit que le mot hello s'est collé devant le contenu de notre
+paragraphe écrit en html.
+
+On peut rajouter n'importe quelle propriété
+
+.. image:: /IT/figures/css/Capture303.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture304.PNG
+       :width: 350
+       :align: center
+
+Si l'on ouvre le devTool on peut voir que le ::before a été rajouter
+dans le p	       
+	       
+.. image:: /IT/figures/css/Capture306.PNG
+       :width: 350
+       :align: center
+
+::after
+^^^^^^^
+	       
+Ceci est rajouter inline.
+
+On peut changer en block
+
+.. image:: /IT/figures/css/Capture307.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture308.PNG
+       :width: 350
+       :align: center	       
+
+Donc nous avons nos sudo éléments avant et après le paragraphe.
+
+content doit toujours être renseigné
+
+.. image:: /IT/figures/css/Capture309.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture310.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture311.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture312.PNG
+       :width: 350
+       :align: center	       	       
+
+on doit donc quand même spécifié content:"" quand il n'y pas de
+texte.
+
+Cas pratique avec ::before et ::after
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Nous allons rajouter une image et ce qui est important c'est que img
+soit dans un div.
+
+.. image:: /IT/figures/css/Capture313.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture314.PNG
+       :width: 350
+       :align: center
+
+Changeons la largeur de l'image
+
+.. image:: /IT/figures/css/Capture315.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture316.PNG
+       :width: 350
+       :align: center	       
+
+ok, cela fonctionne, mais il y a une meilleure solution.
+
+Nous allons modifier le div et l'image sera responsible à ce div.
+
+.. image:: /IT/figures/css/Capture317.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture318.PNG
+       :width: 350
+       :align: center	       
+
+On remarque que l'image ne s'intégre pas dans le div (cadre rouge)
+
+Pour la faire entrer dans le cadre mettons width: 100%
+
+.. image:: /IT/figures/css/Capture319.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture320.PNG
+       :width: 350
+       :align: center
+
+Même en modifiant le div l'image sera toujours intégrée au div
+
+.. image:: /IT/figures/css/Capture321.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture322.PNG
+       :width: 350
+       :align: center	       
+
+On remarque toutefois un espace enter le bas de l'image et le cadre du
+bas. On est tenté à mettre un height: 100% mais rien a bougé. Pour
+parer à cet inconvénient, il faut mettre à img un display: block. Ceci
+n'a rien à voir avec ::before ::after sudo elements, mais
+l'association en div et img requiert img avec un display: block.
+
+.. image:: /IT/figures/css/Capture323.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture324.PNG
+       :width: 350
+       :align: center	       
+
+Maintenant mettant quelque chose avec ::before avant l'image.
+
+.. image:: /IT/figures/css/Capture325.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture326.PNG
+       :width: 350
+       :align: center	       
+
+On remarque que hello ne s'est pas mis avant l'image, ceci est dû au
+fait que img représente déjà le contnent.
+
+Donc essayons avec div, on met content à "" avec un border
+
+
+.. image:: /IT/figures/css/Capture327.PNG
+       :width: 350
+       :align: center	       
+
+.. image:: /IT/figures/css/Capture328.PNG
+       :width: 350
+       :align: center	       
+
+On voit un petit rectangle gris, essayons maintenant de l'agrandir:
+
+.. image:: /IT/figures/css/Capture329.PNG
+       :width: 350
+       :align: center	       
+
+On voit qu'il a pas bougé.
+
+Mais nous connaissons la propriété absolute.
+
+.. image:: /IT/figures/css/Capture330.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture331.PNG
+       :width: 350
+       :align: center	       	       
+
+On voit que le cadre n'est pas encore bon.
+
+On se rappelle que absolut regarde pour quoi? Il regarde pour
+l'ancestor ou il y a un relative. S'il ne trouve rien il prendrea le
+body. C'est pourquoi le cadre est si grand. Donc on regarde pour
+l'ancestor et dans ce cas c'est div et rajoute un positon relative.
+
+.. image:: /IT/figures/css/Capture332.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture333.PNG
+       :width: 350
+       :align: center
+
+On peut dire que ce n'est pas vraiment 100% car il réside de l'espace
+(un tout petit peu). La raison à cela est dans le border-box. Mettons
+alors box-sizing: border-box. et le résultat est bon.
+
+.. image:: /IT/figures/css/Capture334.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture335.PNG
+       :width: 350
+       :align: center
+
+Ce qui est cool c'est qu'on peut utilisé relatvie avec l'ancestor.
+On peut utilisée des valeurs négatives. Ce qui va faire déplacer le
+cadre.
+
+.. image:: /IT/figures/css/Capture336.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture337.PNG
+       :width: 350
+       :align: center
+
+Pour faire passer le cadre en arrière plan on utilisera z-index: -2 
+Occupons nous de div::after, copions ce qu'il y a dans le before et
+passons le entre div::before et l'image.
+
+.. image:: /IT/figures/css/Capture338.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture339.PNG
+       :width: 350
+       :align: center
+
+transition
+^^^^^^^^^^
+
+Voici un petit avant goût de ce que l'on peut faire avec hover et
+transition
+
+.. image:: /IT/figures/css/Capture340.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture341.PNG
+       :width: 350
+       :align: center
+
+Dès que l'on le pointeur de la souris passe par-dessus l'image alors
+after et before vont se décaller à 0;	       
+
+Basic Selectors
+---------------
+
+.. image:: /IT/figures/css/Capture342.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture343.PNG
+       :width: 350
+       :align: center
+	       
+Mettons quelques style à #heading
+
+.. image:: /IT/figures/css/Capture344.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture345.PNG
+       :width: 350
+       :align: center
+
+	       
+On voit qu'il y spécificité car #heading supplante le ``*``. On se
+rappelle que lorsque l'on utilise id alors dans le css il faudra
+mettre ``#``, pour class on mettra un point. Mettons maintenant à class du
+style.
+
+
+.. image:: /IT/figures/css/Capture346.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture347.PNG
+       :width: 350
+       :align: center
+
+On va donc que grâce à la spécificité on peut régler les styles de
+chaque élément spécifique.
+
+Descendant and Child Combinators
+--------------------------------
+
+Children peuvent être Descendant, mais Descendant ne peut pas être
+Child. Prenons un example pour clarifier.
+
+Si l'on veut sélectionner uniquement les h1 qui sont dans un div on
+écrira
+
+Donc ici les deux h1 seront en rouge.
+
+.. image:: /IT/figures/css/Capture348.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture349.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture350.PNG
+       :width: 350
+       :align: center	       
+
+direct child
+^^^^^^^^^^^^
+
+On peut sélectionner le direct child par exemple div > h1 sera
+sélectionner uniquement si h1 est directement sous div (qu'il n'y a
+rien entre le div et le h1) C'est pourquoi uniqument le premier h1 est
+sélectionner car l'autre h1 est sous li ul.
+
+.. image:: /IT/figures/css/Capture351.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture352.PNG
+       :width: 350
+       :align: center
+
+On n'est pas limité uniquemnt aux selectors, class fonctionnent aussi.
+
+.. image:: /IT/figures/css/Capture353.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture354.PNG
+       :width: 350
+       :align: center	       
+
+.header est plus spécifique car c'est une class
+
+fonctionne aussi avec direct child
+
+.. image:: /IT/figures/css/Capture355.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture356.PNG
+       :width: 350
+       :align: center
+
+first-line ::first-letter
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture356.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture357.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture358.PNG
+       :width: 350
+       :align: center
+
+hover
+^^^^^
+
+.. image:: /IT/figures/css/Capture359.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture361.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture360.PNG
+       :width: 350
+       :align: center
+
+
+On voit que quand on passe dessus avec le pointeur de la souris que le
+texte s'agrandit. Mettons un hover sur .header et sur a.
+
+.. image:: /IT/figures/css/Capture361.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture362.PNG
+       :width: 350
+       :align: center	       
+
+	       
+link :visited :hover :active
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+visited
+'''''''
+
+.. image:: /IT/figures/css/Capture363.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture364.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture366.PNG
+       :width: 350
+       :align: center
+
+	       
+
+On voit que si a égale à ``#``, alors tous les visited passent à EN
+(au rouge dans ce cas). Mais dès que l'on met un lien vers une page,
+le lien devient pas visité.
+
+hover
+'''''
+
+.. image:: /IT/figures/css/Capture365.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture367.PNG
+       :width: 350
+       :align: center
+
+active
+''''''
+
+lorsque l'on clique sur le lien et sans relâcher le bouton de la
+souris, alors le lien devient vert.
+
+.. image:: /IT/figures/css/Capture368.PNG
+       :width: 350
+       :align: center
+
+	       
+root element of the document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture369.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture370.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture371.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture372.PNG
+       :width: 350
+       :align: center
+	       
+
+root est utilisé par exemple pour agrandir le texte dont la taille a
+été fixée par rem. On remarque que par absolute le texte ne change pas
+malgré le changment de root à 150%. En fait par défaut 1rem = 16px.
+
+.. image:: /IT/figures/css/Capture373.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture374.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture375.PNG
+       :width: 350
+       :align: center
+
+transform
+^^^^^^^^^
+
+translate
+'''''''''
+
+un valeur négative fera déplacer l'élément vers la gauche et un
+pourcentage fera déplacer d'un pourcentage de la taille de l'élément à 
+déplacé. Une valeur négative fera monter l'élément. On peut aussi
+combiner les deux directions.
+
+.. image:: /IT/figures/css/Capture376.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture377.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture378.PNG
+       :width: 350
+       :align: center
+
+scale
+'''''
+
+.. image:: /IT/figures/css/Capture379.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture380.PNG
+       :width: 350
+       :align: center
+
+rotation
+''''''''
+
+rotateX
+'''''''
+
+rotationZ fait une rotation autours de l'axe Z et est égale à rotation
+tout courts.
+
+.. image:: /IT/figures/css/Capture381.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture382.PNG
+       :width: 350
+       :align: center
+
+skew
+''''
+
+.. image:: /IT/figures/css/Capture383.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture384.PNG
+       :width: 350
+       :align: center
+
+	       
+transition
+^^^^^^^^^^
+
+Une transition est un changement effectué pendant un certain temps.
+
+.. image:: /IT/figures/css/Capture385.PNG
+       :width: 350
+       :align: center
+
+ce hover va faire changer la couleur de tous les div en faisant passer
+le pointeur de la souris sur les div.
+
+On remarque que le changement de couleur est instantané, si l'on veut
+que ce changement s'opère pendant un certain temps on écrira
+
+.. image:: /IT/figures/css/Capture386.PNG
+       :width: 350
+       :align: center
+
+les 4s sont le temps que mettra la couleur du fond à virer du bleu au
+coloral.
+
+Mettons une autre propriété de border-radius et l'on observe dès que
+l'on passe dessus le rayon passe directement à un rond. Pour que
+l'effet de border-radius se fasse aussi progressivement on séparera la 
+propriété d'une virgule.
+
+.. image:: /IT/figures/css/Capture387.PNG
+       :width: 350
+       :align: center
+
+l'effet est effectué sur les deux propriétés avec un délai de 4s. Par
+contre si l'on veut un délai différent alors on écrira
+
+
+.. image:: /IT/figures/css/Capture388.PNG
+       :width: 350
+       :align: center
+
+Là, 4s est pour background et 2s est pour border-radius.
+
+transition-delay
+^^^^^^^^^^^^^^^^
+
+est pour mettre un délai comme pour un relai temporisé à la
+fermeture. 
+
+On peut noter d'autre manière
+
+ici le 3s seconde représente la durée de la transition et 2s la tempo.
+
+.. image:: /IT/figures/css/Capture389.PNG
+       :width: 350
+       :align: center
+
+Si l'on veut appliquer à border-radius aussi
+
+.. image:: /IT/figures/css/Capture390.PNG
+       :width: 350
+       :align: center
+
+si l'on veut appliquer à toutes les propriétés
+
+.. image:: /IT/figures/css/Capture391.PNG
+       :width: 350
+       :align: center
+
+
+transition-timing-function
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ease et default sont les mêmes
+
+- linear la vitesse de déplacement et la même du début à la fin.
+
+- ease-in accèlère progressive
+
+- ease-out plein pot au début et ralentissement progressive
+
+- ease-in-out accélération et déssélération progressive.
+
+
+.. image:: /IT/figures/css/Capture392.PNG
+       :width: 350
+       :align: center
+
+
+.. image:: /IT/figures/css/Capture393.PNG
+       :width: 350
+       :align: center
+
+
+.. image:: /IT/figures/css/Capture394.PNG
+       :width: 350
+       :align: center
+
+Animation
+^^^^^^^^^
+
+On a vu transition qui fait l'action de 0 à 100%, avec animation on
+peut faire varier à n'importe quel pourcentage.
+
+.. image:: /IT/figures/css/Capture395.PNG
+       :width: 350
+       :align: center
+
+
+.. image:: /IT/figures/css/Capture396.PNG
+       :width: 350
+       :align: center
+
+
+.. image:: /IT/figures/css/Capture397.PNG
+       :width: 350
+       :align: center
+
+iteration est le nombre de fois que l'animation doit se dérouler.
+
+short hand
+''''''''''
+
+On peut écrire tout sur une ligne ceci remplace ce qui est commenté.
+
+
+.. image:: /IT/figures/css/Capture398.PNG
+       :width: 350
+       :align: center
+
+	       
+animation-fill-mode
+'''''''''''''''''''
+
+Une fois que le nombre d'itération a été effectué, la modification
+reste à la dernière ici opacity sera à 0.5.
+
+.. image:: /IT/figures/css/Capture399.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture400.PNG
+       :width: 350
+       :align: center
+
+:root{}
+^^^^^^^
+
+définition de variable global
+'''''''''''''''''''''''''''''
+
+utile si il y beaucoup de variable qui se répètent comme par exemple
+color.
+
+.. image:: /IT/figures/css/Capture402.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture403.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/figures/css/Capture404.PNG
+       :width: 350
+       :align: center
+
+En local
+''''''''
+
+Créons une nouvelle variable à l'intérieur de div et appelons-la dans
+.main-text et essayons aussi de l'appeler dans  .third-heading. Comme
+.third-heading n'est pas dans un div alors la color ne sera pas réglée
+à rouge. Par-contre .main-text est dans un div et la coleur est au
+rouge.
+
+.. image:: /IT/figures/css/Capture405.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/figures/css/Capture406.PNG
+       :width: 350
+       :align: center
+
+	       
+Font Awesome
+^^^^^^^^^^^^
+
+Tapez dans google font awesome.
+
+à dévelloper car pas le droit de télécharger. Essayer un autre
+jour...
+
+
+text-shadow
+^^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture407.PNG
+       :width: 350
+       :align: center
+	       
+.. image:: /IT/figures/css/Capture408.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture409.PNG
+       :width: 350
+       :align: center
+
+	       
+text-shadow generator
+'''''''''''''''''''''
+
+tapez dans google text-shadow generator.
+
+.. image:: /IT/figures/css/Capture412.PNG
+       :width: 350
+       :align: center
+
+Ensuite, il faut copier le code.
+
+	       
+box-shadow
+^^^^^^^^^^
+
+.. image:: /IT/figures/css/Capture410.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture411.PNG
+       :width: 350
+       :align: center
+
+	       
+box-shadow generator
+''''''''''''''''''''
+
+Il y a aussi un box-shadow generator
+
+tapez dans google box-shadow generator
+
+.. image:: /IT/figures/css/Capture413.PNG
+       :width: 350
+       :align: center
+
+.. image:: /IT/figures/css/Capture414.PNG
+       :width: 350
+       :align: center
+
+semantic
+^^^^^^^^
+
+sert à structurer correctement une page html.
+
+dans google tapez semantic w3school
+
+emmet
+^^^^^
+
+si on utilise pas visual studio on peut tapez dans google emmet.
+
+``h1.maclass.big.yellow`` donnera
+
+.. image:: /IT/figures/css/Capture415.PNG
+       :width: 350
+       :align: center
+
+``h1#main``
+
+``h3#third.third``
+
+``header.header.main``
+
+``#box.box-1.box-2``
+
+``div>ul>li*5``
+
+``p{some texte}``
+
+``ul>li*6{$}``
+
+.. image:: /IT/figures/css/Capture416.PNG
+       :width: 350
+       :align: center
+
 JAVA Script
 ===========
 
@@ -4348,6 +5677,42 @@ Résultat :
        :width: 400
        :align: center
 
+
+Loading Data Using Fetch
+------------------------
+
+source : https://www.youtube.com/watch?v=2LhoCfjm8R4&t=15506s
+
+index.html
+
+.. literalinclude:: /IT/sources/js/LoadingDataUsingFetch/index.html
+
+		    
+Parsing CSV Data with D3
+------------------------
+	       
+.. literalinclude:: /IT/sources/js/ParsingCsvDataWithD3/index.html
+
+simplier
+^^^^^^^^
+
+.. literalinclude:: /IT/sources/js/ParsingCsvDataWithD3/Simplier/index.html
+
+		    
+Loading Data with React and D3
+------------------------------
+
+index.html
+
+.. literalinclude:: /IT/sources/js/LoadingDataWithReactAndD3/index.html
+
+index.js
+
+.. literalinclude:: /IT/sources/js/LoadingDataWithReactAndD3/index.js
+
+message.js
+
+.. literalinclude:: /IT/sources/js/LoadingDataWithReactAndD3/message.js		    
 
 React
 -----
@@ -7050,8 +8415,65 @@ Voici quelques liens vers des nouveautés de React:
  * Higher Order Components - https://reactjs.org/docs/higher-order-components.html
  * React Router - https://reacttraining.com/react-router/core/guides/philosophy
  * React Hooks - https://reactjs.org/docs/hooks-intro.html
- * React lazy, memo, and Suspense - https://reactjs.org/blog/2018/10/23/react-v-16-6.html 
+ * React lazy, memo, and Suspense -
+   https://reactjs.org/blog/2018/10/23/react-v-16-6.html
+
    
+Smiley Face
+^^^^^^^^^^^
+
+source : https://www.youtube.com/watch?v=2LhoCfjm8R4&t=15506s
+
+.. image:: /IT/figures/react/SmileyFace/Capture1.PNG
+     :width: 350
+     :align: center	     
+
+
+index.html
+
+.. literalinclude:: /IT/sources/js/reactSmiley/index.html
+
+index.js
+		    
+.. literalinclude:: /IT/sources/js/reactSmiley/index.js
+
+Face.js
+
+.. literalinclude:: /IT/sources/js/reactSmiley/Face.js
+
+FaceContainer.js
+
+.. literalinclude:: /IT/sources/js/reactSmiley/FaceContainer.js
+
+BackgroundCircle.js
+
+.. literalinclude:: /IT/sources/js/reactSmiley/BackgroundCircle.js
+
+Eyes.js
+
+.. literalinclude:: /IT/sources/js/reactSmiley/Eyes.js
+
+Mouth.js
+
+.. literalinclude:: /IT/sources/js/reactSmiley/Mouth.js
+
+		    
+Mouse Follower
+^^^^^^^^^^^^^^
+
+A circle that follows a circle.
+
+source : https://www.youtube.com/watch?v=2LhoCfjm8R4&t=15506s
+
+index.html
+
+.. literalinclude:: /IT/sources/js/reactMouseFollower/index.html
+
+index.js
+
+.. literalinclude:: /IT/sources/js/reactMouseFollower/index.js
+   
+		    
    
 Working with .xml
 -----------------

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loading and Parsing CSV Data</title>
+    <script src="https://unpkg.com/d3@6.6.0/dist/d3.min.js"></script>
+    <style>
+      pre {
+      font-size: 7em;
+      }</style>
+   </head>
+  <body>
+    <pre id="message-container"></pre>   
+    <script>
+      const fetchText = async (url) => {
+        const response = await fetch(url);
+        return await response.text();
+      };
+      
+const csvUrl = 'https://gist.githubusercontent.com/windwaver/1d5d788cd934c4369210a7192ff581e4/raw/cssNamedColors.csv'
+      
+      fetchText(csvUrl).then(text => {
+        const data = d3.csvParse(text)
+        let message = '';
+        message = message + Math.round(text.length / 1024) + ' kB\n';
+        message = message + data.length + ' rows\n';
+        message = message + data.columns.length + ' columns';
+        document.getElementById('message-container').textContent =message;
+      });
+      
+    </script>
+    
+  </body>
+</html>
