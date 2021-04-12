@@ -951,6 +951,14 @@ r.exec(s) et faire une boucle::
   createP(results[1]);
   }
 
+D3
+^^^
+
+Pour arrondir les chiffres
+
+http://bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e
+
+
 
 bash
 ====
@@ -2541,6 +2549,13 @@ nous n'allons pas envoyer les données ailleurs.
 
 css
 ===
+
+Choix des styles / couleurs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://github.com/amycesal/dataviz-style-guide/blob/master/Sunlight-StyleGuide-DataViz.pdf
+
+
 
 Il y trois façon de travailler avec css :
 
@@ -8831,3 +8846,51 @@ Remote access
 .. image:: /IT/figures/PlexRemoteAccess.png
        :width: 500
        :align: center
+
+Caméra de surveillance
+======================
+
+Enregistrement de la caméra sur mydlink
+---------------------------------------
+
+#. télécharger l'application sur windows
+#. connecter avec le cable rj45
+#. il ne faut pas activer le wifi tout faire avec le cable réseau
+#. un fois que la caméra est visible avec l'app du smartphone
+#. on peut activer le wifi de la caméra et entrer le mot de passe du
+   réseau wifi
+#. tester si en déconnectant le cable réseau, l'image est envoyée par
+   le wifi
+
+Paramétrer l'alerte par email
+-----------------------------
+
+#. se connecter avec le cable réseau tjrs sur linux
+#. il faut changer l'ip de linux en tapant :
+   ``sudo ifconfig eth0 192.168.0.1 netmask 255.255.255.0``
+
+   .. image:: /IT/figures/CameraSurveillance/Capture2.png
+    :width: 80 %
+    :align: center
+	    
+#. ouvrir firfox et se connecter à l'adresse 192.168.0.20
+#. usr name : admin pwd: même que pour l'autre cam dl...
+#. pour pouvoir être alarmé par email on ouvrira l'assistant de
+   détection (wizard) il n'y a que par le wizard où l'on peut activer 
+   l'alerte par email en tout cas pour 5222L. Entrer les données comme 
+   suit:  
+
+   .. image:: /IT/figures/CameraSurveillance/Capture3.png
+    :width: 80 %
+    :align: center
+
+   .. image:: /IT/figures/CameraSurveillance/Capture4.png
+    :width: 80 %
+    :align: center
+
+.. image:: /IT/figures/CameraSurveillance/Capture1.png
+    :width: 80 %
+    :align: center	    
+   
+#. Ne pas oublier d'indiquer la plage de détection on peut aussi le
+   faire après-coups avec le smartphone.    	       
