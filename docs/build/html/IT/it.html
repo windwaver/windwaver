@@ -176,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#changement-de-themes">Changement de Thèmes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Compilation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traduction">Traduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#images-differentes-pour-chaque-langue">Images différentes pour chaque langue</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pour-plus-d-information">Pour plus d’information</a></li>
 </ul>
 </li>
@@ -2286,6 +2287,8 @@ refaire une compilation.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locale_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;locale/&#39;</span><span class="p">]</span>   <span class="c1"># path is example but recommended.</span>
 <span class="n">gettext_compact</span> <span class="o">=</span> <span class="kc">False</span>     <span class="c1"># optional.</span>
+<span class="n">gettext_additional_targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;literal-block&#39;</span><span class="p">]</span> <span class="c1"># allows images to be translatable</span>
+<span class="n">figure_language_filename</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{path}{language}</span><span class="s2">/</span><span class="si">{basename}{ext}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -2354,6 +2357,37 @@ Pour que ça refonctionne, ma technique est de supprimer la ligne
 comportant <code class="docutils literal notranslate"><span class="pre">`fuzzi</span></code>.</p>
 <a class="reference internal image-reference" href="../_images/Capture21.PNG"><img alt="../_images/Capture21.PNG" class="align-center" src="../_images/Capture21.PNG" style="width: 500px;" /></a>
 <a class="reference internal image-reference" href="../_images/Capture31.PNG"><img alt="../_images/Capture31.PNG" class="align-center" src="../_images/Capture31.PNG" style="width: 500px;" /></a>
+</div>
+<div class="section" id="images-differentes-pour-chaque-langue">
+<h4>Images différentes pour chaque langue<a class="headerlink" href="#images-differentes-pour-chaque-langue" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">figure_language_filename</span> <span class="pre">=</span> <span class="pre">&quot;{path}{language}/{basename}{ext}&quot;</span></code> à
+mettre tel quel dans le fichier <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">gettext_additional_targets</span> <span class="pre">=</span> <span class="pre">['image',</span> <span class="pre">'index',</span> <span class="pre">'literal-block']</span> <span class="pre">#</span>
+<span class="pre">allows</span> <span class="pre">images</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">translatable</span></code></p>
+<p>cette dernière ligne je ne sais pas encore à quoi elle sert, mais je
+l’ai mise quand même.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Il est impératif de créer à l’endroit où il y a le fichier .rst un
+répertoire se nommant <code class="docutils literal notranslate"><span class="pre">images</span></code> (et pas figure par exemple sinon
+ça marche pas).</p>
+</div>
+<ol class="arabic">
+<li><p>créer un répertoire se nommant <code class="docutils literal notranslate"><span class="pre">images</span></code></p></li>
+<li><p>à l’intérieur de se répertoire créer des répertoires pour chaque
+langue. Par exemple pour le français et l’allemand :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">de</span></code></p></li>
+</ul>
+<p>Je ne sais pas si l’abréviation de la langue est importante (fr et
+de)</p>
+</li>
+<li><p>dans chaqu’un de ces répertoire l’image bien que différente doit
+être nommée à l’identique. ex. dans le répertoire <code class="docutils literal notranslate"><span class="pre">fr</span></code> une image
+nommée <code class="docutils literal notranslate"><span class="pre">1.png</span></code> se retrouvera aussi dans le répertoire <code class="docutils literal notranslate"><span class="pre">de</span></code> avec
+le même nom <code class="docutils literal notranslate"><span class="pre">1.png</span></code></p></li>
+</ol>
 </div>
 <div class="section" id="pour-plus-d-information">
 <h4>Pour plus d’information<a class="headerlink" href="#pour-plus-d-information" title="Permalink to this headline">¶</a></h4>

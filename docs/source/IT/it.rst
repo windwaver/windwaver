@@ -1319,6 +1319,8 @@ Traduction
 
    locale_dirs = ['locale/']   # path is example but recommended.
    gettext_compact = False     # optional.
+   gettext_additional_targets = ['image', 'index', 'literal-block'] # allows images to be translatable
+   figure_language_filename = "{path}{language}/{basename}{ext}"
 
 3.
 
@@ -1387,8 +1389,44 @@ Traduction
 
    .. image:: /IT/figures/Capture3.PNG
        :width: 500
-       :align: center	       
-   
+       :align: center
+
+	       
+Images différentes pour chaque langue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``figure_language_filename = "{path}{language}/{basename}{ext}"`` à
+mettre tel quel dans le fichier ``conf.py``
+
+``gettext_additional_targets = ['image', 'index', 'literal-block'] #
+allows images to be translatable``
+
+cette dernière ligne je ne sais pas encore à quoi elle sert, mais je
+l'ai mise quand même.
+
+.. important::
+
+   Il est impératif de créer à l'endroit où il y a le fichier .rst un
+   répertoire se nommant ``images`` (et pas figure par exemple sinon
+   ça marche pas).
+
+#. créer un répertoire se nommant ``images``
+#. à l'intérieur de ce répertoire créer des répertoires pour chaque
+   langue. Par exemple pour le français et l'allemand :
+
+   * ``fr``
+   * ``de``
+
+   Je ne sais pas si l'abréviation de la langue est importante (fr et
+   de)
+
+#. dans chaqu'un de ces répertoire l'image bien que différente, doit
+   être nommée à l'identique. ex. dans le répertoire ``fr`` une image
+   nommée ``1.png`` se retrouvera aussi dans le répertoire ``de`` avec
+   le même nom ``1.png``   
+
+	       
+	       
 Pour plus d'information
 ^^^^^^^^^^^^^^^^^^^^^^^
 
