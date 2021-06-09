@@ -454,6 +454,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#github">GitHub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gitignore">.gitignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deroulement">Déroulement</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#merger-et-creation-des-branches-requises-mettre-a-jour-son-working-repertory">Merger et création des branches requises (mettre à jour son working repertory)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#faire-ses-modifications-dans-la-branche-devydu">Faire ses modifications dans la branche <strong>devYDU</strong></a></li>
@@ -2273,6 +2274,56 @@ refaire une compilation.</p>
 </div>
 <div class="section" id="traduction">
 <h3>Traduction<a class="headerlink" href="#traduction" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">doc</span>
+  <span class="o">.</span><span class="n">git</span>
+  <span class="o">.</span><span class="n">gitignore</span>
+  <span class="n">make</span><span class="o">.</span><span class="n">bat</span>
+  <span class="n">Makefile</span>
+  <span class="o">-</span><span class="n">build</span>
+     <span class="o">-</span><span class="n">doctrees</span>
+     <span class="o">-</span><span class="n">gettext</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">pot</span>
+     <span class="o">-</span><span class="n">html</span>
+     <span class="o">-</span><span class="n">latex</span>
+  <span class="o">-</span><span class="n">sources</span>
+     <span class="o">-</span><span class="n">locale</span>
+        <span class="o">-</span><span class="n">de</span>
+           <span class="o">-</span><span class="n">LC_MESSAGES</span>
+              <span class="n">index</span><span class="o">.</span><span class="n">po</span>
+        <span class="o">-</span><span class="n">fr</span>
+           <span class="o">-</span><span class="n">LC_MESSAGES</span>
+              <span class="n">index</span><span class="o">.</span><span class="n">po</span>
+     <span class="o">-</span><span class="nb">dir</span>
+        <span class="o">-</span><span class="n">images</span>
+           <span class="o">-</span><span class="n">de</span>
+              <span class="o">-</span><span class="mf">1.</span><span class="n">png</span>
+           <span class="o">-</span><span class="n">fr</span>
+              <span class="o">-</span><span class="mf">1.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>Les textes à traduire se trouvent dans les fichiers <code class="docutils literal notranslate"><span class="pre">.po</span></code>
+Pour les liens à traduire qui sont internes documents et qui n’ouvrent
+pas de nouvelle fenêtre ça fonctionne bien. Par-contre pour les liens
+qui ouvrent une nouvelle fenêtre comme dans le code suivant:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">my</span> <span class="o">.</span><span class="n">rst</span><span class="p">:</span>
+
+<span class="n">On</span> <span class="n">ouvre</span> <span class="n">une</span> <span class="n">nouvelle</span> <span class="n">fenêtre</span> <span class="o">|</span><span class="n">lien</span><span class="o">|</span>
+
+<span class="o">..</span> <span class="o">|</span><span class="n">lien</span><span class="o">|</span> <span class="n">raw</span><span class="p">::</span> <span class="n">html</span>
+
+  <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://python.physique.free.fr/aide/_sources/Partie1.txt&quot;</span>
+  <span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">&gt;</span><span class="n">ici</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+
+<span class="ow">and</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">translated</span> <span class="n">file</span><span class="p">:</span>
+
+<span class="c1">#: ../../source/consigne_indispo/consigne_indispo.rst:4</span>
+<span class="n">msgid</span> <span class="s2">&quot;On ouvre une nouvelle fenêtre |lien|&quot;</span>
+<span class="n">msgstr</span> <span class="s2">&quot;Wir öffnen ein neues Fenster |lien|&quot;</span>
+
+<span class="n">The</span> <span class="n">problem</span> <span class="ow">is</span> <span class="n">that</span> <span class="n">I</span> <span class="n">want</span> <span class="n">to</span> <span class="n">translate</span> <span class="n">the</span> <span class="n">world</span> <span class="s2">&quot;ici&quot;</span> <span class="n">also</span> <span class="p">(</span><span class="n">should</span>
+<span class="n">be</span> <span class="n">translated</span> <span class="ow">in</span> <span class="s2">&quot;hier&quot;</span><span class="p">,</span> <span class="n">but</span> <span class="n">can</span><span class="s1">&#39;t see it in the translated file.</span>
+</pre></div>
+</div>
 <ol class="arabic simple">
 <li><p>installer <cite>sphinx-intl</cite></p></li>
 </ol>
@@ -2374,7 +2425,7 @@ répertoire se nommant <code class="docutils literal notranslate"><span class="p
 </div>
 <ol class="arabic">
 <li><p>créer un répertoire se nommant <code class="docutils literal notranslate"><span class="pre">images</span></code></p></li>
-<li><p>à l’intérieur de se répertoire créer des répertoires pour chaque
+<li><p>à l’intérieur de ce répertoire créer des répertoires pour chaque
 langue. Par exemple pour le français et l’allemand :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fr</span></code></p></li>
@@ -2383,10 +2434,10 @@ langue. Par exemple pour le français et l’allemand :</p>
 <p>Je ne sais pas si l’abréviation de la langue est importante (fr et
 de)</p>
 </li>
-<li><p>dans chaqu’un de ces répertoire l’image bien que différente doit
+<li><p>dans chacun de ces répertoire l’image bien que différente, doit
 être nommée à l’identique. ex. dans le répertoire <code class="docutils literal notranslate"><span class="pre">fr</span></code> une image
 nommée <code class="docutils literal notranslate"><span class="pre">1.png</span></code> se retrouvera aussi dans le répertoire <code class="docutils literal notranslate"><span class="pre">de</span></code> avec
-le même nom <code class="docutils literal notranslate"><span class="pre">1.png</span></code></p></li>
+le même nom <code class="docutils literal notranslate"><span class="pre">1.png</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="pour-plus-d-information">
@@ -9835,6 +9886,20 @@ dev (ici la branche du contributeur c’est <strong>devYDU</strong>)</p></li>
 <li><p>Les branches <strong>hotfix</strong> sont les branches qui permettent de directement
 fixer des problèmes urgents sur la branche master.</p></li>
 </ul>
+<div class="section" id="gitignore">
+<h3>.gitignore<a class="headerlink" href="#gitignore" title="Permalink to this headline">¶</a></h3>
+<p>On indique dans ce fichier les éléments qui ne doivent pas être
+“pusher”. C’est souvent le résultat d’un programme comme par exemple
+ce qui a dans le répertoire <code class="docutils literal notranslate"><span class="pre">build</span></code></p>
+<p>On indiquera dans ce fichier, les éléments qui devront être ignorés
+comme suit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">build</span><span class="o">/</span><span class="n">html</span>
+<span class="n">build</span><span class="o">/</span><span class="n">latex</span>
+</pre></div>
+</div>
+<p>Ici on ne voudra pas que les répertoire <code class="docutils literal notranslate"><span class="pre">html</span></code> et <code class="docutils literal notranslate"><span class="pre">latex</span></code> soient
+“pusher”“.</p>
+</div>
 <div class="section" id="deroulement">
 <h3>Déroulement<a class="headerlink" href="#deroulement" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="merger-et-creation-des-branches-requises-mettre-a-jour-son-working-repertory">

@@ -1307,6 +1307,61 @@ ou
 Traduction
 ----------
 
+::
+   
+   -doc
+     .git
+     .gitignore
+     make.bat
+     Makefile
+     -build
+        -doctrees
+	-gettext
+	   index.pot
+	-html
+	-latex
+     -sources
+        -locale
+	   -de
+	      -LC_MESSAGES
+	         index.po
+	   -fr
+	      -LC_MESSAGES
+	         index.po
+        -dir
+           -images
+	      -de
+	         -1.png
+	      -fr
+	         -1.png
+
+		 
+Les textes à traduire se trouvent dans les fichiers ``.po``
+Pour les liens à traduire qui sont internes documents et qui n'ouvrent
+pas de nouvelle fenêtre ça fonctionne bien. Par-contre pour les liens
+qui ouvrent une nouvelle fenêtre comme dans le code suivant:
+
+::
+   
+  This is in my .rst:
+
+  On ouvre une nouvelle fenêtre |lien|
+
+  .. |lien| raw:: html
+
+    <a href="http://python.physique.free.fr/aide/_sources/Partie1.txt"
+    target="_blank">ici</a>
+
+  and this is the translated file:
+
+  #: ../../source/consigne_indispo/consigne_indispo.rst:4
+  msgid "On ouvre une nouvelle fenêtre |lien|"
+  msgstr "Wir öffnen ein neues Fenster |lien|"
+
+  The problem is that I want to translate the world "ici" also (should
+  be translated in "hier", but can't see it in the translated file. 
+
+
 1. installer `sphinx-intl`
 
   ::
@@ -1411,7 +1466,7 @@ l'ai mise quand même.
    ça marche pas).
 
 #. créer un répertoire se nommant ``images``
-#. à l'intérieur de se répertoire créer des répertoires pour chaque
+#. à l'intérieur de ce répertoire créer des répertoires pour chaque
    langue. Par exemple pour le français et l'allemand :
 
    * ``fr``
@@ -1420,10 +1475,10 @@ l'ai mise quand même.
    Je ne sais pas si l'abréviation de la langue est importante (fr et
    de)
 
-#. dans chaqu'un de ces répertoire l'image bien que différente doit
+#. dans chacun de ces répertoire l'image bien que différente, doit
    être nommée à l'identique. ex. dans le répertoire ``fr`` une image
    nommée ``1.png`` se retrouvera aussi dans le répertoire ``de`` avec
-   le même nom ``1.png``   
+   le même nom ``1.png``.   
 
 	       
 	       
@@ -8757,6 +8812,25 @@ GitHub
 * Les branches **hotfix** sont les branches qui permettent de directement
   fixer des problèmes urgents sur la branche master.
 
+  
+.gitignore
+----------
+
+On indique dans ce fichier les éléments qui ne doivent pas être
+"pusher". C'est souvent le résultat d'un programme comme par exemple
+ce qui a dans le répertoire ``build``
+
+On indiquera dans ce fichier, les éléments qui devront être ignorés
+comme suit: 
+
+::
+
+   build/html
+   build/latex
+   
+Ici on ne voudra pas que les répertoire ``html`` et ``latex`` soient
+"pusher"".    
+    
 
 Déroulement
 -----------
