@@ -176,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#changement-de-themes">Changement de Thèmes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Compilation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traduction">Traduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#liens-a-traduire-et-problemes">Liens à traduire et problèmes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#images-differentes-pour-chaque-langue">Images différentes pour chaque langue</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pour-plus-d-information">Pour plus d’information</a></li>
 </ul>
@@ -2301,10 +2302,12 @@ refaire une compilation.</p>
               <span class="o">-</span><span class="mf">1.</span><span class="n">png</span>
 </pre></div>
 </div>
-<p>Les textes à traduire se trouvent dans les fichiers <code class="docutils literal notranslate"><span class="pre">.po</span></code>
-Pour les liens à traduire qui sont internes documents et qui n’ouvrent
-pas de nouvelle fenêtre ça fonctionne bien. Par-contre pour les liens
-qui ouvrent une nouvelle fenêtre comme dans le code suivant:</p>
+<p>Les textes à traduire se trouvent dans les fichiers <code class="docutils literal notranslate"><span class="pre">.po</span></code></p>
+<div class="section" id="liens-a-traduire-et-problemes">
+<h4>Liens à traduire et problèmes<a class="headerlink" href="#liens-a-traduire-et-problemes" title="Permalink to this headline">¶</a></h4>
+<p>Pour les liens à traduire qui sont internes au document et qui
+n’ouvrent pas de nouvelle fenêtre ça fonctionne bien. Par-contre pour
+les liens qui ouvrent une nouvelle fenêtre comme dans le code suivant:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">my</span> <span class="o">.</span><span class="n">rst</span><span class="p">:</span>
 
 <span class="n">On</span> <span class="n">ouvre</span> <span class="n">une</span> <span class="n">nouvelle</span> <span class="n">fenêtre</span> <span class="o">|</span><span class="n">lien</span><span class="o">|</span>
@@ -2338,7 +2341,9 @@ qui ouvrent une nouvelle fenêtre comme dans le code suivant:</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locale_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;locale/&#39;</span><span class="p">]</span>   <span class="c1"># path is example but recommended.</span>
 <span class="n">gettext_compact</span> <span class="o">=</span> <span class="kc">False</span>     <span class="c1"># optional.</span>
-<span class="n">gettext_additional_targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;literal-block&#39;</span><span class="p">]</span> <span class="c1"># allows images to be translatable</span>
+<span class="n">gettext_additional_targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;literal-block&#39;</span><span class="p">]</span> <span class="c1">#</span>
+<span class="n">allows</span> <span class="n">images</span> <span class="n">to</span> <span class="n">be</span> <span class="n">translatable</span><span class="o">.</span> <span class="n">Cette</span> <span class="n">ligne</span> <span class="n">permet</span> <span class="n">de</span> <span class="n">traduire</span>
+<span class="n">les</span> <span class="s2">&quot;alt&quot;</span> <span class="n">ou</span> <span class="s2">&quot;les légendes&quot;</span>
 <span class="n">figure_language_filename</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{path}{language}</span><span class="s2">/</span><span class="si">{basename}{ext}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
@@ -2408,6 +2413,7 @@ Pour que ça refonctionne, ma technique est de supprimer la ligne
 comportant <code class="docutils literal notranslate"><span class="pre">`fuzzi</span></code>.</p>
 <a class="reference internal image-reference" href="../_images/Capture21.PNG"><img alt="../_images/Capture21.PNG" class="align-center" src="../_images/Capture21.PNG" style="width: 500px;" /></a>
 <a class="reference internal image-reference" href="../_images/Capture31.PNG"><img alt="../_images/Capture31.PNG" class="align-center" src="../_images/Capture31.PNG" style="width: 500px;" /></a>
+</div>
 </div>
 <div class="section" id="images-differentes-pour-chaque-langue">
 <h4>Images différentes pour chaque langue<a class="headerlink" href="#images-differentes-pour-chaque-langue" title="Permalink to this headline">¶</a></h4>

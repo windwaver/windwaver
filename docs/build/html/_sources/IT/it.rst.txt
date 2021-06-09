@@ -1335,11 +1335,15 @@ Traduction
 	      -fr
 	         -1.png
 
-		 
 Les textes à traduire se trouvent dans les fichiers ``.po``
-Pour les liens à traduire qui sont internes documents et qui n'ouvrent
-pas de nouvelle fenêtre ça fonctionne bien. Par-contre pour les liens
-qui ouvrent une nouvelle fenêtre comme dans le code suivant:
+
+
+Liens à traduire et problèmes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pour les liens à traduire qui sont internes au document et qui
+n'ouvrent pas de nouvelle fenêtre ça fonctionne bien. Par-contre pour
+les liens qui ouvrent une nouvelle fenêtre comme dans le code suivant: 
 
 ::
    
@@ -1374,7 +1378,9 @@ qui ouvrent une nouvelle fenêtre comme dans le code suivant:
 
    locale_dirs = ['locale/']   # path is example but recommended.
    gettext_compact = False     # optional.
-   gettext_additional_targets = ['image', 'index', 'literal-block'] # allows images to be translatable
+   gettext_additional_targets = ['image', 'index', 'literal-block'] #
+   allows images to be translatable. Cette ligne permet de traduire
+   les "alt" ou "les légendes" 
    figure_language_filename = "{path}{language}/{basename}{ext}"
 
 3.

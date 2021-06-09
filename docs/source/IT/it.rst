@@ -1378,7 +1378,9 @@ les liens qui ouvrent une nouvelle fenêtre comme dans le code suivant:
 
    locale_dirs = ['locale/']   # path is example but recommended.
    gettext_compact = False     # optional.
-   gettext_additional_targets = ['image', 'index', 'literal-block'] # allows images to be translatable
+   gettext_additional_targets = ['image', 'index', 'literal-block'] #
+   allows images to be translatable. Cette ligne permet de traduire
+   les "alt" ou "les légendes" 
    figure_language_filename = "{path}{language}/{basename}{ext}"
 
 3.
