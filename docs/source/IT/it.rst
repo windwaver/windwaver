@@ -8638,6 +8638,12 @@ https://www.youtube.com/watch?v=xVYa20DCUv0
 Read The Docs
 =============
 
+.. note::
+   Nouveau: pour que **Read The Docs** puisse bien compiler il faut
+   copier les trois fichiers .yaml, requirements.txt et conf.py depuis
+   ce lien https://github.com/readthedocs/tutorial-template/tree/main 
+
+
 Ce tutoriel montre comment mettre en ligne un document fait avec
 **ReStructureText** en utilisant **Read The Docs** via **Github**.
 
