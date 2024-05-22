@@ -8643,7 +8643,21 @@ Read The Docs
    copier les trois fichiers .yaml, requirements.txt et conf.py depuis
    ce lien https://github.com/readthedocs/tutorial-template/tree/main 
 
+dans le répertoire **windwaver** (projet) on a le fichier
+**readthedocs.yalm** dont le contenu est le suivant:   
+   
+.. literalinclude:: /IT/sources/ReadTheDocs/readthedocs.yalm 
 
+dans le répertoire **docs** on a le fichier **requirememts.txt** dont le
+contenu est le suivant:		    
+		    
+.. literalinclude:: /IT/sources/ReadTheDocs/requirements.txt
+
+dans le répertoire **source** on a le fichier **conf.py** suivant:		    		    
+.. literalinclude:: /IT/sources/ReadTheDocs/conf.py		    
+		    
+
+   
 Ce tutoriel montre comment mettre en ligne un document fait avec
 **ReStructureText** en utilisant **Read The Docs** via **Github**.
 
