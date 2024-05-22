@@ -8646,7 +8646,7 @@ Read The Docs
 dans le répertoire **windwaver** (projet) on a le fichier
 **readthedocs.yalm** dont le contenu est le suivant:   
    
-.. literalinclude:: /IT/sources/ReadTheDocs/readthedocs.yalm 
+.. literalinclude:: /IT/sources/ReadTheDocs/.readthedocs.yalm 
 
 dans le répertoire **docs** on a le fichier **requirememts.txt** dont le
 contenu est le suivant:		    
